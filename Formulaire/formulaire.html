@@ -1,0 +1,1489 @@
+ <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<head>
+<title>Le calcul scientifique sous Python et Scilab</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/"/>
+<!--<script type="text/javascript" src="http://www.google-analytics.com/urchin.js"/>
+<script type="text/javascript">
+          _uacct = "UA-1807545-3";
+          urchinTracker();
+        </script> -->
+</head>
+
+<body>
+<h1>Le calcul scientifique sous Python et Scilab</h1>
+
+<h2>Les spécificités des langages pour le calcul scientifique</h2>
+
+<h3>Python et Scilab</h3>
+
+<h3>Pourquoi un peu de C ?</h3>
+
+<h3>titre à trouver...</h3>
+Parler des différences sur le typage des variables, sur le passage par valeur ou par référence des arg des fonctions, sur l'aspect "impératif/objet/fonctionnel" en une ligne.
+
+
+<h2>Formulaire</h2>
+
+<h3>Variables</h3>
+Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace espace mémoire alloué). Néanmoins, le typage est "dynamique" en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="odd">
+<td>
+Obtenir le type d'une variable $a$
+</td><td><tt>
+type(a)
+</tt></td><td><tt>
+type(a)
+</tt></td><td><tt>
+explicite dans le programme...
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Changement de type
+</td><td><tt>
+??
+</tt></td><td><tt>
+int(a)
+int8(a)
+int16(a)
+float32(a)
+float64(a)
+</tt></td><td><tt>
+??
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+
+</table>
+
+
+<h4>Nombres</h4>
+Nous passons sur les opérateurs classiques $+ - * /$ qui sont identiques dans les 3 langages (attention toutefois à la division de deux entiers qui est réalisée dans les entiers en C et en python 2.7, et dans R dans Scilab et en Python 3.3...).
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="even">
+<td>
+Puissance $a^b$
+</td><td><tt>
+a**b
+</tt></td><td><tt>
+a.^b
+</tt></td><td><tt>
+??
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Reste ou modulo
+</td><td><tt>
+a\%b
+</tt></td><td><tt>
+???
+</tt></td><td><tt>
+???
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Division entière
+</td><td><tt>
+fmod(a,b)
+</tt></td><td><tt>
+mod(a,b) ??
+</tt></td><td><tt>
+??
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Test égalité
+</td><td><tt>
+a==b
+</tt></td><td><tt>
+a==b
+</tt></td><td><tt>
+a==b
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Inférieur (ou égal)
+</td><td><tt>
+a<b ; a<=b
+</tt></td><td><tt>
+a<b ; a<=b
+</tt></td><td><tt>
+a<b ; a<=b
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Supérieur (ou égal)
+</td><td><tt>
+a>b ; a>=b
+</tt></td><td><tt>
+a>b ; a>=b
+</tt></td><td><tt>
+a>b ; a>=b
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Différent
+</td><td><tt>
+a!=b
+</tt></td><td><tt>
+a~=b
+</tt></td><td><tt>
+??
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+ET
+</td><td><tt>
+a and b
+</tt></td><td><tt>
+a & b
+</tt></td><td><tt>
+a && b
+</tt></td></tr>
+
+<tr class="even">
+<td>
+ET bitwise
+</td><td><tt>
+a & b
+</tt></td><td><tt>
+bitand(a,b)
+</tt></td><td><tt>
+a & b
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+OU
+</td><td><tt>
+a or b
+</tt></td><td><tt>
+a | b
+</tt></td><td><tt>
+a || b
+</tt></td></tr>
+
+<tr class="even">
+<td>
+OU bitwise
+</td><td><tt>
+a | b
+</tt></td><td><tt>
+bitor(a,b)
+</tt></td><td><tt>
+a | b
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+NON
+</td><td><tt>
+not a
+</tt></td><td><tt>
+~a
+</tt></td><td><tt>
+!a
+</tt></td></tr>
+
+<tr class="even">
+<td>
+NON bitwise
+</td><td><tt>
+?? 
+</tt></td><td><tt>
+bitcmp(a,8)
+</tt></td><td><tt>
+~a
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+OU exclusif
+</td><td><tt>
+not (a==b)
+</tt></td><td><tt>
+~(a==b)
+</tt></td><td><tt>
+!(a==b)
+</tt></td></tr>
+
+<tr class="even">
+<td>
+OU exclusif bitwise
+</td><td><tt>
+a^b
+</tt></td><td><tt>
+bitxor(a,b)
+</tt></td><td><tt>
+a^b
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+décalage de 3 bits à gauche et à droite
+</td><td><tt>
+a << 3 ; a >> 3
+</tt></td><td><tt>
+a*2^3 ; floor(a/2^3)
+</tt></td><td><tt>
+a << 3 ; a >> 3
+</tt></td></tr>
+
+</table>
+
+
+Les fonctions mathématiques standards en python peuvent provenir de différents paquets. L'utilisation de l'option --pylab (automatiquement chargée sous Spyder) conduit à utiliser les fonctions du module Numpy (A VERIFIER) par défaut.
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="even">
+<td>
+Racine carrée
+</td><td><tt>
+sqrt(a)
+</tt></td><td><tt>
+sqrt(a)
+</tt></td><td><tt>
+sqrt(a)
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+cosinus, sinus, tangente
+</td><td><tt>
+cos(a), sin(a), tan(a)
+</tt></td><td><tt>
+cos(a), sin(a), tan(a)
+</tt></td><td><tt>
+cos(a), sin(a), tan(a)
+</tt></td></tr>
+
+<tr class="even">
+<td>
+arcos, arcsin
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+arctangente sur $]-\frac\pi2, \frac\pi2[$
+</td><td><tt>
+atan(a)
+</tt></td><td><tt>
+atan(a)
+</tt></td><td><tt>
+atan(a)
+</tt></td></tr>
+
+<tr class="even">
+<td>
+arctangente sur $]-\pi, \pi[$
+</td><td><tt>
+atan2(y,x)
+</tt></td><td><tt>
+atan(y,x)
+</tt></td><td><tt>
+??
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+ch, sh, th
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Logarithme Néperien (ln)
+</td><td><tt>
+log(a)
+</tt></td><td><tt>
+log(a)
+</tt></td><td><tt>
+log(a)
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Logarithme en base 10 (log)
+</td><td><tt>
+log10(a)
+</tt></td><td><tt>
+log10(a)
+</tt></td><td><tt>
+log10(a)
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Logarithme en base $n$ quelconque
+</td><td><tt>
+log(a,n)
+</tt></td><td><tt>
+??
+</tt></td><td><tt>
+??
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Exponentielle $e^a$
+</td><td><tt>
+exp(a)
+</tt></td><td><tt>
+exp(a)
+</tt></td><td><tt>
+exp(a)
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Arrondi entier
+</td><td><tt>
+around(a)
+</tt></td><td><tt>
+round(a)
+</tt></td><td><tt>
+round(a)
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Arrondi à l'entier supérieur
+</td><td><tt>
+ceil(a)
+</tt></td><td><tt>
+ceil(a)
+</tt></td><td><tt>
+ceil(a)
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Arrondi à l'entier inférieur
+</td><td><tt>
+floor(a)
+</tt></td><td><tt>
+floor(a)
+</tt></td><td><tt>
+floor(a)
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Arrondi vers zéro
+</td><td><tt>
+fix(a)
+</tt></td><td><tt>
+fix(a) ??
+</tt></td><td><tt>
+??
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Générer une liste aléatoire
+</td><td><tt>
+random.random((10,))
+</tt></td><td><tt>
+rand(1,10)
+</tt></td><td><tt>
+??
+</tt></td></tr>
+
+
+</table>
+
+
+Le calcul en complexes est possible dans les langages Python et Scilab. En C, des bibliothèques sont requises.... ???
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="odd">
+<td>
+imaginaire $i$
+</td><td><tt>
+1j
+</tt></td><td><tt>
+\%i
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Nombre complexes $3+4i$
+</td><td><tt>
+3+4j
+</tt></td><td><tt>
+3+4*\%i
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Partie réelle de $a$
+</td><td><tt>
+a.real
+</tt></td><td><tt>
+real(a)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Partie imaginaire de $a$
+</td><td><tt>
+a.imag
+</tt></td><td><tt>
+imag(a)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Module
+</td><td><tt>
+abs(a)
+</tt></td><td><tt>
+abs(a)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Argument
+</td><td><tt>
+???
+</tt></td><td><tt>
+atan(imag(a),real(a))
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Conjugué de $a$
+</td><td><tt>
+a.conj()
+</tt></td><td><tt>
+??
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+</table>
+
+
+<h4>Tableaux (à une ou plusieurs dimensions)</h4>
+
+Le calcul numérique s'appuie intensivement sur des tableaux de valeurs, soit pour représenter des signaux, soit pour représenter des vecteurs et des matrices.
+
+La syntaxe de Scilab est fortement orienté vers la manipulation de tableau. Elle est en ce sens très pratique et lisible.
+
+Python propose quant à lui trois types possibles pour manipuler des données sous forme de tableaux : les listes (à une ou plusieurs dimensions), le type "array", et le type "matrix". Des conversions sont possibles entre ces types. Il est conseillé dans le cadre du calcul numérique (pour des raisons pratiques et d'efficacité des calculs) d'utiliser le type "array". C'est ce qui est considéré par la suite.
+
+Attention, en Python et en C, les indices des tableaux commencent à 0 tandis qu'en Scilab, ils commencent à 1.
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="even">
+<td>
+Vecteur ligne
+</td><td><tt>
+v=array([1, 2, 3])
+</tt></td><td><tt>
+v=[1, 2, 3]
+</tt></td><td><tt>
+v=[1, 2, 3] ??
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Vecteur colonne
+</td><td><tt>
+v=array([1, 2, 3])[:,NewAxis]
+v=array([1, 2, 3]).reshape(-1,1)
+</tt></td><td><tt>
+v=[1; 2; 3]
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Tableau à 2 dimensions
+</td><td><tt>
+M=array([[1,2,3],[4,5,6]])
+</tt></td><td><tt>
+M=[1, 2, 3; 4, 5, 6]
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Accéder à un élément
+</td><td><tt>
+v[3], M[1,2]
+</tt></td><td><tt>
+v(3), M(1,2)
+</tt></td><td><tt>
+v(3) ????
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Accéder au dernier élément, et l'avant dernier
+</td><td><tt>
+v[-1], v[-2]
+</tt></td><td><tt>
+v(\$), v(\$-1)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Dimensions d'un tableau
+</td><td><tt>
+M.shape
+</tt></td><td><tt>
+size(M)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+
+<tr class="even">
+<td>
+Extraire la 2ème ligne ou 2ème colonne
+</td><td><tt>
+M[1,:] ou M[:,1]
+</tt></td><td><tt>
+M(2,:) ou M(:,2)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Extraire une portion de tableau
+</td><td><tt>
+M[2:4,1:2] ????
+</tt></td><td><tt>
+M(2:4,1:2)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Extraire des éléments d'un tableau par leurs indices
+</td><td><tt>
+a.take([0,2]).take([0,3], axis=1)
+</tt></td><td><tt>
+M([1 3],[1 4])
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Séquence équirépartie d'entiers
+</td><td><tt>
+range(1,11)
+</tt></td><td><tt>
+1:10
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Séquence équirépartie quelconque
+</td><td><tt>
+arange(0,0.1,10.1)
+</tt></td><td><tt>
+0:0.1:10
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Tableau de zéros
+</td><td><tt>
+zeros((2,3),Float)
+   
+</tt></td><td><tt>
+zeros(2,3)
+</tt></td><td><tt>
+
+<tr class="even">
+<td>
+Tableau de uns
+</td><td><tt>
+one((2,3),Float)
+</tt></td><td><tt>
+ones(2,4)
+</tt></td><td><tt>
+
+<tr class="odd">
+<td>
+Copier un tableau dans une autre variable
+</td><td><tt>
+w=v.copy()
+</tt></td><td><tt>
+w=v
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+
+<tr class="even">
+<td>
+Multiplication élément par élément
+</td><td><tt>
+v*w
+</tt></td><td><tt>
+v.*w
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Maximum et minimum d'un tableau
+</td><td><tt>
+v.max(0), v.min(0)
+</tt></td><td><tt>
+max(v), min(v)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Indice $i$ du maximum
+</td><td><tt>
+v.argmax(0)
+</tt></td><td><tt>
+[m,i] = max(v)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+</table>
+
+
+
+<h4>Matrices</h4>
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+
+<tr class="even">
+<td>
+Produit matriciel
+</td><td><tt>
+dot(v,w)
+</tt></td><td><tt>
+v*w
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Transposée
+</td><td><tt>
+M.transpose()
+M.conj().transpose()
+</tt></td><td><tt>
+M'
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Résolution de système matriciel M.X=Y
+</td><td><tt>
+linalg.solve(Y,M)
+</tt></td><td><tt>
+X=Y\\ M
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Produit scalaire de deux vecteurs
+</td><td><tt>
+vdot(v,w)
+</tt></td><td><tt>
+v'*w
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Produit vectoriel
+</td><td><tt>
+cross(v,w) ??
+</tt></td><td><tt>
+??
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Déterminant
+</td><td><tt>
+linalg.det(M)
+</tt></td><td><tt>
+det(M)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Inverse
+</td><td><tt>
+linalg.inv(M)
+</tt></td><td><tt>
+inv(M)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Valeurs propres
+</td><td><tt>
+linalg.eig(M)[0]
+</tt></td><td><tt>
+eig(M)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Vecteurs propres
+</td><td><tt>
+linalg.eig(M)[1]
+</tt></td><td><tt>
+[v,l] = eig(M)
+ 
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Rang
+</td><td><tt>
+rank(M)
+</tt></td><td><tt>
+rank(M)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+
+</table>
+
+
+
+
+
+
+<h4>Chaînes de caractères</h4>
+
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="even">
+<td>
+Définir une chaîne de caractères
+</td><td><tt>
+mot="Python et Scilab"
+</tt></td><td><tt>
+mot="Python et Scilab"
+</tt></td><td><tt>
+mot="Python et Scilab"
+</tt></td></tr>
+
+
+<tr class="odd">
+<td>
+Longueur d'une chaîne
+</td><td><tt>
+len(mot)
+</tt></td><td><tt>
+length(mot)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Extraire des caractères
+</td><td><tt>
+mot[2:7]
+</tt></td><td><tt>
+part(mot,[1,2,11:16])
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Concaténation
+</td><td><tt>
+mot="python" + "/" + "Scilab"
+</tt></td><td><tt>
+mot="python" + "/" + "Scilab"
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Replacer une portion de chaîne
+</td><td><tt>
+mot.replace("Scilab","C")
+</tt></td><td><tt>
+strsubst(mot,"Scilab","C")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Découper une chaîne de caractères
+</td><td><tt>
+mot.split(" ")
+</tt></td><td><tt>
+strsplit(mot," ")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Supprimer des caractères de retour à la ligne
+</td><td><tt>
+mot.rstrip("\n\r")
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+
+</table>
+
+
+
+<h3>Structures de contrôle</h3>
+<h4>Boucles</h4>
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+
+<tr class="odd">
+<td>
+Boucle FOR
+</td><td><tt>
+for i in range(10):
+  print(i)
+</tt></td><td><tt>
+for i=1:10
+  disp(i);
+endfor
+</tt></td><td><tt>
+for (i=1,i<=10,i++){
+  print(i);
+}
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Boucle WHILE
+</td><td><tt>
+i=0
+while (i<10):
+  i+=1
+  print(i)
+
+</tt></td><td><tt>
+i=0
+while (i<10)
+  i=i+1
+  disp(i)
+endwhile
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+
+</table>
+
+
+<h4>Conditions</h4>
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+
+<tr class="odd">
+<td>
+Condition IF
+</td><td><tt>
+if (i>3):
+  print(i)
+else
+  print("hello")
+
+</tt></td><td><tt>
+if (i>3)
+  disp(i)
+else
+  disp("hello")
+endif
+</tt></td><td><tt>
+if (i>3){
+  print(i);
+}
+else{
+  print("hello");
+}
+</tt></td></tr>
+
+
+<tr class="even">
+<td>
+Condition CASE
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+</table>
+
+
+<h4>Fonctions</h4>
+
+<h3>Courbes</h3>
+<h4>Courbes 2D</h4>
+
+En Python, il est parfois nécessaire d'exécuter la commande show() pour afficher le graphique après l'appel à la commande plot().
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="odd">
+<td>
+Tracé d'une courbe $y$ ou $(x,y)$
+</td><td><tt>
+plot(y) ou plot(x,y)
+</tt></td><td><tt>
+plot(y) ou plot(x,y)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Tracé de points (o) rouges (r) reliés par des lignes (-)
+</td><td><tt>
+plot(x,y,"-or")
+</tt></td><td><tt>
+plot(x,y,"-or")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Effacer le graphique
+</td><td><tt>
+clf
+</tt></td><td><tt>
+clf
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Ouvrir une nouvelle figure
+</td><td><tt>
+
+</tt></td><td><tt>
+figure(3)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Échelle logarithmique en X
+</td><td><tt>
+semilogx(x,y)
+</tt></td><td><tt>
+semilogx(x,y)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Échelle logarithmique en X et Y
+</td><td><tt>
+loglog(x,y)
+</tt></td><td><tt>
+loglog(x,y)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+
+</td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+</table>
+
+
+<h4>Courbes 3D</h4>
+
+
+
+<h3>Fichiers</h3>
+<h4>Fichiers textes</h4>
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="even">
+<td>
+Ouvrir un fichier texte en lecture/écriture
+</td><td><tt>
+fic=open("fichier.txt","r")
+fic=open("fichier.txt","w")
+</tt></td><td><tt>
+fic=open("fichier.txt","r")
+fic=open("fichier.txt","w")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Fermer un fichier
+</td><td><tt>
+fic.close()
+</tt></td><td><tt>
+close(fic)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Lire une ligne
+</td><td><tt>
+f.readline()
+</tt></td><td><tt>
+ligne=mgetl(f,1)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Lire un tableau formaté
+</td><td><tt>
+a,b=loadtxt("Fichier.txt",
+  usecols = (0,2),
+  dtype={
+  'names': ('numero', 'consigne'),
+  'formats': ('i2', 'f4')},
+  delimiter=',',
+  unpack=True)
+</tt></td><td><tt>
+Tableau=mfscanf(-1,fic,"\%d,\%f,\%f")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Écrire une ligne
+</td><td><tt>
+fic.write("il fait {:f} degres.\\n".format(10))
+</tt></td><td><tt>
+mfprintf(fic,"il fait \%f degres.\\n",10)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Écrire un tableau formaté
+</td><td><tt>
+for i in range(len(x))
+  fic.write("{:d},{:f},{:f}\\n".format(i,x[i],y[i])
+</tt></td><td><tt>
+mfprintf(fic,"\%d,\%f,\%f",1:100,x,y)
+</tt></td><td><tt>
+
+</tt></td></tr>
+<h4>Fichiers binaires</h4>
+
+<tr class="even">
+<td>
+Sauver des variables dans un fichier binaire
+</td><td><tt>
+import pickle
+fic=open("fichier.pick","wb")
+pickle.dump(a,fic)
+pickle.dump(b,fic)
+fic.close()
+</tt></td><td><tt>
+save("fichier.dat",a,b)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Recharger des variables du fichier binaire
+</td><td><tt>
+import pickle
+fic=open("fichier.pick","rb")
+pickle.load(a,fic)
+pickle.load(b,fic)
+fic.close()
+
+</tt></td><td><tt>
+load("fichier.dat","a","b")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Ouvrir un fichier binaire en lecture/écriture
+</td><td><tt>
+fic=open("fichier.txt","rb")
+fic=open("fichier.txt","wb")
+</tt></td><td><tt>
+fic=mopen("fichier.txt","rb")
+fic=mopen("fichier.txt","wb")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="even">
+<td>
+Lire 3 octets dans un fichier binaire
+</td><td><tt>
+octets=fic.read(3)
+</tt></td><td><tt>
+octets=mget(3,"c",fic)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Écrire des octets dans un fichier binaire
+</td><td><tt>
+fic.write("PCSI")
+fic.write(int8(83))
+fic.write(float32(2.3))
+</tt></td><td><tt>
+mput(ascii("PCSI"),"c",fic)
+mput(83,"i",fic)
+mput(2.3,"f",fic)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+</table>
+
+
+<h4>Images</h4>
+
+La lecture et l'écriture d'image sous python est relativement simple par la bibliothèque scipy.misc, chargé automatiquement par l'option --pylab ou par spyder. Les formats supportés sont jpg, bmp, ????. Des bibliothèques plus élaborées existent (PIL par exemple) mais ne sont pas abordées ici.
+
+La lecture et l'écriture d'image sous Scilab nécessite l'installation par Atoms du module SIVP (image and vidéo processing). La plupart des formats sont supportés.
+
+Les images sont ensuite manipulées dans le programme sous forme de tableau.
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+
+<tr class="even">
+<td>
+Ouvrir une image
+</td><td><tt>
+im=imread("image.jpg")
+</tt></td><td><tt>
+im=imread('image.jpg")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Enregistrer une image
+</td><td><tt>
+imsave("image.jpg",im)
+</tt></td><td><tt>
+imwrite(im,"image.jpg")
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+
+<tr class="even">
+<td>
+Afficher une image
+</td><td><tt>
+imshow(im)
+</tt></td><td><tt>
+imshow(im)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+<tr class="odd">
+<td>
+Taille de l'image
+</td><td><tt>
+im.shape
+</tt></td><td><tt>
+size(im)
+</tt></td><td><tt>
+
+</tt></td></tr>
+
+</table>
+
+
+<h3>Calcul numérique</h3>
+
+
