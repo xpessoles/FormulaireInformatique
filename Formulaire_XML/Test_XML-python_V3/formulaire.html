@@ -1,0 +1,2165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<head>
+<title>Le calcul scientifique sous Python et Scilab</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="style/style.css"/>
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/"/>
+</head>
+
+<h1>Le calcul scientifique sous Python et Scilab</h1>
+
+<h2>Les spécificités des langages pour le calcul scientifique</h2>
+
+<h3>Python et Scilab</h3>
+
+<h3>Pourquoi un peu de C ?</h3>
+
+<h3>titre à trouver...</h3>
+Parler des différences sur le typage des variables, sur le passage par valeur ou par référence des arg des fonctions, sur l'aspect &quot;impératif/objet/fonctionnel&quot; en une ligne.
+
+
+<h2>Formulaire</h2>
+
+<h3>Variables</h3>
+<p>Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace espace mémoire alloué). Néanmoins, le typage est &quot;dynamique&quot; en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).</p>
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+  Obtenir le type d'une variable <i>a</i>
+</td>
+<td>
+<a href="
+http://docs.python.org/2/library/stdtypes.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex1.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">explicite</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">programme</span><span class="p">...</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Changement de type
+</td>
+<td>
+<div class="highlight"><pre><span class="err">??</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">int</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<span class="nb">int8</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<span class="nb">int16</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<span class="n">float32</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<span class="n">float64</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<h4>Nombres</h4>
+<p>Nous passons sur les opérateurs classiques + - * / qui sont identiques dans les 3 langages (attention toutefois à la division de deux entiers qui est réalisée dans les entiers en C et en python 2.7, et dans R dans Scilab et en Python 3.3...).</p>
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Puissance <i>a<sup>b</sup></i>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">**</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span><span class="o">.^</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Reste ou modulo
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">%</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>???
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>???
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Division entière
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fmod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mod</span><span class="p">(</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> ??
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Test égalité
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">==</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span><span class="o">==</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span><span class="o">==</span><span class="n">b</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Inférieur (ou égal)
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">;</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">;</span> <span class="no">a</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">;</span> <span class="no">a</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">b</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Supérieur (ou égal)
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span> <span class="p">;</span> <span class="n">a</span><span class="o">&gt;=</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span><span class="o">&gt;</span><span class="n">b</span> <span class="p">;</span> <span class="no">a</span><span class="o">&gt;</span><span class="p">=</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span><span class="o">&gt;</span><span class="n">b</span> <span class="p">;</span> <span class="no">a</span><span class="o">&gt;</span><span class="p">=</span><span class="n">b</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Différent
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">!=</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span><span class="o">~=</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+ET
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+ET bitwise
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">bitand</span><span class="p">(</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+OU
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">|</span> <span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">||</span> <span class="n">b</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+OU bitwise
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">bitor</span><span class="p">(</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">|</span> <span class="n">b</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+NON
+</td>
+<td>
+<div class="highlight"><pre><span class="ow">not</span> <span class="n">a</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="o">~</span><span class="no">a</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>!<span class="no">a</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+NON bitwise
+</td>
+<td>
+<div class="highlight"><pre><span class="err">??</span> 
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">bitcmp</span><span class="p">(</span><span class="no">a</span><span class="p">,</span>8<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="o">~</span><span class="no">a</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+OU exclusif
+</td>
+<td>
+<div class="highlight"><pre><span class="ow">not</span> <span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="o">~</span><span class="p">(</span><span class="no">a</span><span class="o">==</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>!<span class="p">(</span><span class="no">a</span><span class="o">==</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+OU exclusif bitwise
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">^</span><span class="n">b</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">bitxor</span><span class="p">(</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span>^<span class="n">b</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+décalage de 3 bits à gauche et à droite
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span> <span class="p">;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span><span class="o">*</span>2^3 <span class="p">;</span> <span class="nb">floor</span><span class="p">(</span><span class="no">a</span><span class="o">/</span>2^3<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">a</span> <span class="o">&lt;&lt;</span> 3 <span class="p">;</span> <span class="no">a</span> <span class="o">&gt;&gt;</span> 3
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<p>Les fonctions mathématiques standards en python peuvent provenir de différents paquets. L'utilisation de l'option --pylab (automatiquement chargée sous Spyder) conduit à utiliser les fonctions du module Numpy (A VERIFIER) par défaut.</p>
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Racine carrée
+</td>
+<td>
+<div class="highlight"><pre><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">sqrt</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">sqrt</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+cosinus, sinus, tangente
+</td>
+<td>
+<div class="highlight"><pre><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">tan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">cos</span><span class="p">(</span><span class="no">a</span><span class="p">),</span> <span class="nb">sin</span><span class="p">(</span><span class="no">a</span><span class="p">),</span> <span class="nb">tan</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">cos</span><span class="p">(</span><span class="no">a</span><span class="p">),</span> <span class="nb">sin</span><span class="p">(</span><span class="no">a</span><span class="p">),</span> <span class="nb">tan</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+arcos, arcsin
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+arctangente sur ]-π/2, π/2[
+</td>
+<td>
+<div class="highlight"><pre><span class="n">atan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">atan</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">atan</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+arctangente sur ]-π, π]
+</td>
+<td>
+<div class="highlight"><pre><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">atan</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+ch, sh, th
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Logarithme Néperien (ln)
+</td>
+<td>
+<div class="highlight"><pre><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">log</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">log</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Logarithme en base 10 (log)
+</td>
+<td>
+<div class="highlight"><pre><span class="n">log10</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">log10</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">log10</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+  Logarithme en base <i>n</i> quelconque
+</td>
+<td>
+<div class="highlight"><pre><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+  Exponentielle <i>e<sup>a</sup></i>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">exp</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">exp</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Arrondi entier
+</td>
+<td>
+<div class="highlight"><pre><span class="n">around</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">round</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">round</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Arrondi à l'entier supérieur
+</td>
+<td>
+<div class="highlight"><pre><span class="n">ceil</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">ceil</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">ceil</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Arrondi à l'entier inférieur
+</td>
+<td>
+<div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">floor</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">floor</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Arrondi vers zéro
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fix</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">fix</span><span class="p">(</span><span class="no">a</span><span class="p">)</span> ??
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Générer une liste aléatoire
+</td>
+<td>
+<div class="highlight"><pre><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10</span><span class="p">,))</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">rand</span><span class="p">(</span>1<span class="p">,</span>10<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<p>Le calcul en complexes est possible dans les langages Python et Scilab. En C, des bibliothèques sont requises.... ???</p>
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+imaginaire <i>i</i>
+</td>
+<td>
+<div class="highlight"><pre><span class="mi">1j</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">%i</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Nombre complexes <i>3+4i</i>
+</td>
+<td>
+<div class="highlight"><pre><span class="mi">3</span><span class="o">+</span><span class="mi">4j</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>3<span class="o">+</span>4<span class="o">*</span><span class="no">%i</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Partie réelle de <i>a</i>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">real</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">real</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Partie imaginaire de <i>a</i>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">imag</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">imag</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Module
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">abs</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Argument
+</td>
+<td>
+<div class="highlight"><pre><span class="err">???</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">atan</span><span class="p">(</span><span class="nb">imag</span><span class="p">(</span><span class="no">a</span><span class="p">),</span><span class="nb">real</span><span class="p">(</span><span class="no">a</span><span class="p">))</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Conjugué de <i>a</i>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<h4>Tableaux (à une ou plusieurs dimensions)</h4>
+
+<p>Le calcul numérique s'appuie intensivement sur des tableaux de valeurs, soit pour représenter des signaux, soit pour représenter des vecteurs et des matrices.</p>
+
+<p>La syntaxe de Scilab est fortement orienté vers la manipulation de tableau. Elle est en ce sens très pratique et lisible.</p>
+
+<p>Python propose quant à lui trois types possibles pour manipuler des données sous forme de tableaux : les listes (à une ou plusieurs dimensions), le type &quot;array&quot;, et le type &quot;matrix&quot;. Des conversions sont possibles entre ces types. Il est conseillé dans le cadre du calcul numérique (pour des raisons pratiques et d'efficacité des calculs) d'utiliser le type &quot;array&quot;. C'est ce qui est considéré par la suite.</p>
+
+<p>Attention, en Python et en C, les indices des tableaux commencent à 0 tandis qu'en Scilab, ils commencent à 1.</p>
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Vecteur ligne
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="p">=[</span>1<span class="p">,</span> 2<span class="p">,</span> 3<span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="p">=[</span>1<span class="p">,</span> 2<span class="p">,</span> 3<span class="p">]</span> ??
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Vecteur colonne
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])[:,</span><span class="n">NewAxis</span><span class="p">]</span>
+<span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="p">=[</span>1<span class="p">;</span> 2<span class="p">;</span> 3<span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Tableau à 2 dimensions
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="p">=[</span>1<span class="p">,</span> 2<span class="p">,</span> 3<span class="p">;</span> 4<span class="p">,</span> 5<span class="p">,</span> 6<span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Accéder à un élément
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="p">(</span>3<span class="p">),</span> <span class="n">M</span><span class="p">(</span>1<span class="p">,</span>2<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="p">(</span>3<span class="p">)</span> ????
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Accéder au dernier élément, et l'avant dernier
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="p">(</span>$<span class="p">),</span> <span class="n">v</span><span class="p">(</span>$<span class="o">-</span>1<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Dimensions d'un tableau
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">size</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Extraire la 2ème ligne ou 2ème colonne
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="n">ou</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="p">(</span>2<span class="p">,:)</span> <span class="n">ou</span> <span class="n">M</span><span class="p">(:,</span>2<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Extraire une portion de tableau
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="err">????</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="p">(</span>2<span class="p">:</span>4<span class="p">,</span>1<span class="p">:</span>2<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Extraire des éléments d'un tableau par leurs indices
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">take</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">take</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="p">([</span>1 3<span class="p">],[</span>1 4<span class="p">])</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Séquence équirépartie d'entiers
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>1<span class="p">:</span>10
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Séquence équirépartie quelconque
+</td>
+<td>
+<div class="highlight"><pre><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">10.1</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>0<span class="p">:</span>0<span class="p">.</span>1<span class="p">:</span>10
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Tableau de zéros
+</td>
+<td>
+<div class="highlight"><pre><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">Float</span><span class="p">)</span>
+   
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">zeros</span><span class="p">(</span>2<span class="p">,</span>3<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Tableau de uns
+</td>
+<td>
+<div class="highlight"><pre><span class="n">one</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">Float</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">ones</span><span class="p">(</span>2<span class="p">,</span>4<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Copier un tableau dans une autre variable
+</td>
+<td>
+<div class="highlight"><pre><span class="n">w</span><span class="o">=</span><span class="n">v</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">w</span><span class="p">=</span><span class="n">v</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Multiplication élément par élément
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="o">*</span><span class="n">w</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="o">.*</span><span class="n">w</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Maximum et minimum d'un tableau
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">v</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Indice <i>i</i> du maximum
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="p">[</span><span class="n">m</span><span class="p">,</span><span class="no">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+
+<h4>Matrices</h4>
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Produit matriciel
+</td>
+<td>
+<div class="highlight"><pre><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="o">*</span><span class="n">w</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Transposée
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">M</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">M</span><span class="o">&#39;</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+  Résolution de système matriciel <i>M.X=Y</i>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">X</span><span class="p">=</span><span class="n">Y</span><span class="o">\</span> <span class="n">M</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Produit scalaire de deux vecteurs
+</td>
+<td>
+<div class="highlight"><pre><span class="n">vdot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">v</span><span class="o">&#39;*</span><span class="n">w</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Produit vectoriel
+</td>
+<td>
+<div class="highlight"><pre><span class="n">cross</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="err">??</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>??
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Déterminant
+</td>
+<td>
+<div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">det</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Inverse
+</td>
+<td>
+<div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">inv</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Valeurs propres
+</td>
+<td>
+<div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Vecteurs propres
+</td>
+<td>
+<div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="p">[</span><span class="n">v</span><span class="p">,</span><span class="n">l</span><span class="p">]</span> <span class="p">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Rang
+</td>
+<td>
+<div class="highlight"><pre><span class="n">rank</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">rank</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+
+
+
+
+<h4>Chaînes de caractères</h4>
+
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Définir une chaîne de caractères
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="o">=</span><span class="s">&quot;Python et Scilab&quot;</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="p">=</span><span class="s">&quot;Python et Scilab&quot;</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="p">=</span><span class="s">&quot;Python et Scilab&quot;</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Longueur d'une chaîne
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">len</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">length</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Extraire des caractères
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">part</span><span class="p">(</span><span class="n">mot</span><span class="p">,[</span>1<span class="p">,</span>2<span class="p">,</span>11<span class="p">:</span>16<span class="p">])</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Concaténation
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="o">=</span><span class="s">&quot;python&quot;</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="s">&quot;Scilab&quot;</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="p">=</span><span class="s">&quot;python&quot;</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="s">&quot;Scilab&quot;</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Replacer une portion de chaîne
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;Scilab&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">strsubst</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span><span class="s">&quot;Scilab&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Découper une chaîne de caractères
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">strsplit</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Supprimer des caractères de retour à la ligne
+</td>
+<td>
+<div class="highlight"><pre><span class="n">mot</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\r</span><span class="s">&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+
+<h3>Structures de contrôle</h3>
+<h4>Boucles</h4>
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Boucle FOR
+</td>
+<td>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="k">for</span> <span class="no">i</span><span class="p">=</span>1<span class="p">:</span>10
+  <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">);</span>
+<span class="k">endfor</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="no">i</span><span class="p">=</span>1<span class="p">,</span><span class="no">i</span><span class="o">&lt;</span><span class="p">=</span>10<span class="p">,</span><span class="no">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="nb">print</span><span class="p">(</span><span class="no">i</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Boucle WHILE
+</td>
+<td>
+<div class="highlight"><pre><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="no">i</span><span class="p">=</span>0
+<span class="k">while</span> <span class="p">(</span><span class="no">i</span><span class="o">&lt;</span>10<span class="p">)</span>
+  <span class="no">i</span><span class="p">=</span><span class="no">i</span><span class="o">+</span>1
+  <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">)</span>
+<span class="k">endwhile</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<h4>Conditions</h4>
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Condition IF
+</td>
+<td>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">):</span>
+  <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">else</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="no">i</span><span class="o">&gt;</span>3<span class="p">)</span>
+  <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">)</span>
+<span class="k">else</span>
+  <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+<span class="k">endif</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="no">i</span><span class="o">&gt;</span>3<span class="p">){</span>
+  <span class="nb">print</span><span class="p">(</span><span class="no">i</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Condition CASE
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<h4>Fonctions</h4>
+
+<h3>Courbes</h3>
+<h4>Courbes 2D</h4>
+
+<p>En Python, il est parfois nécessaire d'exécuter la commande show() pour afficher le graphique après l'appel à la commande plot().</p>
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Tracé d'une courbe <i>y</i> ou <i>(x,y)</i>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">ou</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">ou</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Tracé de points (o) rouges (r) reliés par des lignes (-)
+</td>
+<td>
+<div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&quot;-or&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&quot;-or&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Effacer le graphique
+</td>
+<td>
+<div class="highlight"><pre><span class="n">clf</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">clf</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Ouvrir une nouvelle figure
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">figure</span><span class="p">(</span>3<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Échelle logarithmique en X
+</td>
+<td>
+<div class="highlight"><pre><span class="n">semilogx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">semilogx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Échelle logarithmique en X et Y
+</td>
+<td>
+<div class="highlight"><pre><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<h4>Courbes 3D</h4>
+
+
+
+<h3>Fichiers</h3>
+<h4>Fichiers textes</h4>
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Ouvrir un fichier texte en lecture/écriture
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fic</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fic</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fic</span><span class="p">=</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fic</span><span class="p">=</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Fermer un fichier
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fic</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">close</span><span class="p">(</span><span class="n">fic</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Lire une ligne
+</td>
+<td>
+<div class="highlight"><pre><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">ligne</span><span class="p">=</span><span class="nb">mgetl</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>1<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Lire un tableau formaté
+</td>
+<td>
+<div class="highlight"><pre><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">loadtxt</span><span class="p">(</span><span class="s">&quot;Fichier.txt&quot;</span><span class="p">,</span>
+  <span class="n">usecols</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+  <span class="n">dtype</span><span class="o">=</span><span class="p">{</span>
+  <span class="s">&#39;names&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&#39;numero&#39;</span><span class="p">,</span> <span class="s">&#39;consigne&#39;</span><span class="p">),</span>
+  <span class="s">&#39;formats&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s">&#39;i2&#39;</span><span class="p">,</span> <span class="s">&#39;f4&#39;</span><span class="p">)},</span>
+  <span class="n">delimiter</span><span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">,</span>
+  <span class="n">unpack</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">Tableau</span><span class="p">=</span><span class="nb">mfscanf</span><span class="p">(</span><span class="o">-</span>1<span class="p">,</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;%d,%f,%f&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Écrire une ligne
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;il fait {:f} degres.</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">mfprintf</span><span class="p">(</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;il fait %f degres.\n&quot;</span><span class="p">,</span>10<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Écrire un tableau formaté
+</td>
+<td>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+  <span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;{:d},{:f},{:f}</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">mfprintf</span><span class="p">(</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;%d,%f,%f&quot;</span><span class="p">,</span>1<span class="p">:</span>100<span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+
+<h4>Fichiers binaires</h4>
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Sauver des variables dans un fichier binaire
+</td>
+<td>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="n">fic</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;fichier.pick&quot;</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+<span class="n">fic</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">save</span><span class="p">(</span><span class="s">&quot;fichier.dat&quot;</span><span class="p">,</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Recharger des variables du fichier binaire
+</td>
+<td>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">pickle</span>
+<span class="n">fic</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;fichier.pick&quot;</span><span class="p">,</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+<span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+<span class="n">fic</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">load</span><span class="p">(</span><span class="s">&quot;fichier.dat&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Ouvrir un fichier binaire en lecture/écriture
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fic</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">fic</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fic</span><span class="p">=</span><span class="nb">mopen</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">fic</span><span class="p">=</span><span class="nb">mopen</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Lire 3 octets dans un fichier binaire
+</td>
+<td>
+<div class="highlight"><pre><span class="n">octets</span><span class="o">=</span><span class="n">fic</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">octets</span><span class="p">=</span><span class="nb">mget</span><span class="p">(</span>3<span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Écrire des octets dans un fichier binaire
+</td>
+<td>
+<div class="highlight"><pre><span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;PCSI&quot;</span><span class="p">)</span>
+<span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">int8</span><span class="p">(</span><span class="mi">83</span><span class="p">))</span>
+<span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">float32</span><span class="p">(</span><span class="mf">2.3</span><span class="p">))</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">mput</span><span class="p">(</span><span class="nb">ascii</span><span class="p">(</span><span class="s">&quot;PCSI&quot;</span><span class="p">),</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+<span class="nb">mput</span><span class="p">(</span>83<span class="p">,</span><span class="s">&quot;i&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+<span class="nb">mput</span><span class="p">(</span>2<span class="p">.</span>3<span class="p">,</span><span class="s">&quot;f&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<h4>Images</h4>
+
+<p>La lecture et l'écriture d'image sous python est relativement simple par la bibliothèque scipy.misc, chargé automatiquement par l'option --pylab ou par spyder. Les formats supportés sont jpg, bmp, ????. Des bibliothèques plus élaborées existent (PIL par exemple) mais ne sont pas abordées ici.</p>
+
+<p>La lecture et l'écriture d'image sous Scilab nécessite l'installation par Atoms du module SIVP (image and vidéo processing). La plupart des formats sont supportés.</p>
+
+<p>Les images sont ensuite manipulées dans le programme sous forme de tableau.</p>
+
+
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+
+Ouvrir une image
+</td>
+<td>
+<div class="highlight"><pre><span class="n">im</span><span class="o">=</span><span class="n">imread</span><span class="p">(</span><span class="s">&quot;image.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">im</span><span class="p">=</span><span class="n">imread</span><span class="p">(</span><span class="s">&#39;i</span><span class="n">mage</span><span class="p">.</span><span class="n">jpg</span>&quot;<span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Enregistrer une image
+</td>
+<td>
+<div class="highlight"><pre><span class="n">imsave</span><span class="p">(</span><span class="s">&quot;image.jpg&quot;</span><span class="p">,</span><span class="n">im</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">imwrite</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="s">&quot;image.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Afficher une image
+</td>
+<td>
+<div class="highlight"><pre><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Taille de l'image
+</td>
+<td>
+<div class="highlight"><pre><span class="n">im</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre><span class="nb">size</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+</pre></div>
+</td>
+<td>
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr></table>
+
+
+
+<h3>Calcul numérique</h3>
+
+
