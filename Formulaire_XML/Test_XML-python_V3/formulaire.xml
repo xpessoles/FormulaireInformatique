@@ -75,7 +75,9 @@ Changement de type
 </description>
 <python>
 <code_python>
-??
+int(a)
+float(a)
+str(a)
 </code_python>
 </python>
 <scilab>
@@ -489,37 +491,48 @@ sqrt(a)
 
 <ligne>
 <description>
-cosinus, sinus, tangente
+cosinus
+sinus
+tangente
 </description>
 <python>
 <code_python>
-cos(a), sin(a), tan(a)
+cos(a)
+sin(a)
+tan(a)
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-cos(a), sin(a), tan(a)
+cos(a)
+sin(a)
+tan(a)
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-cos(a), sin(a), tan(a)
+cos(a)
+sin(a)
+tan(a)
 </code_C>
 </C>
 </ligne>
 
 <ligne>
 <description>
-arcos, arcsin
+arcos
+arcsin
 </description>
 <python>
 <code_python>
-
+acos(a)
+asin(a)
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-
+acos(a)
+asin(a)
 </code_scilab>
 </scilab>
 <C>
