@@ -33,16 +33,16 @@ def traite_python(noeud_python,fic):
       global No_exemple
       module=""
       for noeud_module in noeud_python.getElementsByTagName("module"):
-	module=noeud_module.toxml(encoding='utf-8')[8:-9]
+           module=noeud_module.toxml(encoding="utf-8")[8:-9]
       fic.write("<td title=\"{}\">\n".format(module))
       #fic.write("</tt>")
       for lien in noeud_python.getElementsByTagName("lien"):
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format(lien.toxml(encoding='utf-8')[6:-7],"style/FAQ-icon.png"))
+           fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format(lien.toxml(encoding='utf-8')[6:-7],"style/FAQ-icon.png"))
       # Chaque exemple fait l'objet d'un icone et d'un fichier html dans le dossier exemples
       for exemple in noeud_python.getElementsByTagName("exemple"):
-	No_exemple+=1
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
-	traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"python")
+           No_exemple+=1
+           fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
+           traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"python")
       code=noeud_python.getElementsByTagName("code_python")[0].toxml(encoding='utf-8')[13:-14]
       code=unescape(code)
       fic.write(highlight(code, PythonLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
@@ -54,14 +54,15 @@ def traite_scilab(noeud_scilab,fic):
       fic.write("<td>\n")
       #fic.write("</tt>")
       for lien in noeud_scilab.getElementsByTagName("lien"):
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format(lien.toxml(encoding='utf-8')[6:-7],"style/FAQ-icon.png"))
+           fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format(lien.toxml(encoding='utf-8')[6:-7],"style/FAQ-icon.png"))
+	
       # Chaque exemple fait l'objet d'un icone et d'un fichier html dans le dossier exemples
       for exemple in noeud_scilab.getElementsByTagName("exemple"):
-	No_exemple+=1
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
-	fic_exemple=open("exemples/ex{:d}.html".format(No_exemple),"w")
-	fic_exemple.write(exemple.toxml(encoding='utf-8')[9:-10])
-	fic_exemple.close()
+           No_exemple+=1
+           fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
+           fic_exemple=open("exemples/ex{:d}.html".format(No_exemple),"w")
+           fic_exemple.write(exemple.toxml(encoding='utf-8')[9:-10])
+           fic_exemple.close()
       code=noeud_scilab.getElementsByTagName("code_scilab")[0].toxml(encoding='utf-8')[13:-14]
       code=unescape(code)
       fic.write(highlight(code, ScilabLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
@@ -73,12 +74,12 @@ def traite_C(noeud_C,fic):
       fic.write("<td>\n")
       #fic.write("</tt>")
       for lien in noeud_C.getElementsByTagName("lien"):
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format(lien.toxml(encoding='utf-8')[6:-7],"style/FAQ-icon.png"))
+           fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format(lien.toxml(encoding='utf-8')[6:-7],"style/FAQ-icon.png"))
       # Chaque exemple fait l'objet d'un icone et d'un fichier html dans le dossier exemples
       for exemple in noeud_C.getElementsByTagName("exemple"):
-	No_exemple+=1
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
-	traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"C")
+           No_exemple+=1
+           fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
+           traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"C")
       code=noeud_C.getElementsByTagName("code_C")[0].toxml(encoding='utf-8')[8:-9]
       code=unescape(code)
       fic.write(highlight(code, CLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
@@ -145,7 +146,7 @@ for node in body[0].childNodes:
   #print node.nodeName
   if node.nodeName!="tableau": # Si le noeud n'est pas un tableau
     #print node.toxml(encoding='utf-8')
-    fic.write(node.toxml(encoding='utf-8'))  # on recopie le noeud à l'identique
+    fic.write(node.toxml(encoding="utf-8"))  # on recopie le noeud à l'identique
   else:            # Si le noeud est un tableau
     # on débute le tableau et on met la ligne de titre
     fic.write("<table>\n<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>\n")
