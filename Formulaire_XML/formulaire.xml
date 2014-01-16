@@ -25,6 +25,9 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
   Obtenir le type d'une variable <i>a</i>
 </description>
 <python>
+  <module>
+    Fonctionnalité standard
+  </module>
 <code_python>
 type(a)
 </code_python>
@@ -2315,16 +2318,103 @@ close(fic)
 
 <ligne>
 <description>
-Lire une ligne
+Lire une ou plusieurs lignes
 </description>
 <python>
 <code_python>
-f.readline()
+ligne=fic.readline()
+lignes=fic.readlines()
 </code_python>
+<lien>
+http://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
+</lien>
+<exemple>
+  <h1>Lire des lignes dans un fichier texte</h1>
+   <p>Un fichier texte se lit de façon séquentiel, en partant du début vers la fin. Il n'y a pas de retour en arrière possible (sauf en refermant le fichier pour l'ouvrir à nouveau) et il n'est <i>a priori</i> pas possible d'accéder aux lignes par des indices comme pour les tableaux ou les listes.</p>
+  <p>Il est par contre possible de lire les lignes et les stocker dans un tableau pour y accéder ensuite par des indices.</p>
+  <h2>Méthode 1 : lecture de l'ensemble des lignes en une fois</h2>
+  <p>La lecture d'un fichier texte en une fois s'effectue par la commande <tt>readlines()</tt></p>
+  <p>L'exemple ci-dessous peut être copié dans une console python pour test. Le premier paragraphe consiste au préalable à créer un fichier texte qui sera lu ensuite. Pour faire les choses simples, la structure du fichier test est la suivante (vous pouvez l'ouvrir avec un éditeur de texte) :</p>
+  <pre>
+Première ligne !
+Seconde ligne...
+Essayons un tableau
+T,X,Y
+0,0.2,0.3
+1,0.5,0.6
+2,0.9,1.2
+3,1.4,1.5
+Fin du fichier
+  </pre>
+  <code_python>
+# Ecriture d'un fichier test
+fic=open("test_fichier.txt","w")
+fic.write("Première ligne !\nSeconde ligne...\nEssayons un tableau\n\
+T,X,Y\n0,0.2,0.3\n1,0.5,0.6\n2,0.9,1.2\n3,1.4,1.5\nFin du fichier")
+fic.close()
+
+# Lecture du fichier test
+fic=open("test_fichier.txt","r")  # Ouverture en lecture
+texte=fic.readlines()             # Lecture de l'ensemble des lignes
+fic.close()                       # Fermeture du fichier (ne pas oublier)
+
+# En tapant la variable texte dans la console, le contenu apparait
+texte
+
+print(texte[0])                   # Affichage de la première ligne
+print(texte[1])                   # Affichage de la seconde ligne
+
+# Pour lire un tableau de données, il faut découper les lignes et les convertir en nombres
+texte[4:8]                        # Les lignes 5 à 8 qui nous intéressent...
+T=[]; X=[]; Y=[]                  # Initialisation des listes
+for i in range(4,8):
+  ligne=texte[i].rstrip("\n")  # Suppression du retour à la ligne
+  ligne=texte[i].split(",")    # Découpage au niveau des virgules
+  T.append(int(ligne[0]))      # Convertion en int et ajout au tableau T
+  X.append(float(ligne[1]))    # Convertion en float et ajout au tableau X
+  Y.append(float(ligne[1]))    # idem Y
+
+# Conversion éventuelle en tableaux "array"
+T=array(T)
+X=array(X)
+Y=array(Y)
+  </code_python>
+  <p>Sous Windows, les retours à la ligne sont parfois écrits <tt>"\n\r"</tt>. Les séparateurs peuvent être des virgules, mais aussi des points-virgule, ou encore des tabulations <tt>"\t"</tt>. Certains logiciels francisés utilisent la virgule comme séparateur décimal, alors que python (comme la plupart des langages et logiciels) attendent un point. Il est alors nécessaire de remplacer les "," par des "." par la commande replace (par exemple : <tt>texte[0].replace("i","u")</tt>)</p>
+  
+  <h2>Méthode 2 : lecture ligne après ligne</h2>
+  <p>La lecture d'une ligne d'un fichier texte s'effectue par la commande <tt>readline()</tt> (noter l'absence de "s")</p>
+  <p>L'exemple ci-dessous peut être copié dans une console python pour test.</p>
+  <code_python>
+# Ecriture d'un fichier test
+fic=open("test_fichier.txt","w")
+fic.write("Première ligne !\nSeconde ligne...\nEssayons un tableau\n\
+T,X,Y\n0,0.2,0.3\n1,0.5,0.6\n2,0.9,1.2\n3,1.4,1.5\nFin du fichier")
+fic.close()
+
+# Lecture du fichier test
+fic=open("test_fichier.txt","r")  # Ouverture en lecture
+ligne=fic.readline()              # Lecture de la première ligne
+print(ligne)                      # Affichage de la première ligne
+ligne=fic.readline()              # Lecture de la seconde ligne
+print(ligne)                      # Affichage de la seconde ligne
+
+# Pour lire le reste du fichier sans connaitre sa taille :
+ligne="un texte non nul"
+while ligne!="":                  # tant que la chaine lue est non nulle
+  ligne=fic.readline()            # Lecture d'une ligne
+  print(ligne)                    # Affichage de la ligne pour vérification
+
+fic.close()                       # Fermeture du fichier (ne pas oublier)
+  </code_python>
+  <p></p>
+  <h2>Méthode 3 : lecture de données formatées par la fonction <tt>loadtxt()</tt></h2>
+  <p>Cette fonction fait l'objet d'une page d'exemple dédiée : revenir au formulaire pour consulter l'aide de cette fonction.</p>
+</exemple>
 </python>
 <scilab>
 <code_scilab>
 ligne=mgetl(f,1)
+lignes=mgetl(f)
 </code_scilab>
 </scilab>
 <C>

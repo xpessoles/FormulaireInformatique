@@ -31,7 +31,10 @@ def unescape(s):
 
 def traite_python(noeud_python,fic):
       global No_exemple
-      fic.write("<td>\n")
+      module=""
+      for noeud_module in noeud_python.getElementsByTagName("module"):
+	module=noeud_module.toxml(encoding='utf-8')[8:-9]
+      fic.write("<td title=\"{}\">\n".format(module))
       #fic.write("</tt>")
       for lien in noeud_python.getElementsByTagName("lien"):
 	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format(lien.toxml(encoding='utf-8')[6:-7],"style/FAQ-icon.png"))
@@ -42,7 +45,7 @@ def traite_python(noeud_python,fic):
 	traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"python")
       code=noeud_python.getElementsByTagName("code_python")[0].toxml(encoding='utf-8')[13:-14]
       code=unescape(code)
-      fic.write(highlight(code, PythonLexer(), HtmlFormatter()))
+      fic.write(highlight(code, PythonLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
       fic.write("</td>\n")
 
 
@@ -61,7 +64,7 @@ def traite_scilab(noeud_scilab,fic):
 	fic_exemple.close()
       code=noeud_scilab.getElementsByTagName("code_scilab")[0].toxml(encoding='utf-8')[13:-14]
       code=unescape(code)
-      fic.write(highlight(code, ScilabLexer(), HtmlFormatter()))
+      fic.write(highlight(code, ScilabLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
       fic.write("</td>\n")
 
 
@@ -78,7 +81,7 @@ def traite_C(noeud_C,fic):
 	traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"C")
       code=noeud_C.getElementsByTagName("code_C")[0].toxml(encoding='utf-8')[8:-9]
       code=unescape(code)
-      fic.write(highlight(code, CLexer(), HtmlFormatter()))
+      fic.write(highlight(code, CLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
       fic.write("</td>\n")
 
 #=================
@@ -102,17 +105,17 @@ def traite_exemple(noeud_exemple,nom_fichier,code):
         #pdb.set_trace()
         code=node.toxml(encoding='utf-8')[13:-14]
         code=unescape(code)
-        fic_exemple.write(highlight(code, PythonLexer(), HtmlFormatter()))
+        fic_exemple.write(highlight(code, PythonLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
       if (node.nodeName=="code_scilab"):
         #pdb.set_trace()
         code=node.toxml(encoding='utf-8')[13:-14]
         code=unescape(code)
-        fic_exemple.write(highlight(code, ScilabLexer(), HtmlFormatter()))
+        fic_exemple.write(highlight(code, ScilabLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
       if (node.nodeName=="code_C"):
         #pdb.set_trace()
         code=node.toxml(encoding='utf-8')[8:-9]
         code=unescape(code)
-        fic_exemple.write(highlight(code, CLexer(), HtmlFormatter()))
+        fic_exemple.write(highlight(code, CLexer(encoding='utf-8'), HtmlFormatter(encoding='utf-8')))
   #fic_exemple.write(noeud_exemple.toxml(encoding='utf-8')[9:-10])
   fic_exemple.close()
 

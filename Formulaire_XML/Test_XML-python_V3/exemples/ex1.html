@@ -1,2 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<head>
+<title>Le calcul scientifique sous Python et Scilab</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="style/style.css"/>
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/"/>
+</head>
 
-Voici quelques exemple de types sous python...
+  <h1>Type d'une variable</h1>
+  <h2>Obtenir le type d'une variable</h2>
+  <p>Python gère les types dynamiquement. En fonction des besoins, il est susceptible de changer le type d'une variable :</p>
+  <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># int</span>
+<span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="mf">3.2</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># float</span>
+  
+</pre></div>
+
+  <h2>Forcer le type d'une variable</h2>
+  <p>Dans le cas où la variable doit etre écrite dans un fichier ou utilisée dans un format bien précis, le type doit etre imposé. Un certain nombre de commandes permettent le formatage d'une variable.</p>
+  <div class="highlight"><pre><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">3</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c"># int</span>
+<span class="n">a</span><span class="o">=</span><span class="n">int16</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mf">3.2</span><span class="p">)</span>
+<span class="n">a</span>              <span class="c"># 6</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c"># numpy.int16</span>
+  
+</pre></div>
+
+  
