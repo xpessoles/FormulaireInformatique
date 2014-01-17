@@ -1970,8 +1970,8 @@ endfor
 </scilab>
 <C>
 <code_C>
-for (i=1,i&lt;=10,i++){
-  print(i);
+for (i=1;i&lt;=10;i++){
+  printf("%d",i);
 }
 </code_C>
 </C>
@@ -2001,7 +2001,11 @@ endwhile
 </scilab>
 <C>
 <code_C>
-
+int i =10;
+while (i&lt;10){
+printf("%d",i);
+i++;
+}
 </code_C>
 </C>
 </ligne>
@@ -2082,10 +2086,10 @@ endif
 <C>
 <code_C>
 if (i>3){
-  print(i);
+  printf("%d",i);
 }
 else{
-  print("hello");
+  printf("hello");
 }
 </code_C>
 </C>
