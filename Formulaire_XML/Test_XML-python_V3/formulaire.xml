@@ -1703,9 +1703,8 @@ length(mot)
 </code_scilab>
 </scilab>
 <C>
-strlen(mot)
 <code_C>
-
+strlen(mot)
 </code_C>
 </C>
 </ligne>
@@ -1746,9 +1745,8 @@ mot="python" + "/" + "Scilab"
 </code_scilab>
 </scilab>
 <C>
-strcat(mot1,mot2)
 <code_C>
-
+strcat(mot1,mot2)
 </code_C>
 </C>
 </ligne>
