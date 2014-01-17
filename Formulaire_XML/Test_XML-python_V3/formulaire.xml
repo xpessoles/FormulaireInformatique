@@ -122,7 +122,8 @@ float64(a)
 
 
 <h4>Nombres</h4>
-<p>Nous passons sur les opérateurs classiques + - * / qui sont identiques dans les 3 langages (attention toutefois à la division de deux entiers qui est réalisée dans les entiers en C et en python 2.7, et dans R dans Scilab et en Python 3.3...).</p>
+<p>Nous passons sur les opérateurs classiques + - * / qui sont identiques dans les 3 langages (attention toutefois à la division de deux entiers qui est réalisée dans les entiers en C et en python 2.7, et dans R dans Scilab et en Python 3.3...).
+Il est nécessaire d'importer la bilbiothèqe math.h en C.</p>
 <tableau>
 
 <ligne>
@@ -141,7 +142,7 @@ a.^b
 </scilab>
 <C>
 <code_C>
-??
+pow(a,b)
 </code_C>
 </C>
 </ligne>
@@ -157,12 +158,12 @@ a%b
 </python>
 <scilab>
 <code_scilab>
-???
+modulo(a,b)
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-???
+a%b
 </code_C>
 </C>
 </ligne>
@@ -173,17 +174,17 @@ Division entière
 </description>
 <python>
 <code_python>
-fmod(a,b)
+a//b
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-mod(a,b) ??
+floor(a/b)
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-??
+a/b avec a et b entiers
 </code_C>
 </C>
 </ligne>
@@ -267,7 +268,7 @@ a~=b
 </scilab>
 <C>
 <code_C>
-??
+a!=b
 </code_C>
 </C>
 </ligne>
@@ -1661,7 +1662,7 @@ rank(M)
 
 <h4>Chaînes de caractères</h4>
 
-
+<p> En C il faut utiliser la bibilothèque string.h.</p>
 
 <tableau>
 
@@ -1702,6 +1703,7 @@ length(mot)
 </code_scilab>
 </scilab>
 <C>
+strlen(mot)
 <code_C>
 
 </code_C>
@@ -1744,6 +1746,7 @@ mot="python" + "/" + "Scilab"
 </code_scilab>
 </scilab>
 <C>
+strcat(mot1,mot2)
 <code_C>
 
 </code_C>
