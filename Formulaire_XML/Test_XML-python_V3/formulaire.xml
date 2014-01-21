@@ -14,6 +14,155 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 
 <h2>Formulaire</h2>
 
+<h3>Manipulation globale</h3>
+
+<tableau>
+<ligne>
+<description>
+  Importer un fichier 
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+import file
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+  Lancer l'aide interactive 
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+help()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+  Afficher l'aide associée à la commande test
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+help(test)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+  Afficher x sur la console interactive
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+print(x)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+disp(x)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+  Importer une bibliothèque
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+import bibliotheque as nom
+from bibliotheque importe *
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+  Définir une fonction
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+def nomdelafonction(paramètres):
+    bloc d'instruction
+return resultat
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+function resultat=nomdelafonction(paramètres)
+    bloc d'instruction
+endfunction
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
 <h3>Variables</h3>
 <p>Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace espace mémoire alloué). Néanmoins, le typage est "dynamique" en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).</p>
 
@@ -74,11 +223,52 @@ explicite dans le programme...
 Changement de type
 </description>
 <python>
+  <module>
+    Fonctionnalité standard
+  </module>
 <code_python>
 int(a)
 float(a)
 str(a)
 </code_python>
+<lien>
+http://docs.python.org/2/library/stdtypes.html
+</lien>
+<exemple>
+  <h1>Changer le type d'une variable</h1>
+  <p>Python gère les types dynamiquement. En fonction des besoins, il est susceptible de changer le type d'une variable :</p>
+  <code_python>
+a=3
+type(a)  # int
+a=a+3.2
+type(a)  # float
+  </code_python>
+  <h2>Forcer le type d'une variable</h2>
+  <p>Dans le cas où la variable doit etre écrite dans un fichier ou utilisée dans un format bien précis, le type doit etre imposé. Un certain nombre de commandes permettent le formatage d'une variable.</p>
+  <code_python>
+from pylab import *
+a=3
+type(a)        # int
+a=int16(a+3.2)
+a              # 6
+type(a)        # numpy.int16
+
+#on affecte une valeur numérique à la varibale a
+a=0.00000000000000000000000000000000000000000011
+>>> float32(a)  # Celle ci peut etre codé sur 32 bits
+1.0930128e-43
+>>> float64(a) # ou sur 64 bits
+1.1e-43
+>>> int(a) # on peut faire codé la valeur en un nombre entier
+0
+>>> str(a) # ou transformer le nombre en une chaîne de carractère 
+'1.1e-43'
+>>> 'la valeur est ' + str(a) # sur laquelle la concaténation sera possible.
+'la valeur est 1.1e-43'
+
+  </code_python>
+  
+</exemple>
 </python>
 <scilab>
 <code_scilab>
@@ -474,6 +664,9 @@ a &lt;&lt; 3 ; a &gt;&gt; 3
 Racine carrée
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 sqrt(a)
 </code_python>
@@ -497,6 +690,9 @@ sinus
 tangente
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 cos(a)
 sin(a)
@@ -525,6 +721,9 @@ arcos
 arcsin
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 acos(a)
 asin(a)
@@ -569,6 +768,9 @@ atan(a)
 arctangente sur ]-&#x03C0;, &#x03C0;]
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 arctan2(y,x)
 </code_python>
@@ -611,6 +813,9 @@ ch, sh, th
 Logarithme Néperien (ln)
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 log(a)
 </code_python>
@@ -632,6 +837,9 @@ log(a)
 Logarithme en base 10 (log)
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 log10(a)
 </code_python>
@@ -653,6 +861,9 @@ log10(a)
   Logarithme en base <i>n</i> quelconque
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 log(a,n)
 </code_python>
@@ -674,6 +885,9 @@ log(a,n)
   Exponentielle <i>e<sup>a</sup></i>
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 exp(a)
 </code_python>
@@ -695,6 +909,9 @@ exp(a)
 Arrondi entier
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 around(a)
 </code_python>
@@ -716,6 +933,9 @@ round(a)
 Arrondi à l'entier supérieur
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 ceil(a)
 </code_python>
@@ -737,6 +957,9 @@ ceil(a)
 Arrondi à l'entier inférieur
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 floor(a)
 </code_python>
@@ -758,6 +981,9 @@ floor(a)
 Arrondi vers zéro
 </description>
 <python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
 <code_python>
 fix(a)
 </code_python>
@@ -1019,7 +1245,8 @@ v=array([1, 2, 3])
 </python>
 <scilab>
 <code_scilab>
-v=[1, 2, 3]
+v=[1, 2, 3] ou 
+[1 2 3]
 </code_scilab>
 </scilab>
 <C>
@@ -1655,10 +1882,116 @@ rank(M)
 
 </tableau>
 
+<h4>Listes</h4>
+<tableau>
+<ligne>
+<description>
+Définir une liste
+</description>
+<python>
+<code_python>
+Liste1 = []
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+Liste1 = list() ??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+Selectionner par position
+</description>
+<python>
+<code_python>
+liste1[i]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+liste1(i)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+Supprimer un élément
+</description>
+<python>
+<code_python>
+del liste1[i]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+</tableau>
+<h4>Dictionnaires</h4>
 
-
-
-
+Ce sont des listes un peu plus complexes en ce que chacun des éléments qui le compose est au moins composé de 2 membres, l'un étant la clé, l'autre a valeur le tout embrassé par des accolades { }.
+<tableau>
+<ligne>
+<description>
+Définir un dictionnaire
+</description>
+<python>
+<code_python>
+dictionnaire1 = {}
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+Supprimer un élément
+</description>
+<python>
+<code_python>
+clear() 
+pop(cle) 
+popitem()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+</tableau>
 
 <h4>Chaînes de caractères</h4>
 
@@ -2199,7 +2532,7 @@ Ouvrir une nouvelle figure
 </description>
 <python>
 <code_python>
-
+figure(3)
 </code_python>
 </python>
 <scilab>
@@ -2302,8 +2635,8 @@ fic=open("fichier.txt","w")
 </python>
 <scilab>
 <code_scilab>
-fic=open("fichier.txt","r")
-fic=open("fichier.txt","w")
+fic=mopen("fichier.txt","r")
+fic=mopen("fichier.txt","w")
 </code_scilab>
 </scilab>
 <C>
@@ -2745,5 +3078,52 @@ size(im)
 
 <h3>Calcul numérique</h3>
 
-
+<tableau>
+<ligne>
+<description>
+  Intégration par la méthode des trapèzes
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+trapz(y[, x, dx, axis])
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+   Différences ﬁnies
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+diff(a[, n, axis]) 
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+??
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+</tableau>
 </body>
