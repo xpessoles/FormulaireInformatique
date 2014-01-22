@@ -121,7 +121,7 @@ disp(x)
   </module>
 <code_python>
 import bibliotheque as nom
-from bibliotheque importe *
+from bibliotheque import *
 </code_python>
 </python>
 <scilab>
@@ -132,7 +132,8 @@ Menu &gt; Applications
 </scilab>
 <C>
 <code_C>
-??
+#include <stdio.h>
+#include <stdlib.h>
 </code_C>
 </C>
 </ligne>
@@ -3187,7 +3188,7 @@ im=imread("image.jpg")
 </python>
 <scilab>
 <code_scilab>
-im=imread('image.jpg")
+im=imread("image.jpg")
 </code_scilab>
 <lien>
   http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imread.html
