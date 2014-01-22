@@ -31,12 +31,13 @@ import file
 </python>
 <scilab>
 <code_scilab>
-??
+exec("fichier.sce")
+exec fichier.sce
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
@@ -54,35 +55,36 @@ help()
 </python>
 <scilab>
 <code_scilab>
-??
+help
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
 <ligne>
 <description>
-  Afficher l'aide associée à la commande test
+  Afficher l'aide associée à la commande cosinus
 </description>
 <python>
   <module>
     Fonctionnalité standard
   </module>
 <code_python>
-help(test)
+help(cos)
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-??
+help cos
+apropos cos
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
@@ -124,7 +126,8 @@ from bibliotheque importe *
 </python>
 <scilab>
 <code_scilab>
-??
+Menu &gt; Applications
+  &gt; Gestionnaire de module - Atoms
 </code_scilab>
 </scilab>
 <C>
@@ -157,6 +160,71 @@ endfunction
 <C>
 <code_C>
 ??
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Interruption d'un programme pour débug
+</description>
+<python>
+<code_python>
+import pdb
+pdb.set_trace()
+</code_python>
+<module>
+  module pdb
+</module>
+<lien>
+  http://docs.python.org/2/library/pdb.html
+</lien>
+<exemple>
+  <H1>Débugger un programme Python</H1>
+  <p>Le débugger s'utilise en important le module pdb (Python debugger). L'utilisation classique est d'introduire un point d'arrêt (<tt>pdb.set_trace()</tt>) à l'endroit voulu dans un programme, une fonction, ou une boucle, de façon à reprendre la main et explorer les variables, voire exécuter les commandes ligne à ligne.</p>
+  <code_python>
+import pdb
+
+T=[]
+for i in range(10):
+  T.append(i)
+  pdb.set_trace()
+
+print(T)
+</code_python>
+<p>Lorsque le programme est interrompu, la commande "n" (next) permet d'exécuter la ligne suivante (ou "s" (step) qui permet d'entrer dans une fonction par exemple), "c" (continue) permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'execution) et "q" (quit) permet d'arrêter le programme.</p>
+<p>Il existe d'autres options plus élaborées (voir documentation).</p>
+</exemple>
+</python>
+<scilab>
+<code_scilab>
+pause
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/pause.html
+</lien>
+<exemple>
+  <H1>Débugger un programme Scilab</H1>
+  <p>La commande <tt>pause</tt> introduit un point d'arrêt à l'endroit voulu dans un programme, une fonction, ou une boucle, de façon à reprendre la main et explorer les variables, voire exécuter les commandes ligne à ligne.</p>
+  <code_scilab>
+T=[]
+for i=1:10
+  T=[T i]
+  pause
+
+disp(T)
+</code_scilab>
+<p>Lorsque le programme est interrompu, la commande <tt>resume</tt> permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'execution) et <tt>abort</tt> permet d'arrêter le programme.</p>
+<p>La fonction <tt>resume</tt> permet aussi de renvoyer certaines variables locales vers l'espace de travail principal par la syntaxe :</p>
+  <code_scilab>
+[mem1, mem2]=return(var1,var2)
+</code_scilab>
+<p>où <tt>var1</tt> et <tt>var2</tt> sont les variables locales à renvoyer, et <tt>mem1</tt> et <tt>mem2</tt> sont les noms des variables qui seront mémorisées dans l'espace de travail principal.</p>
+</exemple>
+</scilab>
+<C>
+<code_C>
+
 </code_C>
 </C>
 </ligne>
@@ -209,7 +277,12 @@ type(a)        # numpy.int16
 <scilab>
 <code_scilab>
 type(a)
+typeof(a)
+inttype(a)
 </code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/typeof.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -278,6 +351,9 @@ int16(a)
 float32(a)
 float64(a)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/int8.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -327,7 +403,7 @@ a**b
 </python>
 <scilab>
 <code_scilab>
-a.^b
+a^b
 </code_scilab>
 </scilab>
 <C>
@@ -385,17 +461,17 @@ Test égalité
 </description>
 <python>
 <code_python>
-a==b
+a == b
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-a==b
+a == b
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-a==b
+a == b
 </code_C>
 </C>
 </ligne>
@@ -427,12 +503,12 @@ Supérieur (ou égal)
 </description>
 <python>
 <code_python>
-a&gt;b ; a&gt;=b
+a &gt; b ; a &gt;= b
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-a&gt;b ; a&gt;=b
+a &gt; b ; a &gt; =b
 </code_scilab>
 </scilab>
 <C>
@@ -448,17 +524,17 @@ Différent
 </description>
 <python>
 <code_python>
-a!=b
+a != b
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-a~=b
+a ~= b
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-a!=b
+a != b
 </code_C>
 </C>
 </ligne>
@@ -574,7 +650,7 @@ NON bitwise
 </description>
 <python>
 <code_python>
-?? 
+~a
 </code_python>
 </python>
 <scilab>
@@ -595,17 +671,17 @@ OU exclusif
 </description>
 <python>
 <code_python>
-not (a==b)
+a ^ b
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-~(a==b)
+~(a == b)
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-!(a==b)
+!(a == b)
 </code_C>
 </C>
 </ligne>
@@ -616,7 +692,7 @@ OU exclusif bitwise
 </description>
 <python>
 <code_python>
-a^b
+a ^ b
 </code_python>
 </python>
 <scilab>
@@ -626,7 +702,7 @@ bitxor(a,b)
 </scilab>
 <C>
 <code_C>
-a^b
+a ^ b
 </code_C>
 </C>
 </ligne>
@@ -648,6 +724,49 @@ a*2^3 ; floor(a/2^3)
 <C>
 <code_C>
 a &lt;&lt; 3 ; a &gt;&gt; 3
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+Affichage d'un nombre en binaire
+</description>
+<python>
+<code_python>
+bin(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+dec2bin(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Affichage d'un nombre en hexadécimal
+</description>
+<python>
+<code_python>
+hex(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+dec2hex(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
 </code_C>
 </C>
 </ligne>
@@ -870,12 +989,12 @@ log(a,n)
 </python>
 <scilab>
 <code_scilab>
-??
+log(a)/log(n)
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
@@ -914,11 +1033,13 @@ Arrondi entier
   </module>
 <code_python>
 around(a)
+fix(a)
 </code_python>
 </python>
 <scilab>
 <code_scilab>
 round(a)
+fix(a)
 </code_scilab>
 </scilab>
 <C>
@@ -976,41 +1097,26 @@ floor(a)
 </C>
 </ligne>
 
-<ligne>
-<description>
-Arrondi vers zéro
-</description>
-<python>
-  <module>
-    Disponible dans la bibliothèque Numpy ou Math
-  </module>
-<code_python>
-fix(a)
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-fix(a) ??
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-??
-</code_C>
-</C>
-</ligne>
 
 <ligne>
 <description>
-Générer une liste aléatoire
+Générer un nombre ou une liste aléatoire
 </description>
 <python>
 <code_python>
-random.random((10,))
+random.random()
+numpy.random.sample(10)
 </code_python>
+<lien>
+http://docs.scipy.org/doc/numpy/reference/routines.random.html
+</lien>
+<module>
+Disponible dans la bibliothèque random ou numpy
+</module>
 </python>
 <scilab>
 <code_scilab>
+rand()
 rand(1,10)
 </code_scilab>
 </scilab>
@@ -1140,7 +1246,7 @@ Argument
 </description>
 <python>
 <code_python>
-???
+arctan2(a.imag,a.real)
 </code_python>
 </python>
 <scilab>
@@ -1166,7 +1272,7 @@ a.conj()
 </python>
 <scilab>
 <code_scilab>
-??
+conj(a)
 </code_scilab>
 </scilab>
 <C>
@@ -1262,7 +1368,8 @@ Vecteur colonne
 </description>
 <python>
 <code_python>
-v=array([1, 2, 3])[:,NewAxis]
+v=array([[1],[2],[3]])
+v=array([1, 2, 3])[:,newaxis]
 v=array([1, 2, 3]).reshape(-1,1)
 </code_python>
 </python>
@@ -1305,12 +1412,12 @@ Accéder à un élément
 </description>
 <python>
 <code_python>
-v[3], M[1,2]
+v[0], M[0,1]
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-v(3), M(1,2)
+v(1), M(1,2)
 </code_scilab>
 </scilab>
 <C>
@@ -1386,16 +1493,16 @@ M(2,:) ou M(:,2)
 
 <ligne>
 <description>
-Extraire une portion de tableau
+Extraire une portion de tableau (2 premières colonnes)
 </description>
 <python>
 <code_python>
-M[2:4,1:2] ????
+M[:,0:2]
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-M(2:4,1:2)
+M(:,1:2)
 </code_scilab>
 </scilab>
 <C>
@@ -1411,12 +1518,12 @@ Extraire des éléments d'un tableau par leurs indices
 </description>
 <python>
 <code_python>
-a.take([0,2]).take([0,3], axis=1)
+M[0,(2,1)]
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-M([1 3],[1 4])
+M([1],[3,2])
 </code_scilab>
 </scilab>
 <C>
@@ -1453,7 +1560,7 @@ Séquence équirépartie quelconque
 </description>
 <python>
 <code_python>
-arange(0,0.1,10.1)
+arange(0,10.1,0.1)
 </code_python>
 </python>
 <scilab>
@@ -1474,7 +1581,7 @@ Tableau de zéros
 </description>
 <python>
 <code_python>
-zeros((2,3),Float)
+zeros((2,3),float)
    
 </code_python>
 </python>
@@ -1496,12 +1603,12 @@ Tableau de uns
 </description>
 <python>
 <code_python>
-ones((2,3),Float)
+ones((2,3),float)
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-ones(2,4)
+ones(2,3)
 </code_scilab>
 </scilab>
 <C>
@@ -1596,27 +1703,6 @@ v.argmax(0)
 </C>
 </ligne>
 
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
 </tableau>
 
 
@@ -1654,7 +1740,6 @@ Transposée
 <python>
 <code_python>
 M.transpose()
-M.conj().transpose()
 </code_python>
 </python>
 <scilab>
@@ -1675,13 +1760,16 @@ M'
 </description>
 <python>
 <code_python>
-linalg.solve(Y,M)
+linalg.solve(M,Y)
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-X=Y\ M
+X=M\Y
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/backslash.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -1717,13 +1805,19 @@ Produit vectoriel
 </description>
 <python>
 <code_python>
-cross(v,w) ??
+cross(v,w)
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-??
+cross(v,w)
 </code_scilab>
+<module>
+  À partir de la version Scilab 5.5.0
+</module>
+<lien>
+  http://help.scilab.org/docs/5.5.0-beta-1/fr_FR/cross.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -1785,7 +1879,7 @@ linalg.eig(M)[0]
 </python>
 <scilab>
 <code_scilab>
-eig(M)
+spec(M)
 </code_scilab>
 </scilab>
 <C>
@@ -1806,8 +1900,11 @@ linalg.eig(M)[1]
 </python>
 <scilab>
 <code_scilab>
-[v,l] = eig(M)
+[v,l] = spec(M)
 </code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/spec.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -1837,48 +1934,6 @@ rank(M)
 </C>
 </ligne>
 
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
 
 </tableau>
 
@@ -1890,17 +1945,20 @@ Définir une liste
 </description>
 <python>
 <code_python>
-Liste1 = []
+Liste1 = [M,v]
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-Liste1 = list() ??
+Liste1 = list(M,v) 
 </code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/list.html
+</lien>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
@@ -1920,7 +1978,7 @@ liste1(i)
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
@@ -1935,46 +1993,87 @@ del liste1[i]
 </python>
 <scilab>
 <code_scilab>
-??
+L(i)=null()
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
 </tableau>
-<h4>Dictionnaires</h4>
 
-Ce sont des listes un peu plus complexes en ce que chacun des éléments qui le compose est au moins composé de 2 membres, l'un étant la clé, l'autre a valeur le tout embrassé par des accolades { }.
+<h4>Dictionnaires et structures</h4>
+
+ <p>Ce sont des listes un peu plus complexes en ce que chacun des éléments qui le compose est au moins composé de 2 membres, l'un étant la clé, l'autre la valeur.</p>
+
+<p>En python, le dictionnaire est embrassé par des accolades { }.</p>
+
+ <p>Scilab propose aussi des structures indicées (<tt>cell()</tt>) qui ne seront pas développées ci-dessous (car plus ou moins équivalentes à une liste).</p>
+
+
 <tableau>
+
 <ligne>
 <description>
 Définir un dictionnaire
 </description>
 <python>
 <code_python>
-dictionnaire1 = {}
+D1 = {'Scal': 5, 'Vect': array([1,2,3])}
+</code_python>
+<lien>
+http://docs.python.org/2/tutorial/datastructures.html
+</lien>
+</python>
+<scilab>
+<code_scilab>
+S1=struct('Scal', 5, 'Vect', [1,2,3])
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/struct.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+Obtenir ou changer un élément
+</description>
+<python>
+<code_python>
+D1['Scal'] = 1 + D1['Vect'][2]
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-??
+S1.Scal = 1 + S1.Vect(3)
 </code_scilab>
+<lien>
+
+</lien>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
+
 <ligne>
 <description>
 Supprimer un élément
 </description>
 <python>
 <code_python>
+del D1['Scal']
 clear() 
 pop(cle) 
 popitem()
@@ -1982,12 +2081,12 @@ popitem()
 </python>
 <scilab>
 <code_scilab>
-??
+S1.Scal=null()
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
@@ -2300,6 +2399,9 @@ for i=1:10
   disp(i);
 endfor
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/for.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2331,6 +2433,9 @@ while (i&lt;10)
   disp(i)
 endwhile
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/while.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2345,21 +2450,24 @@ i++;
 
 <ligne>
 <description>
-
+Interruption d'une boucle
 </description>
 <python>
 <code_python>
-
+break
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-
+break
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/break.html
+</lien>
 </scilab>
 <C>
 <code_C>
-
+break
 </code_C>
 </C>
 </ligne>
@@ -2415,6 +2523,9 @@ else
   disp("hello")
 endif
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/if.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2440,12 +2551,32 @@ Condition CASE
 </python>
 <scilab>
 <code_scilab>
+select i,
+  case 1 then
+    disp("Egal à 1");
+  case %nan then
+    disp("Not a Number");
+  else
+    disp("Aucun des deux");
+end
 
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/case.html
+</lien>
 </scilab>
 <C>
 <code_C>
-
+switch(i) {
+case 2: {
+  b=b+1; }
+  break;
+case 3: {
+  b=b+5; }
+  break;
+default: {
+  b=0; }
+}
 </code_C>
 </C>
 </ligne>
@@ -2476,6 +2607,9 @@ plot(y) ou plot(x,y)
 <code_scilab>
 plot(y) ou plot(x,y)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2497,6 +2631,9 @@ plot(x,y,"-or")
 <code_scilab>
 plot(x,y,"-or")
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2511,13 +2648,16 @@ Effacer le graphique
 </description>
 <python>
 <code_python>
-clf
+clf()
 </code_python>
 </python>
 <scilab>
 <code_scilab>
 clf
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/clf.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2539,6 +2679,9 @@ figure(3)
 <code_scilab>
 figure(3)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/figure.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2558,8 +2701,11 @@ semilogx(x,y)
 </python>
 <scilab>
 <code_scilab>
-semilogx(x,y)
+plot2d("ln",x,y)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot2d.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2579,8 +2725,11 @@ loglog(x,y)
 </python>
 <scilab>
 <code_scilab>
-loglog(x,y)
+plot2d("ll",x,y)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot2d.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2638,6 +2787,9 @@ fic=open("fichier.txt","w")
 fic=mopen("fichier.txt","r")
 fic=mopen("fichier.txt","w")
 </code_scilab>
+<lien>
+ http://help.scilab.org/docs/5.4.1/fr_FR/mopen.html 
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2659,6 +2811,9 @@ fic.close()
 <code_scilab>
 close(fic)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mclose.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2767,6 +2922,9 @@ fic.close()                       # Fermeture du fichier (ne pas oublier)
 ligne=mgetl(f,1)
 lignes=mgetl(f)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mgetl.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2794,6 +2952,9 @@ a,b=loadtxt("Fichier.txt",
 <code_scilab>
 Tableau=mfscanf(-1,fic,"%d,%f,%f")
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfscanf.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2815,6 +2976,9 @@ fic.write("il fait {:f} degres.\n".format(10))
 <code_scilab>
 mfprintf(fic,"il fait %f degres.\n",10)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfprintf.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2837,6 +3001,9 @@ for i in range(len(x))
 <code_scilab>
 mfprintf(fic,"%d,%f,%f",1:100,x,y)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfprintf.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2871,6 +3038,9 @@ fic.close()
 <code_scilab>
 save("fichier.dat",a,b)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/save.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2897,6 +3067,9 @@ fic.close()
 <code_scilab>
 load("fichier.dat","a","b")
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/load.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2920,6 +3093,9 @@ fic=open("fichier.txt","wb")
 fic=mopen("fichier.txt","rb")
 fic=mopen("fichier.txt","wb")
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mopen.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2941,6 +3117,9 @@ octets=fic.read(3)
 <code_scilab>
 octets=mget(3,"c",fic)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mget.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2966,6 +3145,9 @@ mput(ascii("PCSI"),"c",fic)
 mput(83,"i",fic)
 mput(2.3,"f",fic)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mput.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -2996,11 +3178,23 @@ Ouvrir une image
 <code_python>
 im=imread("image.jpg")
 </code_python>
+<lien>
+  http://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.imread.html#scipy.misc.imread
+</lien>
+<module>
+  Module scipy.misc
+</module>
 </python>
 <scilab>
 <code_scilab>
 im=imread('image.jpg")
 </code_scilab>
+<lien>
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imread.html
+</lien>
+<module>
+  Module SIVP
+</module>
 </scilab>
 <C>
 <code_C>
@@ -3017,11 +3211,20 @@ Enregistrer une image
 <code_python>
 imsave("image.jpg",im)
 </code_python>
+<module>
+  Module scipy.misc
+</module>
 </python>
 <scilab>
 <code_scilab>
 imwrite(im,"image.jpg")
 </code_scilab>
+<lien>
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imwrite.html
+</lien>
+<module>
+  Module SIVP
+</module>
 </scilab>
 <C>
 <code_C>
@@ -3039,11 +3242,20 @@ Afficher une image
 <code_python>
 imshow(im)
 </code_python>
+<module>
+  Module scipy.misc
+</module>
 </python>
 <scilab>
 <code_scilab>
 imshow(im)
 </code_scilab>
+<lien>
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imshow.html
+</lien>
+<module>
+  Module SIVP
+</module>
 </scilab>
 <C>
 <code_C>
@@ -3065,6 +3277,9 @@ im.shape
 <code_scilab>
 size(im)
 </code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/size.html
+</lien>
 </scilab>
 <C>
 <code_C>
@@ -3079,6 +3294,34 @@ size(im)
 <h3>Calcul numérique</h3>
 
 <tableau>
+  
+<ligne>
+<description>
+  Intégration numérique d'une fonction <math>f(x)</math> de <math><msub><mi>x</mi><mi>0</mi></msub></math> à <math><msub><mi>x</mi><mi>1</mi></msub></math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+integrate("sin(x)","x",x0,x1)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/integrate.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+ 
 <ligne>
 <description>
   Intégration par la méthode des trapèzes
@@ -3093,15 +3336,47 @@ trapz(y[, x, dx, axis])
 </python>
 <scilab>
 <code_scilab>
-??
+inttrap(x,y)
 </code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/inttrap.html
+</lien>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
+
+<ligne>
+<description>
+Dérivation numérique d'une fonction <math>f(x)</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+derivative(f,x)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/derivative.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
 <ligne>
 <description>
    Différences ﬁnies
@@ -3116,14 +3391,128 @@ diff(a[, n, axis])
 </python>
 <scilab>
 <code_scilab>
-??
+numdiff(y,x)
 </code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/numdiff.html
+</lien>
 </scilab>
 <C>
 <code_C>
-??
+
 </code_C>
 </C>
 </ligne>
+
+<ligne>
+<description>
+  Solution d'une équation non linéaire <math>f(x)=0</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+fsolve(x0,f)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/fsolve.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+  Minimisation d'une fonction <math>f(x)</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+optim(f,x0)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/optim.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+  Intégration numérique d'une équation différentielle ordinaire (ODE)<math><mfrac><mrow>dx</mrow>dt</mfrac>=f(x,t)</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+ode(x0,t0,t,f)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/ode.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+  Intégration numérique d'une équation différentielle algébrique (DAE) <math>f(x,<mfrac><mrow>dx</mrow>dt</mfrac>,t)=0</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+dae(x0,t0,t,f) 
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/en_US/dae.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
 </tableau>
 </body>
