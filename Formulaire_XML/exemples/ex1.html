@@ -7,25 +7,17 @@
 <link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/"/>
 </head>
 
-  <h1>Type d'une variable</h1>
-  <h2>Obtenir le type d'une variable</h2>
-  <p>Python gère les types dynamiquement. En fonction des besoins, il est susceptible de changer le type d'une variable :</p>
-  <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="mi">3</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># int</span>
-<span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="mf">3.2</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># float</span>
-  
+  <H1>Débugger un programme Python</H1>
+  <p>Le débugger s'utilise en important le module pdb (Python debugger). L'utilisation classique est d'introduire un point d'arrêt (<tt>pdb.set_trace()</tt>) à l'endroit voulu dans un programme, une fonction, ou une boucle, de façon à reprendre la main et explorer les variables, voire exécuter les commandes ligne à ligne.</p>
+  <div class="highlight"><pre><span class="kn">import</span> <span class="nn">pdb</span>
+
+<span class="n">T</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 
-  <h2>Forcer le type d'une variable</h2>
-  <p>Dans le cas où la variable doit etre écrite dans un fichier ou utilisée dans un format bien précis, le type doit etre imposé. Un certain nombre de commandes permettent le formatage d'une variable.</p>
-  <div class="highlight"><pre><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">a</span><span class="o">=</span><span class="mi">3</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c"># int</span>
-<span class="n">a</span><span class="o">=</span><span class="n">int16</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mf">3.2</span><span class="p">)</span>
-<span class="n">a</span>              <span class="c"># 6</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c"># numpy.int16</span>
-  
-</pre></div>
-
-  
+<p>Lorsque le programme est interrompu, la commande &quot;n&quot; (next) permet d'exécuter la ligne suivante (ou &quot;s&quot; (step) qui permet d'entrer dans une fonction par exemple), &quot;c&quot; (continue) permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'execution) et &quot;q&quot; (quit) permet d'arrêter le programme.</p>
+<p>Il existe d'autres options plus élaborées (voir documentation).</p>

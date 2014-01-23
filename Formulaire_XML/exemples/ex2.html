@@ -7,38 +7,19 @@
 <link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/"/>
 </head>
 
-  <h1>Changer le type d'une variable</h1>
-  <p>Python gère les types dynamiquement. En fonction des besoins, il est susceptible de changer le type d'une variable :</p>
-  <div class="highlight"><pre><span class="n">a</span><span class="o">=</span><span class="mi">3</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># int</span>
-<span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">+</span><span class="mf">3.2</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># float</span>
-  
+  <H1>Débugger un programme Scilab</H1>
+  <p>La commande <tt>pause</tt> introduit un point d'arrêt à l'endroit voulu dans un programme, une fonction, ou une boucle, de façon à reprendre la main et explorer les variables, voire exécuter les commandes ligne à ligne.</p>
+  <div class="highlight"><pre><span class="n">T</span><span class="p">=[]</span>
+<span class="k">for</span> <span class="no">i</span><span class="p">=</span>1<span class="p">:</span>10
+  <span class="n">T</span><span class="p">=[</span><span class="n">T</span> <span class="no">i</span><span class="p">]</span>
+  <span class="nb">pause</span>
+
+<span class="nb">disp</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 
-  <h2>Forcer le type d'une variable</h2>
-  <p>Dans le cas où la variable doit etre écrite dans un fichier ou utilisée dans un format bien précis, le type doit etre imposé. Un certain nombre de commandes permettent le formatage d'une variable.</p>
-  <div class="highlight"><pre><span class="kn">from</span> <span class="nn">pylab</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="n">a</span><span class="o">=</span><span class="mi">3</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c"># int</span>
-<span class="n">a</span><span class="o">=</span><span class="n">int16</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mf">3.2</span><span class="p">)</span>
-<span class="n">a</span>              <span class="c"># 6</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>        <span class="c"># numpy.int16</span>
-
-<span class="c">#on affecte une valeur numérique à la varibale a</span>
-<span class="n">a</span><span class="o">=</span><span class="mf">0.00000000000000000000000000000000000000000011</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">float32</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c"># Celle ci peut etre codé sur 32 bits</span>
-<span class="mf">1.0930128e-43</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">float64</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># ou sur 64 bits</span>
-<span class="mf">1.1e-43</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># on peut faire codé la valeur en un nombre entier</span>
-<span class="mi">0</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># ou transformer le nombre en une chaîne de carractère </span>
-<span class="s">&#39;1.1e-43&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="s">&#39;la valeur est &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c"># sur laquelle la concaténation sera possible.</span>
-<span class="s">&#39;la valeur est 1.1e-43&#39;</span>
-
-  
+<p>Lorsque le programme est interrompu, la commande <tt>resume</tt> permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'execution) et <tt>abort</tt> permet d'arrêter le programme.</p>
+<p>La fonction <tt>resume</tt> permet aussi de renvoyer certaines variables locales vers l'espace de travail principal par la syntaxe :</p>
+  <div class="highlight"><pre><span class="p">[</span><span class="n">mem1</span><span class="p">,</span> <span class="n">mem2</span><span class="p">]=</span><span class="k">return</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span><span class="n">var2</span><span class="p">)</span>
 </pre></div>
 
-  
+<p>où <tt>var1</tt> et <tt>var2</tt> sont les variables locales à renvoyer, et <tt>mem1</tt> et <tt>mem2</tt> sont les noms des variables qui seront mémorisées dans l'espace de travail principal.</p>
