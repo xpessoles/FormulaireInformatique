@@ -41,7 +41,7 @@ def traite_python(noeud_python,fic):
       # Chaque exemple fait l'objet d'un icone et d'un fichier html dans le dossier exemples
       for exemple in noeud_python.getElementsByTagName("exemple"):
 	No_exemple+=1
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
+	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"+\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
 	traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"python")
       code=noeud_python.getElementsByTagName("code_python")[0].toxml(encoding='utf-8')[13:-14]
       code=unescape(code)
@@ -61,7 +61,7 @@ def traite_scilab(noeud_scilab,fic):
       # Chaque exemple fait l'objet d'un icone et d'un fichier html dans le dossier exemples
       for exemple in noeud_scilab.getElementsByTagName("exemple"):
 	No_exemple+=1
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
+	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"+\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
 	traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"scilab")
       code=noeud_scilab.getElementsByTagName("code_scilab")[0].toxml(encoding='utf-8')[13:-14]
       code=unescape(code)
@@ -81,7 +81,7 @@ def traite_C(noeud_C,fic):
       # Chaque exemple fait l'objet d'un icone et d'un fichier html dans le dossier exemples
       for exemple in noeud_C.getElementsByTagName("exemple"):
 	No_exemple+=1
-	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"?\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
+	fic.write("<a href=\"{}\"><img style=\"border:0; float:right;\" src=\"{}\" alt=\"+\"></a>".format("exemples/ex{:d}.html".format(No_exemple),"style/Add-icon.png"))
 	traite_exemple(exemple,"exemples/ex{:d}.html".format(No_exemple),"C")
       code=noeud_C.getElementsByTagName("code_C")[0].toxml(encoding='utf-8')[8:-9]
       code=unescape(code)
@@ -162,6 +162,8 @@ for node in body[0].childNodes:
         fic.write("<tr class=\"even\">\n")
       
       fic.write("<td>\n")
+      if ligne.getAttribute("ASavoir").lower()=="true":
+	fic.write("<img src=\"style/heart-small-icon.png\" style=\"border:0; float:right;\" alt=\"C\"></img>")
       fic.write(ligne.getElementsByTagName("description")[0].toxml(encoding='utf-8')[13:-14])
       fic.write("</td>\n")
       
