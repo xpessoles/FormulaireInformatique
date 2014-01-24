@@ -6,11 +6,21 @@
 
 <h3>Python et Scilab</h3>
 
+<p>Le langage Python est un langage généraliste, disposant de bibliothèques puissantes en calcul numérique (scipy, numpy et matplotlib) permettant de l'utiliser dans le cadre du calcul scientifique. Plusieurs interfaces graphiques (Spyder, Eric, etc) permettent de travailler dans un environnement Python. Spyder est plus particulièrement conçu pour le calcul scientifique.</p>
+
+<p>Scilab est d'abord un logiciel, proposant une interface graphique de travail et un langage de programmation. Semblable au logiciel Matlab, le logiciel Scilab est dédié au calcul scientifique pour la recherche et l'industrie. Il est moins généraliste que Python, mais dispose d'un outil de modélisation graphique (Xcos) permettant de manipuler des modèles numériques complexes, ce qui manque à Python.</p>
+
 <h3>Pourquoi un peu de C ?</h3>
 
-<h3>titre à trouver...</h3>
-Parler des différences sur le typage des variables, sur le passage par valeur ou par référence des arg des fonctions, sur l'aspect "impératif/objet/fonctionnel" en une ligne.
+<p>Le C et ses variantes est, de très loin, le langage le plus répandu en informatique. Il est néanmoins un peu plus rigide et complexe à manipuler pour l'apprentissage de la programmation (il n'est pas interactif par exemple).</p>
 
+<p>Pour la programmation des micro-contrôleurs (utilisés en TP de SI), il est incontournable. C'est pourquoi le fomulaire ci-dessous propose, pour un petit nombre de fonctionnalités indispensables pour la commande des systèmes embarqués, les expressions équivalentes en C.</p>
+
+<h3>Utilisation du formulaire</h3>
+
+<p>Le formulaire tente de couvrir en une page l'essentiel des commandes utiles dans le cadre du programme de CPGE. Chaque commande est illustrée en une ligne, permettant de se remémorer rapidement la syntaxe des fonctions dans chaque langage. Seules les commandes présentant le symbole <img src="style/heart-pencil-icon-icon.png" style="border:0;" alt="+"></img> sont raisonnablement à connaitre pour les concours.</p>
+
+ <p>Le symblole <img src="style/Add-icon.png" style="border:0;" alt="+"></img> redirige vers une page proposant plus d'explications et d'exemples pour certaines commandes lorsque c'est utile. Le symbole <img style="display: inline;" src="style/FAQ-icon.png" alt="?"></img> renvoie vers une documentation officielle de la commande.</p>
 
 <h2>Formulaire</h2>
 
@@ -88,10 +98,12 @@ apropos cos
 </code_C>
 </C>
 </ligne>
-<ligne>
+
+<ligne ASavoir="True">
 <description>
   Afficher x sur la console interactive
 </description>
+
 <python>
   <module>
     Fonctionnalité standard
@@ -121,7 +133,7 @@ disp(x)
   </module>
 <code_python>
 import bibliotheque as nom
-from bibliotheque import *
+from bibliotheque importe *
 </code_python>
 </python>
 <scilab>
@@ -132,12 +144,11 @@ Menu &gt; Applications
 </scilab>
 <C>
 <code_C>
-#include <stdio.h>
-#include <stdlib.h>
+??
 </code_C>
 </C>
 </ligne>
-<ligne>
+<ligne ASavoir="True">
 <description>
   Définir une fonction
 </description>
@@ -148,7 +159,7 @@ Menu &gt; Applications
 <code_python>
 def nomdelafonction(paramètres):
     bloc d'instruction
-return resultat
+    return resultat
 </code_python>
 </python>
 <scilab>
@@ -363,27 +374,6 @@ float64(a)
 </C>
 </ligne>
 
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
 
 </tableau>
 
@@ -393,7 +383,7 @@ float64(a)
 Il est nécessaire d'importer la bilbiothèqe math.h en C.</p>
 <tableau>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Puissance <i>a<sup>b</sup></i>
 </description>
@@ -414,7 +404,7 @@ pow(a,b)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Reste ou modulo
 </description>
@@ -435,7 +425,7 @@ a%b
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Division entière
 </description>
@@ -456,7 +446,7 @@ a/b avec a et b entiers
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Test égalité
 </description>
@@ -477,7 +467,7 @@ a == b
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Inférieur (ou égal)
 </description>
@@ -498,7 +488,7 @@ a &lt; b ; a &lt;= b
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Supérieur (ou égal)
 </description>
@@ -519,7 +509,7 @@ a&gt;b ; a&gt;=b
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Différent
 </description>
@@ -540,7 +530,7 @@ a != b
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 ET
 </description>
@@ -582,7 +572,7 @@ a &amp; b
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 OU
 </description>
@@ -624,7 +614,7 @@ a | b
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 NON
 </description>
@@ -708,7 +698,7 @@ a ^ b
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 décalage de 3 bits à gauche et à droite
 </description>
@@ -730,7 +720,7 @@ a &lt;&lt; 3 ; a &gt;&gt; 3
 </ligne>
 
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Affichage d'un nombre en binaire
 </description>
@@ -779,7 +769,7 @@ dec2hex(a)
 
 <tableau>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Racine carrée
 </description>
@@ -803,7 +793,7 @@ sqrt(a)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 cosinus
 sinus
@@ -1132,7 +1122,7 @@ rand(1,10)
 </tableau>
 
 
-<p>Le calcul en complexes est possible dans les langages Python et Scilab. En C, des bibliothèques sont requises.... ???</p>
+<p>Le calcul en complexes est possible dans les langages Python et Scilab.</p>
 
 <tableau>
 
@@ -1341,7 +1331,7 @@ conj(a)
 
 <tableau>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Vecteur ligne
 </description>
@@ -1363,7 +1353,7 @@ v=[1, 2, 3] ??
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Vecteur colonne
 </description>
@@ -1386,7 +1376,7 @@ v=[1; 2; 3]
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Tableau à 2 dimensions
 </description>
@@ -1407,7 +1397,7 @@ M=[1, 2, 3; 4, 5, 6]
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Accéder à un élément
 </description>
@@ -1428,7 +1418,7 @@ v(3) ????
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Accéder au dernier élément, et l'avant dernier
 </description>
@@ -1449,7 +1439,7 @@ v($), v($-1)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Dimensions d'un tableau
 </description>
@@ -1471,7 +1461,7 @@ size(M)
 </ligne>
 
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Extraire la 2ème ligne ou 2ème colonne
 </description>
@@ -1492,7 +1482,7 @@ M(2,:) ou M(:,2)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Extraire une portion de tableau (2 premières colonnes)
 </description>
@@ -1513,7 +1503,7 @@ M(:,1:2)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Extraire des éléments d'un tableau par leurs indices
 </description>
@@ -1534,7 +1524,7 @@ M([1],[3,2])
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Séquence équirépartie d'entiers
 </description>
@@ -1555,7 +1545,7 @@ range(1,11)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Séquence équirépartie quelconque
 </description>
@@ -1576,7 +1566,7 @@ arange(0,10.1,0.1)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Tableau de zéros
 </description>
@@ -1598,7 +1588,7 @@ zeros(2,3)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Tableau de uns
 </description>
@@ -1619,7 +1609,7 @@ ones(2,3)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Copier un tableau dans une autre variable
 </description>
@@ -1641,7 +1631,7 @@ w=v
 </ligne>
 
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Multiplication élément par élément
 </description>
@@ -1713,7 +1703,7 @@ v.argmax(0)
 <tableau>
 
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Produit matriciel
 </description>
@@ -1734,7 +1724,7 @@ v*w
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Transposée
 </description>
@@ -1755,7 +1745,7 @@ M'
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
   Résolution de système matriciel <i>M.X=Y</i>
 </description>
@@ -1940,7 +1930,7 @@ rank(M)
 
 <h4>Listes</h4>
 <tableau>
-<ligne>
+<ligne ASavoir="True">
 <description>
 Définir une liste
 </description>
@@ -1963,7 +1953,7 @@ http://help.scilab.org/docs/5.4.1/fr_FR/list.html
 </code_C>
 </C>
 </ligne>
-<ligne>
+<ligne ASavoir="True">
 <description>
 Selectionner par position
 </description>
@@ -2099,7 +2089,7 @@ S1.Scal=null()
 
 <tableau>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Définir une chaîne de caractères
 </description>
@@ -2121,7 +2111,7 @@ mot="Python et Scilab"
 </ligne>
 
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Longueur d'une chaîne
 </description>
@@ -2142,7 +2132,7 @@ strlen(mot)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Extraire des caractères
 </description>
@@ -2163,7 +2153,7 @@ part(mot,[1,2,11:16])
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Concaténation
 </description>
@@ -2247,132 +2237,6 @@ mot.rstrip("\n\r")
 </C>
 </ligne>
 
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
 
 </tableau>
 
@@ -2384,7 +2248,7 @@ mot.rstrip("\n\r")
 <tableau>
 
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Boucle FOR
 </description>
@@ -2413,7 +2277,7 @@ for (i=1;i&lt;=10;i++){
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Boucle WHILE
 </description>
@@ -2473,27 +2337,6 @@ break
 </C>
 </ligne>
 
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
 
 </tableau>
 
@@ -2503,7 +2346,7 @@ break
 <tableau>
 
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Condition IF
 </description>
@@ -2587,6 +2430,40 @@ default: {
 
 <h4>Fonctions</h4>
 
+<tableau>
+
+<ligne ASavoir="True">
+<description>
+  Définir une fonction
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+def nomdelafonction(paramètres):
+    bloc d'instruction
+    return resultat
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+function resultat=nomdelafonction(paramètres)
+    bloc d'instruction
+endfunction
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+
+
+</tableau>
+
+
 <h3>Courbes</h3>
 <h4>Courbes 2D</h4>
 
@@ -2595,7 +2472,7 @@ default: {
 
 <tableau>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Tracé d'une courbe <i>y</i> ou <i>(x,y)</i>
 </description>
@@ -2643,7 +2520,7 @@ plot(x,y,"-or")
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Effacer le graphique
 </description>
@@ -2739,27 +2616,6 @@ plot2d("ll",x,y)
 </C>
 </ligne>
 
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
 </tableau>
 
 
@@ -2773,7 +2629,7 @@ plot2d("ll",x,y)
 
 <tableau>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Ouvrir un fichier texte en lecture/écriture
 </description>
@@ -2799,7 +2655,7 @@ fic=mopen("fichier.txt","w")
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Fermer un fichier
 </description>
@@ -2823,7 +2679,7 @@ close(fic)
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Lire une ou plusieurs lignes
 </description>
@@ -2876,10 +2732,10 @@ texte[4:8]                        # Les lignes 5 à 8 qui nous intéressent...
 T=[]; X=[]; Y=[]                  # Initialisation des listes
 for i in range(4,8):
   ligne=texte[i].rstrip("\n")  # Suppression du retour à la ligne
-  ligne=texte[i].split(",")    # Découpage au niveau des virgules
+  ligne=ligne.split(",")       # Découpage au niveau des virgules
   T.append(int(ligne[0]))      # Convertion en int et ajout au tableau T
   X.append(float(ligne[1]))    # Convertion en float et ajout au tableau X
-  Y.append(float(ligne[1]))    # idem Y
+  Y.append(float(ligne[2]))    # idem Y
 
 # Conversion éventuelle en tableaux "array"
 T=array(T)
@@ -2964,7 +2820,7 @@ Tableau=mfscanf(-1,fic,"%d,%f,%f")
 </C>
 </ligne>
 
-<ligne>
+<ligne ASavoir="True">
 <description>
 Écrire une ligne
 </description>
