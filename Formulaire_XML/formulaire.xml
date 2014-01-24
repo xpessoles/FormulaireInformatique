@@ -1,4 +1,15 @@
 
+<div id="sommaire"> 
+<br>
+<a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="60"/></a>
+<br>
+<h1>Sommaire</h1>
+<a href="http://www.upsti.fr/"> Lien 1 </a>
+<br>
+<br>
+<a href="http://www.upsti.fr/"> Lien 2 </a>
+</div>
+
 <body>
 <h1>Le calcul scientifique sous Python et Scilab</h1>
 
@@ -3442,4 +3453,9 @@ http://help.scilab.org/docs/5.4.1/en_US/dae.html
 </ligne>
 
 </tableau>
+
+<div id="footer"> 
+<img src="style/logoCC.png" alt="licence" height="30"/>
+</div>
+
 </body>

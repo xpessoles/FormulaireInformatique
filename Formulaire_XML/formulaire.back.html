@@ -7,7 +7,31 @@
 <link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/"/>
 </head>
 
-<h1>Le calcul scientifique sous Python et Scilab</h1>
+<div id="sommaire"> 
+
+<br>
+
+<a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="60"/></a>
+
+<br>
+
+<h1>Sommaire</h1>
+
+<a href="http://www.upsti.fr/"> Lien 1 </a>
+
+<br>
+<br>
+
+<a href="http://www.upsti.fr/"> Lien 2 </a>
+
+
+</div>
+
+<body>
+
+
+<h1>Le calcul scientifique sous Python et Scilab</h1>  
+
 
 <h2>Les spécificités des langages pour le calcul scientifique</h2>
 
@@ -36,12 +60,13 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">file</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<div class="highlight"><pre><span class="nb">exec</span><span class="p">(</span><span class="s">&quot;fichier.sce&quot;</span><span class="p">)</span>
+<span class="nb">exec</span> <span class="n">fichier</span><span class="p">.</span><span class="n">sce</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -55,31 +80,32 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 <div class="highlight"><pre><span class="n">help</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<div class="highlight"><pre><span class="nb">help</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="odd">
 <td>
 
-  Afficher l'aide associée à la commande test
+  Afficher l'aide associée à la commande cosinus
 </td>
 <td title="
     Fonctionnalité standard
   ">
-<div class="highlight"><pre><span class="n">help</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">help</span><span class="p">(</span><span class="n">cos</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<div class="highlight"><pre><span class="nb">help</span> <span class="nb">cos</span>
+<span class="nb">apropos</span> <span class="nb">cos</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -93,11 +119,11 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 <div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">disp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="o">??</span>
 </pre></div>
 </td>
@@ -113,11 +139,12 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 <span class="kn">from</span> <span class="nn">bibliotheque</span> <span class="nn">importe</span> <span class="err">*</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<div class="highlight"><pre><span class="n">Menu</span> <span class="o">&gt;</span> <span class="n">Applications</span>
+  <span class="o">&gt;</span> <span class="n">Gestionnaire</span> <span class="n">de</span> <span class="n">module</span> <span class="o">-</span> <span class="n">Atoms</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="o">??</span>
 </pre></div>
 </td>
@@ -134,14 +161,38 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 <span class="k">return</span> <span class="n">resultat</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="k">function</span><span class="w"> </span>resultat<span class="p">=</span><span class="nf">nomdelafonction</span><span class="p">(</span>paramètres<span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">bloc</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">instruction</span>
 <span class="k">endfunction</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="o">??</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Interruption d'un programme pour débug
+</td>
+<td title="
+  module pdb
+">
+<a href="
+  http://docs.python.org/2/library/pdb.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex1.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pdb</span>
+<span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+</pre></div>
+</td>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/pause.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex2.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">pause</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr></table>
@@ -163,14 +214,18 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
   ">
 <a href="
 http://docs.python.org/2/library/stdtypes.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex1.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex3.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/typeof.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<span class="nb">inttype</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">explicite</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">programme</span><span class="p">...</span>
 </pre></div>
 </td>
@@ -184,20 +239,22 @@ Changement de type
   ">
 <a href="
 http://docs.python.org/2/library/stdtypes.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex2.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex4.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">int</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/int8.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">int</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 <span class="nb">int8</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 <span class="nb">int16</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 <span class="n">float32</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 <span class="n">float64</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -210,11 +267,11 @@ http://docs.python.org/2/library/stdtypes.html
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -236,11 +293,11 @@ Puissance <i>a<sup>b</sup></i>
 <div class="highlight"><pre><span class="n">a</span><span class="o">**</span><span class="n">b</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="no">a</span><span class="o">.^</span><span class="n">b</span>
+<td title="">
+<div class="highlight"><pre><span class="no">a</span>^<span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -253,11 +310,11 @@ Reste ou modulo
 <div class="highlight"><pre><span class="n">a</span><span class="o">%</span><span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">modulo</span><span class="p">(</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span><span class="o">%</span><span class="n">b</span>
 </pre></div>
 </td>
@@ -270,11 +327,11 @@ Division entière
 <div class="highlight"><pre><span class="n">a</span><span class="o">//</span><span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">floor</span><span class="p">(</span><span class="no">a</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span><span class="o">/</span><span class="n">b</span> <span class="n">avec</span> <span class="n">a</span> <span class="n">et</span> <span class="n">b</span> <span class="n">entiers</span>
 </pre></div>
 </td>
@@ -284,15 +341,15 @@ Division entière
 Test égalité
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">a</span><span class="o">==</span><span class="n">b</span>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="no">a</span><span class="o">==</span><span class="n">b</span>
+<td title="">
+<div class="highlight"><pre><span class="no">a</span> <span class="o">==</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">a</span><span class="o">==</span><span class="n">b</span>
+<td title="">
+<div class="highlight"><pre><span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
 </pre></div>
 </td>
 </tr><tr class="odd">
@@ -304,11 +361,11 @@ Inférieur (ou égal)
 <div class="highlight"><pre><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">;</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="no">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">;</span> <span class="no">a</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">;</span> <span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
 </pre></div>
 </td>
@@ -318,14 +375,14 @@ Inférieur (ou égal)
 Supérieur (ou égal)
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span> <span class="p">;</span> <span class="n">a</span><span class="o">&gt;=</span><span class="n">b</span>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="p">;</span> <span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="no">a</span><span class="o">&gt;</span><span class="n">b</span> <span class="p">;</span> <span class="no">a</span><span class="o">&gt;</span><span class="p">=</span><span class="n">b</span>
+<td title="">
+<div class="highlight"><pre><span class="no">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="p">;</span> <span class="no">a</span> <span class="o">&gt;</span> <span class="p">=</span><span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span> <span class="p">;</span> <span class="n">a</span><span class="o">&gt;=</span><span class="n">b</span>
 </pre></div>
 </td>
@@ -335,15 +392,15 @@ Supérieur (ou égal)
 Différent
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">a</span><span class="o">!=</span><span class="n">b</span>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="no">a</span><span class="o">~=</span><span class="n">b</span>
+<td title="">
+<div class="highlight"><pre><span class="no">a</span> <span class="o">~=</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">a</span><span class="o">!=</span><span class="n">b</span>
+<td title="">
+<div class="highlight"><pre><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -355,11 +412,11 @@ ET
 <div class="highlight"><pre><span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="no">a</span> <span class="o">&amp;</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span>
 </pre></div>
 </td>
@@ -372,11 +429,11 @@ ET bitwise
 <div class="highlight"><pre><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">bitand</span><span class="p">(</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
 </pre></div>
 </td>
@@ -389,11 +446,11 @@ OU
 <div class="highlight"><pre><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="no">a</span> <span class="o">|</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span> <span class="o">||</span> <span class="n">b</span>
 </pre></div>
 </td>
@@ -406,11 +463,11 @@ OU bitwise
 <div class="highlight"><pre><span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">bitor</span><span class="p">(</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
 </pre></div>
 </td>
@@ -423,11 +480,11 @@ NON
 <div class="highlight"><pre><span class="ow">not</span> <span class="n">a</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="o">~</span><span class="no">a</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="o">!</span><span class="n">a</span>
 </pre></div>
 </td>
@@ -437,14 +494,14 @@ NON
 NON bitwise
 </td>
 <td title="">
-<div class="highlight"><pre><span class="err">??</span> 
+<div class="highlight"><pre><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">bitcmp</span><span class="p">(</span><span class="no">a</span><span class="p">,</span>8<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </td>
@@ -454,15 +511,15 @@ NON bitwise
 OU exclusif
 </td>
 <td title="">
-<div class="highlight"><pre><span class="ow">not</span> <span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">~</span><span class="p">(</span><span class="no">a</span><span class="o">==</span><span class="n">b</span><span class="p">)</span>
+<td title="">
+<div class="highlight"><pre><span class="o">~</span><span class="p">(</span><span class="no">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">!</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="p">)</span>
+<td title="">
+<div class="highlight"><pre><span class="o">!</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
 </tr><tr class="odd">
@@ -471,15 +528,15 @@ OU exclusif
 OU exclusif bitwise
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">a</span><span class="o">^</span><span class="n">b</span>
+<div class="highlight"><pre><span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">bitxor</span><span class="p">(</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">a</span><span class="o">^</span><span class="n">b</span>
+<td title="">
+<div class="highlight"><pre><span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -491,12 +548,46 @@ décalage de 3 bits à gauche et à droite
 <div class="highlight"><pre><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span> <span class="p">;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="no">a</span><span class="o">*</span>2^3 <span class="p">;</span> <span class="nb">floor</span><span class="p">(</span><span class="no">a</span><span class="o">/</span>2^3<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span> <span class="p">;</span> <span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+Affichage d'un nombre en binaire
+</td>
+<td title="">
+<div class="highlight"><pre><span class="nb">bin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre><span class="nb">dec2bin</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+Affichage d'un nombre en hexadécimal
+</td>
+<td title="">
+<div class="highlight"><pre><span class="nb">hex</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre><span class="nb">dec2hex</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr></table>
@@ -518,11 +609,11 @@ Racine carrée
 <div class="highlight"><pre><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">sqrt</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -541,13 +632,13 @@ tangente
 <span class="n">tan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">cos</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 <span class="nb">sin</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 <span class="nb">tan</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">tan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -566,12 +657,12 @@ arcsin
 <span class="n">asin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">acos</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 <span class="nb">asin</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -584,11 +675,11 @@ arctangente sur ]-π/2, π/2[
 <div class="highlight"><pre><span class="n">atan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">atan</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">atan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -603,11 +694,11 @@ arctangente sur ]-π, π]
 <div class="highlight"><pre><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">atan</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="o">??</span>
 </pre></div>
 </td>
@@ -620,11 +711,11 @@ ch, sh, th
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -639,11 +730,11 @@ Logarithme Néperien (ln)
 <div class="highlight"><pre><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">log</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -658,11 +749,11 @@ Logarithme en base 10 (log)
 <div class="highlight"><pre><span class="n">log10</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">log10</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">log10</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -677,12 +768,12 @@ Logarithme en base 10 (log)
 <div class="highlight"><pre><span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<div class="highlight"><pre><span class="nb">log</span><span class="p">(</span><span class="no">a</span><span class="p">)</span><span class="o">/</span><span class="nb">log</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -696,11 +787,11 @@ Logarithme en base 10 (log)
 <div class="highlight"><pre><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">exp</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -713,13 +804,15 @@ Arrondi entier
     Disponible dans la bibliothèque Numpy ou Math
   ">
 <div class="highlight"><pre><span class="n">around</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">fix</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">round</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<span class="nb">fix</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -734,11 +827,11 @@ Arrondi à l'entier supérieur
 <div class="highlight"><pre><span class="n">ceil</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">ceil</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">ceil</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -753,47 +846,34 @@ Arrondi à l'entier inférieur
 <div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">floor</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
 </tr><tr class="even">
 <td>
 
-Arrondi vers zéro
+Générer un nombre ou une liste aléatoire
 </td>
 <td title="
-    Disponible dans la bibliothèque Numpy ou Math
-  ">
-<div class="highlight"><pre><span class="n">fix</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+Disponible dans la bibliothèque random ou numpy
+">
+<a href="
+http://docs.scipy.org/doc/numpy/reference/routines.random.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
-</td>
-<td>
-<div class="highlight"><pre><span class="nb">fix</span><span class="p">(</span><span class="no">a</span><span class="p">)</span> ??
-</pre></div>
-</td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
-</pre></div>
-</td>
-</tr><tr class="odd">
-<td>
-
-Générer une liste aléatoire
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10</span><span class="p">,))</span>
+<div class="highlight"><pre><span class="nb">rand</span><span class="p">()</span>
+<span class="nb">rand</span><span class="p">(</span>1<span class="p">,</span>10<span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">rand</span><span class="p">(</span>1<span class="p">,</span>10<span class="p">)</span>
-</pre></div>
-</td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="o">??</span>
 </pre></div>
 </td>
@@ -814,11 +894,11 @@ imaginaire <i>i</i>
 <div class="highlight"><pre><span class="mi">1j</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="no">%i</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -831,11 +911,11 @@ Nombre complexes <i>3+4i</i>
 <div class="highlight"><pre><span class="mi">3</span><span class="o">+</span><span class="mi">4j</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>3<span class="o">+</span>4<span class="o">*</span><span class="no">%i</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -848,11 +928,11 @@ Partie réelle de <i>a</i>
 <div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">real</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">real</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -865,11 +945,11 @@ Partie imaginaire de <i>a</i>
 <div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">imag</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">imag</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -882,11 +962,11 @@ Module
 <div class="highlight"><pre><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">abs</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -896,14 +976,14 @@ Module
 Argument
 </td>
 <td title="">
-<div class="highlight"><pre><span class="err">???</span>
+<div class="highlight"><pre><span class="n">arctan2</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span><span class="n">a</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">atan</span><span class="p">(</span><span class="nb">imag</span><span class="p">(</span><span class="no">a</span><span class="p">),</span><span class="nb">real</span><span class="p">(</span><span class="no">a</span><span class="p">))</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -916,11 +996,11 @@ Conjugué de <i>a</i>
 <div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<div class="highlight"><pre><span class="nb">conj</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -933,11 +1013,11 @@ Conjugué de <i>a</i>
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -950,11 +1030,11 @@ Conjugué de <i>a</i>
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -984,12 +1064,12 @@ Vecteur ligne
 <div class="highlight"><pre><span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">v</span><span class="p">=[</span>1<span class="p">,</span> 2<span class="p">,</span> 3<span class="p">]</span> <span class="n">ou</span> 
 <span class="p">[</span>1 2 3<span class="p">]</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">v</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">??</span>
 </pre></div>
 </td>
@@ -999,15 +1079,16 @@ Vecteur ligne
 Vecteur colonne
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])[:,</span><span class="n">NewAxis</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+<span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])[:,</span><span class="n">newaxis</span><span class="p">]</span>
 <span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">v</span><span class="p">=[</span>1<span class="p">;</span> 2<span class="p">;</span> 3<span class="p">]</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1020,11 +1101,11 @@ Tableau à 2 dimensions
 <div class="highlight"><pre><span class="n">M</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">M</span><span class="p">=[</span>1<span class="p">,</span> 2<span class="p">,</span> 3<span class="p">;</span> 4<span class="p">,</span> 5<span class="p">,</span> 6<span class="p">]</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1034,14 +1115,14 @@ Tableau à 2 dimensions
 Accéder à un élément
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">v</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">v</span><span class="p">(</span>3<span class="p">),</span> <span class="n">M</span><span class="p">(</span>1<span class="p">,</span>2<span class="p">)</span>
+<td title="">
+<div class="highlight"><pre><span class="n">v</span><span class="p">(</span>1<span class="p">),</span> <span class="n">M</span><span class="p">(</span>1<span class="p">,</span>2<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">v</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">????</span>
 </pre></div>
 </td>
@@ -1054,11 +1135,11 @@ Accéder au dernier élément, et l'avant dernier
 <div class="highlight"><pre><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">v</span><span class="p">(</span>$<span class="p">),</span> <span class="n">v</span><span class="p">(</span>$<span class="o">-</span>1<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1071,11 +1152,11 @@ Dimensions d'un tableau
 <div class="highlight"><pre><span class="n">M</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">size</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1088,28 +1169,28 @@ Extraire la 2ème ligne ou 2ème colonne
 <div class="highlight"><pre><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="n">ou</span> <span class="n">M</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">M</span><span class="p">(</span>2<span class="p">,:)</span> <span class="n">ou</span> <span class="n">M</span><span class="p">(:,</span>2<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="even">
 <td>
 
-Extraire une portion de tableau
+Extraire une portion de tableau (2 premières colonnes)
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="err">????</span>
+<div class="highlight"><pre><span class="n">M</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">M</span><span class="p">(</span>2<span class="p">:</span>4<span class="p">,</span>1<span class="p">:</span>2<span class="p">)</span>
+<td title="">
+<div class="highlight"><pre><span class="n">M</span><span class="p">(:,</span>1<span class="p">:</span>2<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1119,14 +1200,14 @@ Extraire une portion de tableau
 Extraire des éléments d'un tableau par leurs indices
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">a</span><span class="o">.</span><span class="n">take</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">take</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">M</span><span class="p">([</span>1 3<span class="p">],[</span>1 4<span class="p">])</span>
+<td title="">
+<div class="highlight"><pre><span class="n">M</span><span class="p">([</span>1<span class="p">],[</span>3<span class="p">,</span>2<span class="p">])</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1139,11 +1220,11 @@ Séquence équirépartie d'entiers
 <div class="highlight"><pre><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>1<span class="p">:</span>10
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1153,14 +1234,14 @@ Séquence équirépartie d'entiers
 Séquence équirépartie quelconque
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">10.1</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">10.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>0<span class="p">:</span>0<span class="p">.</span>1<span class="p">:</span>10
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1170,15 +1251,15 @@ Séquence équirépartie quelconque
 Tableau de zéros
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">Float</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="nb">float</span><span class="p">)</span>
    
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">zeros</span><span class="p">(</span>2<span class="p">,</span>3<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1188,14 +1269,14 @@ Tableau de zéros
 Tableau de uns
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">Float</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="nb">float</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">ones</span><span class="p">(</span>2<span class="p">,</span>4<span class="p">)</span>
+<td title="">
+<div class="highlight"><pre><span class="nb">ones</span><span class="p">(</span>2<span class="p">,</span>3<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1208,11 +1289,11 @@ Copier un tableau dans une autre variable
 <div class="highlight"><pre><span class="n">w</span><span class="o">=</span><span class="n">v</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">w</span><span class="p">=</span><span class="n">v</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1225,11 +1306,11 @@ Multiplication élément par élément
 <div class="highlight"><pre><span class="n">v</span><span class="o">*</span><span class="n">w</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">v</span><span class="o">.*</span><span class="n">w</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1242,11 +1323,11 @@ Maximum et minimum d'un tableau
 <div class="highlight"><pre><span class="n">v</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">v</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1259,28 +1340,11 @@ Indice <i>i</i> du maximum
 <div class="highlight"><pre><span class="n">v</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="p">[</span><span class="n">m</span><span class="p">,</span><span class="no">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="even">
-<td>
-
-
-</td>
 <td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td>
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td>
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1302,11 +1366,11 @@ Produit matriciel
 <div class="highlight"><pre><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">v</span><span class="o">*</span><span class="n">w</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1317,14 +1381,13 @@ Transposée
 </td>
 <td title="">
 <div class="highlight"><pre><span class="n">M</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-<span class="n">M</span><span class="o">.</span><span class="n">conj</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">M</span><span class="o">&#39;</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1334,14 +1397,16 @@ Transposée
   Résolution de système matriciel <i>M.X=Y</i>
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="n">M</span><span class="p">)</span>
+<div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">X</span><span class="p">=</span><span class="n">Y</span><span class="o">\</span> <span class="n">M</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/backslash.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">X</span><span class="p">=</span><span class="n">M</span><span class="o">\</span><span class="n">Y</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1354,11 +1419,11 @@ Produit scalaire de deux vecteurs
 <div class="highlight"><pre><span class="n">vdot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">v</span><span class="o">&#39;*</span><span class="n">w</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1368,14 +1433,18 @@ Produit scalaire de deux vecteurs
 Produit vectoriel
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">cross</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span> <span class="err">??</span>
+<div class="highlight"><pre><span class="n">cross</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="
+  À partir de la version Scilab 5.5.0
+">
+<a href="
+  http://help.scilab.org/docs/5.5.0-beta-1/fr_FR/cross.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">cross</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1388,11 +1457,11 @@ Déterminant
 <div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">det</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1405,11 +1474,11 @@ Inverse
 <div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">inv</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1422,11 +1491,11 @@ Valeurs propres
 <div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<td title="">
+<div class="highlight"><pre><span class="nb">spec</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1439,11 +1508,13 @@ Vecteurs propres
 <div class="highlight"><pre><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="p">[</span><span class="n">v</span><span class="p">,</span><span class="n">l</span><span class="p">]</span> <span class="p">=</span> <span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/spec.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="p">[</span><span class="n">v</span><span class="p">,</span><span class="n">l</span><span class="p">]</span> <span class="p">=</span> <span class="nb">spec</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1456,45 +1527,11 @@ Rang
 <div class="highlight"><pre><span class="n">rank</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">rank</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="odd">
-<td>
-
-
-</td>
 <td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td>
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td>
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="even">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td>
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td>
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1510,15 +1547,17 @@ Rang
 Définir une liste
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">Liste1</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><pre><span class="n">Liste1</span> <span class="o">=</span> <span class="p">[</span><span class="n">M</span><span class="p">,</span><span class="n">v</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">Liste1</span> <span class="p">=</span> <span class="nb">list</span><span class="p">()</span> ??
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/list.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">Liste1</span> <span class="p">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> 
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -1530,12 +1569,12 @@ Selectionner par position
 <div class="highlight"><pre><span class="n">liste1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">liste1</span><span class="p">(</span><span class="no">i</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="odd">
@@ -1547,19 +1586,26 @@ Supprimer un élément
 <div class="highlight"><pre><span class="k">del</span> <span class="n">liste1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<div class="highlight"><pre><span class="n">L</span><span class="p">(</span><span class="no">i</span><span class="p">)=</span><span class="nb">null</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr></table>
 
-<h4>Dictionnaires</h4>
 
-Ce sont des listes un peu plus complexes en ce que chacun des éléments qui le compose est au moins composé de 2 membres, l'un étant la clé, l'autre a valeur le tout embrassé par des accolades { }.
+<h4>Dictionnaires et structures</h4>
+
+ <p>Ce sont des listes un peu plus complexes en ce que chacun des éléments qui le compose est au moins composé de 2 membres, l'un étant la clé, l'autre la valeur.</p>
+
+<p>En python, le dictionnaire est embrassé par des accolades { }.</p>
+
+ <p>Scilab propose aussi des structures indicées (<tt>cell()</tt>) qui ne seront pas développées ci-dessous (car plus ou moins équivalentes à une liste).</p>
+
+
 <table>
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
@@ -1568,34 +1614,58 @@ Ce sont des listes un peu plus complexes en ce que chacun des éléments qui le 
 Définir un dictionnaire
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">dictionnaire1</span> <span class="o">=</span> <span class="p">{}</span>
+<a href="
+http://docs.python.org/2/tutorial/datastructures.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">D1</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Scal&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&#39;Vect&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])}</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/struct.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">S1</span><span class="p">=</span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;Scal&#39;</span><span class="p">,</span> 5<span class="p">,</span> <span class="s">&#39;Vect&#39;</span><span class="p">,</span> <span class="p">[</span>1<span class="p">,</span>2<span class="p">,</span>3<span class="p">])</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="even">
 <td>
 
+Obtenir ou changer un élément
+</td>
+<td title="">
+<div class="highlight"><pre><span class="n">D1</span><span class="p">[</span><span class="s">&#39;Scal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">D1</span><span class="p">[</span><span class="s">&#39;Vect&#39;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</td>
+<td title="">
+<a href="
+
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">S1</span><span class="p">.</span><span class="n">Scal</span> <span class="p">=</span> 1 <span class="o">+</span> <span class="n">S1</span><span class="p">.</span><span class="n">Vect</span><span class="p">(</span>3<span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
 Supprimer un élément
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">clear</span><span class="p">()</span> 
+<div class="highlight"><pre><span class="k">del</span> <span class="n">D1</span><span class="p">[</span><span class="s">&#39;Scal&#39;</span><span class="p">]</span>
+<span class="n">clear</span><span class="p">()</span> 
 <span class="n">pop</span><span class="p">(</span><span class="n">cle</span><span class="p">)</span> 
 <span class="n">popitem</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<div class="highlight"><pre><span class="n">S1</span><span class="p">.</span><span class="n">Scal</span><span class="p">=</span><span class="nb">null</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="o">??</span>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr></table>
@@ -1616,11 +1686,11 @@ Définir une chaîne de caractères
 <div class="highlight"><pre><span class="n">mot</span><span class="o">=</span><span class="s">&quot;Python et Scilab&quot;</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">mot</span><span class="p">=</span><span class="s">&quot;Python et Scilab&quot;</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">mot</span><span class="o">=</span><span class="s">&quot;Python et Scilab&quot;</span>
 </pre></div>
 </td>
@@ -1633,11 +1703,11 @@ Longueur d'une chaîne
 <div class="highlight"><pre><span class="nb">len</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">length</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">strlen</span><span class="p">(</span><span class="n">mot</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -1650,11 +1720,11 @@ Extraire des caractères
 <div class="highlight"><pre><span class="n">mot</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">part</span><span class="p">(</span><span class="n">mot</span><span class="p">,[</span>1<span class="p">,</span>2<span class="p">,</span>11<span class="p">:</span>16<span class="p">])</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1667,11 +1737,11 @@ Concaténation
 <div class="highlight"><pre><span class="n">mot</span><span class="o">=</span><span class="s">&quot;python&quot;</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="s">&quot;Scilab&quot;</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">mot</span><span class="p">=</span><span class="s">&quot;python&quot;</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="s">&quot;Scilab&quot;</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="n">strcat</span><span class="p">(</span><span class="n">mot1</span><span class="p">,</span><span class="n">mot2</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -1684,11 +1754,11 @@ Replacer une portion de chaîne
 <div class="highlight"><pre><span class="n">mot</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;Scilab&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">strsubst</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span><span class="s">&quot;Scilab&quot;</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1701,11 +1771,11 @@ Découper une chaîne de caractères
 <div class="highlight"><pre><span class="n">mot</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="nb">strsplit</span><span class="p">(</span><span class="n">mot</span><span class="p">,</span><span class="s">&quot; &quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1718,11 +1788,11 @@ Supprimer des caractères de retour à la ligne
 <div class="highlight"><pre><span class="n">mot</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n\r</span><span class="s">&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1735,11 +1805,11 @@ Supprimer des caractères de retour à la ligne
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1752,11 +1822,11 @@ Supprimer des caractères de retour à la ligne
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1769,11 +1839,11 @@ Supprimer des caractères de retour à la ligne
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1786,11 +1856,11 @@ Supprimer des caractères de retour à la ligne
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1803,11 +1873,11 @@ Supprimer des caractères de retour à la ligne
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1820,11 +1890,11 @@ Supprimer des caractères de retour à la ligne
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1848,13 +1918,15 @@ Boucle FOR
   <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="k">for</span> <span class="no">i</span><span class="p">=</span>1<span class="p">:</span>10
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/for.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="k">for</span> <span class="no">i</span><span class="p">=</span>1<span class="p">:</span>10
   <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">);</span>
 <span class="k">endfor</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1872,15 +1944,17 @@ Boucle WHILE
   <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="no">i</span><span class="p">=</span>0
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/while.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="no">i</span><span class="p">=</span>0
 <span class="k">while</span> <span class="p">(</span><span class="no">i</span><span class="o">&lt;</span>10<span class="p">)</span>
   <span class="no">i</span><span class="p">=</span><span class="no">i</span><span class="o">+</span>1
   <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">)</span>
 <span class="k">endwhile</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span><span class="mi">10</span><span class="p">;</span>
 <span class="k">while</span> <span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">){</span>
 <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
@@ -1891,18 +1965,20 @@ Boucle WHILE
 </tr><tr class="odd">
 <td>
 
-
+Interruption d'une boucle
 </td>
 <td title="">
-<div class="highlight"><pre>
+<div class="highlight"><pre><span class="k">break</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/break.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="k">break</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>
+<td title="">
+<div class="highlight"><pre><span class="k">break</span>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -1914,11 +1990,11 @@ Boucle WHILE
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -1942,15 +2018,17 @@ Condition IF
   <span class="k">print</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="no">i</span><span class="o">&gt;</span>3<span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/if.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="no">i</span><span class="o">&gt;</span>3<span class="p">)</span>
   <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">)</span>
 <span class="k">else</span>
   <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
 <span class="k">endif</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">3</span><span class="p">){</span>
   <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1968,12 +2046,30 @@ Condition CASE
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/case.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">select</span> <span class="no">i</span><span class="p">,</span>
+  <span class="k">case</span> 1 <span class="nb">then</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Egal à 1&quot;</span><span class="p">);</span>
+  <span class="k">case</span> <span class="no">%nan</span> <span class="nb">then</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Not a Number&quot;</span><span class="p">);</span>
+  <span class="k">else</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Aucun des deux&quot;</span><span class="p">);</span>
+<span class="k">end</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>
+<td title="">
+<div class="highlight"><pre><span class="k">switch</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">case</span> <span class="mi">2</span>: <span class="p">{</span>
+  <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="mi">3</span>: <span class="p">{</span>
+  <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="o">+</span><span class="mi">5</span><span class="p">;</span> <span class="p">}</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="nl">default:</span> <span class="p">{</span>
+  <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </td>
 </tr></table>
@@ -1999,11 +2095,13 @@ Tracé d'une courbe <i>y</i> ou <i>(x,y)</i>
 <div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">ou</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">ou</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">ou</span> <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2016,11 +2114,13 @@ Tracé de points (o) rouges (r) reliés par des lignes (-)
 <div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&quot;-or&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&quot;-or&quot;</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">&quot;-or&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2030,14 +2130,16 @@ Tracé de points (o) rouges (r) reliés par des lignes (-)
 Effacer le graphique
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">clf</span>
+<div class="highlight"><pre><span class="n">clf</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">clf</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/clf.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">clf</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2050,11 +2152,13 @@ Ouvrir une nouvelle figure
 <div class="highlight"><pre><span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">figure</span><span class="p">(</span>3<span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/figure.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">figure</span><span class="p">(</span>3<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2067,11 +2171,13 @@ Ouvrir une nouvelle figure
 <div class="highlight"><pre><span class="n">semilogx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">semilogx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot2d.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">plot2d</span><span class="p">(</span><span class="s">&quot;ln&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2084,11 +2190,13 @@ Ouvrir une nouvelle figure
 <div class="highlight"><pre><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">loglog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot2d.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">plot2d</span><span class="p">(</span><span class="s">&quot;ll&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2101,11 +2209,11 @@ Ouvrir une nouvelle figure
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2133,12 +2241,14 @@ Ouvrir un fichier texte en lecture/écriture
 <span class="n">fic</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">fic</span><span class="p">=</span><span class="nb">mopen</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<td title="">
+<a href="
+ http://help.scilab.org/docs/5.4.1/fr_FR/mopen.html 
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">fic</span><span class="p">=</span><span class="nb">mopen</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">fic</span><span class="p">=</span><span class="nb">mopen</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;w&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2151,11 +2261,13 @@ Fermer un fichier
 <div class="highlight"><pre><span class="n">fic</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">close</span><span class="p">(</span><span class="n">fic</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/mclose.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">close</span><span class="p">(</span><span class="n">fic</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2167,16 +2279,18 @@ Lire une ou plusieurs lignes
 <td title="">
 <a href="
 http://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex3.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">ligne</span><span class="o">=</span><span class="n">fic</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex5.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">ligne</span><span class="o">=</span><span class="n">fic</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="n">lignes</span><span class="o">=</span><span class="n">fic</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">ligne</span><span class="p">=</span><span class="nb">mgetl</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>1<span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/mgetl.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">ligne</span><span class="p">=</span><span class="nb">mgetl</span><span class="p">(</span><span class="n">f</span><span class="p">,</span>1<span class="p">)</span>
 <span class="n">lignes</span><span class="p">=</span><span class="nb">mgetl</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2195,11 +2309,13 @@ Lire un tableau formaté
   <span class="n">unpack</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">Tableau</span><span class="p">=</span><span class="nb">mfscanf</span><span class="p">(</span><span class="o">-</span>1<span class="p">,</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;%d,%f,%f&quot;</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfscanf.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">Tableau</span><span class="p">=</span><span class="nb">mfscanf</span><span class="p">(</span><span class="o">-</span>1<span class="p">,</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;%d,%f,%f&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2212,11 +2328,13 @@ Lire un tableau formaté
 <div class="highlight"><pre><span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;il fait {:f} degres.</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">mfprintf</span><span class="p">(</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;il fait %f degres.\n&quot;</span><span class="p">,</span>10<span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfprintf.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">mfprintf</span><span class="p">(</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;il fait %f degres.\n&quot;</span><span class="p">,</span>10<span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2230,11 +2348,13 @@ Lire un tableau formaté
   <span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;{:d},{:f},{:f}</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">mfprintf</span><span class="p">(</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;%d,%f,%f&quot;</span><span class="p">,</span>1<span class="p">:</span>100<span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfprintf.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">mfprintf</span><span class="p">(</span><span class="n">fic</span><span class="p">,</span><span class="s">&quot;%d,%f,%f&quot;</span><span class="p">,</span>1<span class="p">:</span>100<span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2261,11 +2381,13 @@ Sauver des variables dans un fichier binaire
 <span class="n">fic</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">save</span><span class="p">(</span><span class="s">&quot;fichier.dat&quot;</span><span class="p">,</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/save.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">save</span><span class="p">(</span><span class="s">&quot;fichier.dat&quot;</span><span class="p">,</span><span class="no">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2282,11 +2404,13 @@ Recharger des variables du fichier binaire
 <span class="n">fic</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">load</span><span class="p">(</span><span class="s">&quot;fichier.dat&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/load.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">load</span><span class="p">(</span><span class="s">&quot;fichier.dat&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2300,12 +2424,14 @@ Ouvrir un fichier binaire en lecture/écriture
 <span class="n">fic</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">fic</span><span class="p">=</span><span class="nb">mopen</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/mopen.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">fic</span><span class="p">=</span><span class="nb">mopen</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
 <span class="n">fic</span><span class="p">=</span><span class="nb">mopen</span><span class="p">(</span><span class="s">&quot;fichier.txt&quot;</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2318,11 +2444,13 @@ Lire 3 octets dans un fichier binaire
 <div class="highlight"><pre><span class="n">octets</span><span class="o">=</span><span class="n">fic</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">octets</span><span class="p">=</span><span class="nb">mget</span><span class="p">(</span>3<span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/mget.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">octets</span><span class="p">=</span><span class="nb">mget</span><span class="p">(</span>3<span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2337,13 +2465,15 @@ Lire 3 octets dans un fichier binaire
 <span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">float32</span><span class="p">(</span><span class="mf">2.3</span><span class="p">))</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">mput</span><span class="p">(</span><span class="nb">ascii</span><span class="p">(</span><span class="s">&quot;PCSI&quot;</span><span class="p">),</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/mput.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">mput</span><span class="p">(</span><span class="nb">ascii</span><span class="p">(</span><span class="s">&quot;PCSI&quot;</span><span class="p">),</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
 <span class="nb">mput</span><span class="p">(</span>83<span class="p">,</span><span class="s">&quot;i&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
 <span class="nb">mput</span><span class="p">(</span>2<span class="p">.</span>3<span class="p">,</span><span class="s">&quot;f&quot;</span><span class="p">,</span><span class="n">fic</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2367,15 +2497,23 @@ Lire 3 octets dans un fichier binaire
 
 Ouvrir une image
 </td>
+<td title="
+  Module scipy.misc
+">
+<a href="
+  http://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.imread.html#scipy.misc.imread
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">im</span><span class="o">=</span><span class="n">imread</span><span class="p">(</span><span class="s">&quot;image.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="
+  Module SIVP
+">
+<a href="
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imread.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">im</span><span class="p">=</span><span class="n">imread</span><span class="p">(</span><span class="s">&#39;i</span><span class="n">mage</span><span class="p">.</span><span class="n">jpg</span>&quot;<span class="p">)</span>
+</pre></div>
+</td>
 <td title="">
-<div class="highlight"><pre><span class="n">im</span><span class="o">=</span><span class="n">imread</span><span class="p">(</span><span class="s">&quot;image.jpg&quot;</span><span class="p">)</span>
-</pre></div>
-</td>
-<td>
-<div class="highlight"><pre><span class="n">im</span><span class="p">=</span><span class="n">imread</span><span class="p">(</span><span class="s">&#39;i</span><span class="n">mage</span><span class="p">.</span><span class="n">jpg</span>&quot;<span class="p">)</span>
-</pre></div>
-</td>
-<td>
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2384,15 +2522,21 @@ Ouvrir une image
 
 Enregistrer une image
 </td>
-<td title="">
+<td title="
+  Module scipy.misc
+">
 <div class="highlight"><pre><span class="n">imsave</span><span class="p">(</span><span class="s">&quot;image.jpg&quot;</span><span class="p">,</span><span class="n">im</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="n">imwrite</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="s">&quot;image.jpg&quot;</span><span class="p">)</span>
+<td title="
+  Module SIVP
+">
+<a href="
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imwrite.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">imwrite</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="s">&quot;image.jpg&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2401,15 +2545,21 @@ Enregistrer une image
 
 Afficher une image
 </td>
+<td title="
+  Module scipy.misc
+">
+<div class="highlight"><pre><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="
+  Module SIVP
+">
+<a href="
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imshow.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+</pre></div>
+</td>
 <td title="">
-<div class="highlight"><pre><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-</pre></div>
-</td>
-<td>
-<div class="highlight"><pre><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-</pre></div>
-</td>
-<td>
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2422,11 +2572,13 @@ Taille de l'image
 <div class="highlight"><pre><span class="n">im</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre><span class="nb">size</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<td title="">
+<a href="
+  http://help.scilab.org/docs/5.4.1/fr_FR/size.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">size</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 </pre></div>
 </td>
-<td>
+<td title="">
 <div class="highlight"><pre>
 </pre></div>
 </td>
@@ -2441,6 +2593,27 @@ Taille de l'image
 <tr class="odd">
 <td>
 
+  Intégration numérique d'une fonction <math>f(x)</math> de <math><msub><mi>x</mi><mi>0</mi></msub></math> à <math><msub><mi>x</mi><mi>1</mi></msub></math>
+</td>
+<td title="
+    Bibliothèque Numpy
+  ">
+<div class="highlight"><pre><span class="err">??</span>
+</pre></div>
+</td>
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/integrate.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">integrate</span><span class="p">(</span><span class="s">&quot;sin(x)&quot;</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
   Intégration par la méthode des trapèzes
 </td>
 <td title="
@@ -2449,12 +2622,35 @@ Taille de l'image
 <div class="highlight"><pre><span class="n">trapz</span><span class="p">(</span><span class="n">y</span><span class="p">[,</span> <span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">axis</span><span class="p">])</span>
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/inttrap.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">inttrap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
+<td title="">
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
 <td>
-<div class="highlight"><pre><span class="o">??</span>
+
+Dérivation numérique d'une fonction <math>f(x)</math>
+</td>
+<td title="
+    Bibliothèque Numpy
+  ">
+<div class="highlight"><pre><span class="err">??</span>
+</pre></div>
+</td>
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/derivative.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">derivative</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -2468,13 +2664,106 @@ Taille de l'image
 <div class="highlight"><pre><span class="n">diff</span><span class="p">(</span><span class="n">a</span><span class="p">[,</span> <span class="n">n</span><span class="p">,</span> <span class="n">axis</span><span class="p">])</span> 
 </pre></div>
 </td>
-<td>
-<div class="highlight"><pre>??
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/numdiff.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">numdiff</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
+<td title="">
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
 <td>
-<div class="highlight"><pre><span class="o">??</span>
+
+  Solution d'une équation non linéaire <math>f(x)=0</math>
+</td>
+<td title="
+    Bibliothèque Numpy
+  ">
+<div class="highlight"><pre><span class="err">??</span>
+</pre></div>
+</td>
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/fsolve.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">fsolve</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+  Minimisation d'une fonction <math>f(x)</math>
+</td>
+<td title="
+    Bibliothèque Numpy
+  ">
+<div class="highlight"><pre><span class="err">??</span>
+</pre></div>
+</td>
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/optim.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">optim</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x0</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="odd">
+<td>
+
+  Intégration numérique d'une équation différentielle ordinaire (ODE)<math><mfrac><mrow>dx</mrow>dt</mfrac>=f(x,t)</math>
+</td>
+<td title="
+    Bibliothèque Numpy
+  ">
+<div class="highlight"><pre><span class="err">??</span>
+</pre></div>
+</td>
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/fr_FR/ode.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">ode</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
+</pre></div>
+</td>
+</tr><tr class="even">
+<td>
+
+  Intégration numérique d'une équation différentielle algébrique (DAE) <math>f(x,<mfrac><mrow>dx</mrow>dt</mfrac>,t)=0</math>
+</td>
+<td title="
+    Bibliothèque Numpy
+  ">
+<div class="highlight"><pre><span class="err">??</span>
+</pre></div>
+</td>
+<td title="">
+<a href="
+http://help.scilab.org/docs/5.4.1/en_US/dae.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">dae</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">t0</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">f</span><span class="p">)</span> 
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr></table>
+
+
+<div id="footer"> 
+<img src="style/logoCC.png" alt="licence" height="30"/>
+</div>
+</body>
+
 

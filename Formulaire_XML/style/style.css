@@ -104,5 +104,58 @@ pre {display: inline;}
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
 
+#footer{
+  /*position:fixed;*/
+  height:30px;
+  /*position:absolute;*/
+  position:relative;
+  left:0;
+  bottom:0;
+  right:0;
+  padding:10px 0;
+  font-size:8pt;
+  text-shadow:1px 0px 1px #fff;
+  text-align:center;
+  background-color: rgb(205,225,249);   /*background:url(../img/footer.png) repeat #FFF;*/
+  max-width:800px;
+  margin:auto;
+}
 
- 
+#sommaire{
+  position:fixed;
+  /*height:150px;*/
+  left:2%;
+  top:4%;
+  right:82%;
+  bottom:2%;
+  /*padding:10px 0;*/
+  /*position:absolute;*/
+  /*margin-top:3em; 
+  margin-bottom:9em;*/
+  font-size:8pt;
+  text-shadow:1px 0px 1px #fff;
+  text-align:center;
+  background-color: rgb(205,225,249);   /*background:url(../img/footer.png) repeat #FFF;*/
+  /*width:70px;
+  margin:auto;*/
+}
+
+#sommaire a /* Liens par défaut (non survolés) */
+{
+   text-decoration: none;
+   color: black;
+   /*font-style: italic;*/
+   font-weight: bold;
+   font-size:12pt;
+   text-shadow:1px 0px 1px #fff;
+   text-align:center;
+   font-family: "Trebuchet MS", Arial, helvetica, sans-serif;
+}
+
+#sommaire a:hover /* Apparence au survol des liens */
+{
+   /*text-decoration: underline;*/
+   text-decoration: none;
+   color: red;
+
+}

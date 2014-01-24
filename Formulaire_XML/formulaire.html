@@ -13,11 +13,21 @@
 
 <h3>Python et Scilab</h3>
 
+<p>Le langage Python est un langage généraliste, disposant de bibliothèques puissantes en calcul numérique (scipy, numpy et matplotlib) permettant de l'utiliser dans le cadre du calcul scientifique. Plusieurs interfaces graphiques (Spyder, Eric, etc) permettent de travailler dans un environnement Python. Spyder est plus particulièrement conçu pour le calcul scientifique.</p>
+
+<p>Scilab est d'abord un logiciel, proposant une interface graphique de travail et un langage de programmation. Semblable au logiciel Matlab, le logiciel Scilab est dédié au calcul scientifique pour la recherche et l'industrie. Il est moins généraliste que Python, mais dispose d'un outil de modélisation graphique (Xcos) permettant de manipuler des modèles numériques complexes, ce qui manque à Python.</p>
+
 <h3>Pourquoi un peu de C ?</h3>
 
-<h3>titre à trouver...</h3>
-Parler des différences sur le typage des variables, sur le passage par valeur ou par référence des arg des fonctions, sur l'aspect &quot;impératif/objet/fonctionnel&quot; en une ligne.
+<p>Le C et ses variantes est, de très loin, le langage le plus répandu en informatique. Il est néanmoins un peu plus rigide et complexe à manipuler pour l'apprentissage de la programmation (il n'est pas interactif par exemple).</p>
 
+<p>Pour la programmation des micro-contrôleurs (utilisés en TP de SI), il est incontournable. C'est pourquoi le fomulaire ci-dessous propose, pour un petit nombre de fonctionnalités indispensables pour la commande des systèmes embarqués, les expressions équivalentes en C.</p>
+
+<h3>Utilisation du formulaire</h3>
+
+<p>Le formulaire tente de couvrir en une page l'essentiel des commandes utiles dans le cadre du programme de CPGE. Chaque commande est illustrée en une ligne, permettant de se remémorer rapidement la syntaxe des fonctions dans chaque langage. Seules les commandes présentant le symbole <img alt="+" src="style/heart-pencil-icon-icon.png" style="border:0;"/> sont raisonnablement à connaitre pour les concours.</p>
+
+ <p>Le symblole <img alt="+" src="style/Add-icon.png" style="border:0;"/> redirige vers une page proposant plus d'explications et d'exemples pour certaines commandes lorsque c'est utile. Le symbole <img alt="?" src="style/FAQ-icon.png" style="display: inline;"/> renvoie vers une documentation officielle de la commande.</p>
 
 <h2>Formulaire</h2>
 
@@ -33,7 +43,9 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 <td title="
     Fonctionnalité standard
   ">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">file</span>
+<a href="
+  http://docs.python.org/2/tutorial/modules.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="kn">import</span> <span class="nn">file</span>
 </pre></div>
 </td>
 <td title="">
@@ -53,7 +65,9 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 <td title="
     Fonctionnalité standard
   ">
-<div class="highlight"><pre><span class="n">help</span><span class="p">()</span>
+<a href="
+  http://docs.python.org/2/library/functions.html?highlight=help#help
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">help</span><span class="p">()</span>
 </pre></div>
 </td>
 <td title="">
@@ -86,13 +100,15 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
   Afficher x sur la console interactive
 </td>
 <td title="
     Fonctionnalité standard
   ">
-<div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a href="
+  http://docs.python.org/2/library/functions.html?highlight=print#print
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
 <td title="">
@@ -111,7 +127,9 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 <td title="
     Fonctionnalité standard
   ">
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">bibliotheque</span> <span class="kn">as</span> <span class="nn">nom</span>
+<a href="
+  http://docs.python.org/2/tutorial/stdlib.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="kn">import</span> <span class="nn">bibliotheque</span> <span class="kn">as</span> <span class="nn">nom</span>
 <span class="kn">from</span> <span class="nn">bibliotheque</span> <span class="nn">importe</span> <span class="err">*</span>
 </pre></div>
 </td>
@@ -126,7 +144,7 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
   Définir une fonction
 </td>
 <td title="
@@ -134,7 +152,7 @@ Parler des différences sur le typage des variables, sur le passage par valeur o
   ">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">nomdelafonction</span><span class="p">(</span><span class="n">param</span><span class="err">è</span><span class="n">tres</span><span class="p">):</span>
     <span class="n">bloc</span> <span class="n">d</span><span class="s">&#39;instruction</span>
-<span class="k">return</span> <span class="n">resultat</span>
+    <span class="k">return</span> <span class="n">resultat</span>
 </pre></div>
 </td>
 <td title="">
@@ -156,15 +174,17 @@ Interruption d'un programme pour débug
   module pdb
 ">
 <a href="
+  http://docs.python.org/2/library/pdb.html?highlight=pdb#pdb
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="
   http://docs.python.org/2/library/pdb.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex1.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pdb</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex1.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="+"></a><div class="highlight"><pre><span class="kn">import</span> <span class="nn">pdb</span>
 <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
 </pre></div>
 </td>
 <td title="">
 <a href="
   http://help.scilab.org/docs/5.4.1/fr_FR/pause.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex2.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">pause</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex2.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="+"></a><div class="highlight"><pre><span class="nb">pause</span>
 </pre></div>
 </td>
 <td title="">
@@ -190,7 +210,7 @@ Interruption d'un programme pour débug
   ">
 <a href="
 http://docs.python.org/2/library/stdtypes.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex3.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex3.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="+"></a><div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
 <td title="">
@@ -215,7 +235,7 @@ Changement de type
   ">
 <a href="
 http://docs.python.org/2/library/stdtypes.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex4.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex4.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="+"></a><div class="highlight"><pre><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
@@ -234,23 +254,6 @@ http://docs.python.org/2/library/stdtypes.html
 <div class="highlight"><pre>
 </pre></div>
 </td>
-</tr><tr class="odd">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
 </tr></table>
 
 
@@ -262,7 +265,7 @@ Il est nécessaire d'importer la bilbiothèqe math.h en C.</p>
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Puissance <i>a<sup>b</sup></i>
 </td>
 <td title="">
@@ -279,7 +282,7 @@ Puissance <i>a<sup>b</sup></i>
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Reste ou modulo
 </td>
 <td title="">
@@ -296,7 +299,7 @@ Reste ou modulo
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Division entière
 </td>
 <td title="">
@@ -313,7 +316,7 @@ Division entière
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Test égalité
 </td>
 <td title="">
@@ -330,7 +333,7 @@ Test égalité
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Inférieur (ou égal)
 </td>
 <td title="">
@@ -347,7 +350,7 @@ Inférieur (ou égal)
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Supérieur (ou égal)
 </td>
 <td title="">
@@ -364,7 +367,7 @@ Supérieur (ou égal)
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Différent
 </td>
 <td title="">
@@ -381,7 +384,7 @@ Différent
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 ET
 </td>
 <td title="">
@@ -415,7 +418,7 @@ ET bitwise
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 OU
 </td>
 <td title="">
@@ -449,7 +452,7 @@ OU bitwise
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 NON
 </td>
 <td title="">
@@ -517,7 +520,7 @@ OU exclusif bitwise
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 décalage de 3 bits à gauche et à droite
 </td>
 <td title="">
@@ -534,7 +537,7 @@ décalage de 3 bits à gauche et à droite
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Affichage d'un nombre en binaire
 </td>
 <td title="">
@@ -576,13 +579,15 @@ Affichage d'un nombre en hexadécimal
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Racine carrée
 </td>
 <td title="
     Disponible dans la bibliothèque Numpy ou Math
   ">
-<div class="highlight"><pre><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a href="
+  http://docs.python.org/2/library/math.html?highlight=sqrt#math.sqrt
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
 <td title="">
@@ -595,7 +600,7 @@ Racine carrée
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 cosinus
 sinus
 tangente
@@ -603,7 +608,9 @@ tangente
 <td title="
     Disponible dans la bibliothèque Numpy ou Math
   ">
-<div class="highlight"><pre><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a href="
+  http://docs.python.org/2/library/math.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">cos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">sin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">tan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
@@ -629,7 +636,9 @@ arcsin
 <td title="
     Disponible dans la bibliothèque Numpy ou Math
   ">
-<div class="highlight"><pre><span class="n">acos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a href="
+  http://docs.python.org/2/library/math.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">acos</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">asin</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </td>
@@ -667,7 +676,9 @@ arctangente sur ]-π, π]
 <td title="
     Disponible dans la bibliothèque Numpy ou Math
   ">
-<div class="highlight"><pre><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<a href="
+  http://docs.python.org/2/library/math.html?highlight=atan2#math.atan2
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
 <td title="">
@@ -684,7 +695,11 @@ arctangente sur ]-π, π]
 ch, sh, th
 </td>
 <td title="">
-<div class="highlight"><pre>
+<a href="
+  http://docs.python.org/2/library/math.html?highlight=atan2#math.atan2
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">cosh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
 <td title="">
@@ -853,11 +868,33 @@ http://docs.scipy.org/doc/numpy/reference/routines.random.html
 <div class="highlight"><pre><span class="o">??</span>
 </pre></div>
 </td>
+</tr><tr class="odd">
+<td>
+
+Constantes
+</td>
+<td title="
+    Disponible dans la bibliothèque Numpy ou Math
+  ">
+<a href="
+ http://docs.python.org/2/library/math.html?highlight=math.pi#math.pi
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">pi</span>
+<span class="n">e</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre><span class="nb">floor</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</td>
 </tr></table>
 
 
 
-<p>Le calcul en complexes est possible dans les langages Python et Scilab. En C, des bibliothèques sont requises.... ???</p>
+<p>Le calcul en complexes est possible dans les langages Python et Scilab.</p>
 
 <table>
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
@@ -1033,7 +1070,7 @@ Conjugué de <i>a</i>
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Vecteur ligne
 </td>
 <td title="">
@@ -1051,11 +1088,14 @@ Vecteur ligne
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Vecteur colonne
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
+<a href="
+  http://docs.python.org/2/library/array.html?highlight=array#array
+  http://math.mad.free.fr/depot/numpy/base.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">]])</span>
 <span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])[:,</span><span class="n">newaxis</span><span class="p">]</span>
 <span class="n">v</span><span class="o">=</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -1070,11 +1110,14 @@ Vecteur colonne
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Tableau à 2 dimensions
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">M</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
+<a href="
+  http://docs.python.org/2/library/array.html?highlight=array#array
+  http://math.mad.free.fr/depot/numpy/base.html
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">M</span><span class="o">=</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
 </pre></div>
 </td>
 <td title="">
@@ -1087,7 +1130,7 @@ Tableau à 2 dimensions
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Accéder à un élément
 </td>
 <td title="">
@@ -1104,7 +1147,7 @@ Accéder à un élément
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Accéder au dernier élément, et l'avant dernier
 </td>
 <td title="">
@@ -1121,7 +1164,7 @@ Accéder au dernier élément, et l'avant dernier
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Dimensions d'un tableau
 </td>
 <td title="">
@@ -1138,7 +1181,7 @@ Dimensions d'un tableau
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Extraire la 2ème ligne ou 2ème colonne
 </td>
 <td title="">
@@ -1155,7 +1198,7 @@ Extraire la 2ème ligne ou 2ème colonne
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Extraire une portion de tableau (2 premières colonnes)
 </td>
 <td title="">
@@ -1172,7 +1215,7 @@ Extraire une portion de tableau (2 premières colonnes)
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Extraire des éléments d'un tableau par leurs indices
 </td>
 <td title="">
@@ -1189,7 +1232,7 @@ Extraire des éléments d'un tableau par leurs indices
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Séquence équirépartie d'entiers
 </td>
 <td title="">
@@ -1206,7 +1249,7 @@ Séquence équirépartie d'entiers
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Séquence équirépartie quelconque
 </td>
 <td title="">
@@ -1223,7 +1266,7 @@ Séquence équirépartie quelconque
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Tableau de zéros
 </td>
 <td title="">
@@ -1241,7 +1284,7 @@ Tableau de zéros
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Tableau de uns
 </td>
 <td title="">
@@ -1258,7 +1301,7 @@ Tableau de uns
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Copier un tableau dans une autre variable
 </td>
 <td title="">
@@ -1275,7 +1318,7 @@ Copier un tableau dans une autre variable
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Multiplication élément par élément
 </td>
 <td title="">
@@ -1335,7 +1378,7 @@ Indice <i>i</i> du maximum
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Produit matriciel
 </td>
 <td title="">
@@ -1352,7 +1395,7 @@ Produit matriciel
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Transposée
 </td>
 <td title="">
@@ -1369,7 +1412,7 @@ Transposée
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
   Résolution de système matriciel <i>M.X=Y</i>
 </td>
 <td title="">
@@ -1519,7 +1562,7 @@ Rang
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Définir une liste
 </td>
 <td title="">
@@ -1538,7 +1581,7 @@ http://help.scilab.org/docs/5.4.1/fr_FR/list.html
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Selectionner par position
 </td>
 <td title="">
@@ -1655,7 +1698,7 @@ Supprimer un élément
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Définir une chaîne de caractères
 </td>
 <td title="">
@@ -1672,7 +1715,7 @@ Définir une chaîne de caractères
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Longueur d'une chaîne
 </td>
 <td title="">
@@ -1689,7 +1732,7 @@ Longueur d'une chaîne
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Extraire des caractères
 </td>
 <td title="">
@@ -1706,7 +1749,7 @@ Extraire des caractères
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Concaténation
 </td>
 <td title="">
@@ -1772,108 +1815,6 @@ Supprimer des caractères de retour à la ligne
 <div class="highlight"><pre>
 </pre></div>
 </td>
-</tr><tr class="even">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="odd">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="even">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="odd">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="even">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="odd">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
 </tr></table>
 
 
@@ -1886,7 +1827,7 @@ Supprimer des caractères de retour à la ligne
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Boucle FOR
 </td>
 <td title="">
@@ -1910,7 +1851,7 @@ Boucle FOR
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Boucle WHILE
 </td>
 <td title="">
@@ -1957,23 +1898,6 @@ Interruption d'une boucle
 <div class="highlight"><pre><span class="k">break</span>
 </pre></div>
 </td>
-</tr><tr class="even">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
 </tr></table>
 
 
@@ -1984,7 +1908,7 @@ Interruption d'une boucle
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Condition IF
 </td>
 <td title="">
@@ -2054,6 +1978,35 @@ Condition CASE
 
 <h4>Fonctions</h4>
 
+<table>
+<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr class="odd">
+<td>
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
+  Définir une fonction
+</td>
+<td title="
+    Fonctionnalité standard
+  ">
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">nomdelafonction</span><span class="p">(</span><span class="n">param</span><span class="err">è</span><span class="n">tres</span><span class="p">):</span>
+    <span class="n">bloc</span> <span class="n">d</span><span class="s">&#39;instruction</span>
+    <span class="k">return</span> <span class="n">resultat</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre><span class="k">function</span><span class="w"> </span>resultat<span class="p">=</span><span class="nf">nomdelafonction</span><span class="p">(</span>paramètres<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">bloc</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">instruction</span>
+<span class="k">endfunction</span>
+</pre></div>
+</td>
+<td title="">
+<div class="highlight"><pre><span class="o">??</span>
+</pre></div>
+</td>
+</tr></table>
+
+
+
 <h3>Courbes</h3>
 <h4>Courbes 2D</h4>
 
@@ -2064,7 +2017,7 @@ Condition CASE
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Tracé d'une courbe <i>y</i> ou <i>(x,y)</i>
 </td>
 <td title="">
@@ -2102,7 +2055,7 @@ Tracé de points (o) rouges (r) reliés par des lignes (-)
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Effacer le graphique
 </td>
 <td title="">
@@ -2176,23 +2129,6 @@ Ouvrir une nouvelle figure
 <div class="highlight"><pre>
 </pre></div>
 </td>
-</tr><tr class="odd">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
 </tr></table>
 
 
@@ -2209,7 +2145,7 @@ Ouvrir une nouvelle figure
 <tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Ouvrir un fichier texte en lecture/écriture
 </td>
 <td title="">
@@ -2230,7 +2166,7 @@ Ouvrir un fichier texte en lecture/écriture
 </td>
 </tr><tr class="even">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Fermer un fichier
 </td>
 <td title="">
@@ -2249,13 +2185,13 @@ Fermer un fichier
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Lire une ou plusieurs lignes
 </td>
 <td title="">
 <a href="
 http://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex5.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">ligne</span><span class="o">=</span><span class="n">fic</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><a href="exemples/ex5.html"><img style="border:0; float:right;" src="style/Add-icon.png" alt="+"></a><div class="highlight"><pre><span class="n">ligne</span><span class="o">=</span><span class="n">fic</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 <span class="n">lignes</span><span class="o">=</span><span class="n">fic</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 </pre></div>
 </td>
@@ -2297,7 +2233,7 @@ Lire un tableau formaté
 </td>
 </tr><tr class="odd">
 <td>
-
+<img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Écrire une ligne
 </td>
 <td title="">
@@ -2486,7 +2422,7 @@ Ouvrir une image
 ">
 <a href="
   http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imread.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">im</span><span class="p">=</span><span class="n">imread</span><span class="p">(</span><span class="s">&#39;i</span><span class="n">mage</span><span class="p">.</span><span class="n">jpg</span>&quot;<span class="p">)</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">im</span><span class="p">=</span><span class="n">imread</span><span class="p">(</span><span class="s">&quot;image.jpg&quot;</span><span class="p">)</span>
 </pre></div>
 </td>
 <td title="">
@@ -2735,4 +2671,8 @@ http://help.scilab.org/docs/5.4.1/en_US/dae.html
 </pre></div>
 </td>
 </tr></table>
+
+
+
+
 
