@@ -25,13 +25,13 @@
 
 <p>Le C et ses variantes est, de très loin, le langage le plus répandu en informatique. Il est néanmoins un peu plus rigide et complexe à manipuler pour l'apprentissage de la programmation (il n'est pas interactif par exemple).</p>
 
-<p>Pour la programmation des micro-contrôleurs (utilisés en TP de SI), il est incontournable. C'est pourquoi le fomulaire ci-dessous propose, pour un petit nombre de fonctionnalités indispensables pour la commande des systèmes embarqués, les expressions équivalentes en C.</p>
+<p>Pour la programmation des micro-contrôleurs (utilisés en TP de SI), il est incontournable. C'est pourquoi le formulaire ci-dessous propose, pour un petit nombre de fonctionnalités indispensables pour la commande des systèmes embarqués, les expressions équivalentes en C.</p>
 
 <h3>Utilisation du formulaire</h3>
 
 <p>Le formulaire tente de couvrir en une page l'essentiel des commandes utiles dans le cadre du programme de CPGE. Chaque commande est illustrée en une ligne, permettant de se remémorer rapidement la syntaxe des fonctions dans chaque langage. Seules les commandes présentant le symbole <img src="style/heart-pencil-icon-icon.png" style="border:0;" alt="+"></img> sont raisonnablement à connaitre pour les concours.</p>
 
- <p>Le symblole <img src="style/Add-icon.png" style="border:0;" alt="+"></img> redirige vers une page proposant plus d'explications et d'exemples pour certaines commandes lorsque c'est utile. Le symbole <img style="display: inline;" src="style/FAQ-icon.png" alt="?"></img> renvoie vers une documentation officielle de la commande.</p>
+ <p>Le symbole <img src="style/Add-icon.png" style="border:0;" alt="+"></img> redirige vers une page proposant plus d'explications et d'exemples pour certaines commandes lorsque c'est utile. Le symbole <img style="display: inline;" src="style/FAQ-icon.png" alt="?"></img> renvoie vers une documentation officielle de la commande.</p>
 
 <h2>Formulaire</h2>
 
@@ -156,7 +156,7 @@ disp(x)
 </lien>
 <code_python>
 import bibliotheque as nom
-from bibliotheque importe *
+from bibliotheque import *
 </code_python>
 </python>
 <scilab>
@@ -230,7 +230,7 @@ for i in range(10):
 
 print(T)
 </code_python>
-<p>Lorsque le programme est interrompu, la commande "n" (next) permet d'exécuter la ligne suivante (ou "s" (step) qui permet d'entrer dans une fonction par exemple), "c" (continue) permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'execution) et "q" (quit) permet d'arrêter le programme.</p>
+<p>Lorsque le programme est interrompu, la commande "n" (next) permet d'exécuter la ligne suivante (ou "s" (step) qui permet d'entrer dans une fonction par exemple), "c" (continue) permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'exécution) et "q" (quit) permet d'arrêter le programme.</p>
 <p>Il existe d'autres options plus élaborées (voir documentation).</p>
 </exemple>
 </python>
@@ -270,7 +270,7 @@ disp(T)
 </tableau>
 
 <h3>Variables</h3>
-<p>Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace espace mémoire alloué). Néanmoins, le typage est "dynamique" en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).</p>
+<p>Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace mémoire alloué). Néanmoins, le typage est "dynamique" en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).</p>
 
 
 <tableau>
@@ -300,7 +300,7 @@ a=a+3.2
 type(a)  # float
   </code_python>
   <h2>Forcer le type d'une variable</h2>
-  <p>Dans le cas où la variable doit etre écrite dans un fichier ou utilisée dans un format bien précis, le type doit etre imposé. Un certain nombre de commandes permettent le formatage d'une variable.</p>
+  <p>Dans le cas où la variable doit être écrite dans un fichier ou utilisée dans un format bien précis, le type doit être imposé. Un certain nombre de commandes permettent le formatage d'une variable.</p>
   <code_python>
 from pylab import *
 a=3
@@ -365,15 +365,15 @@ a=int16(a+3.2)
 a              # 6
 type(a)        # numpy.int16
 
-#on affecte une valeur numérique à la varibale a
+#on affecte une valeur numérique à la variable a
 a=0.00000000000000000000000000000000000000000011
->>> float32(a)  # Celle ci peut etre codé sur 32 bits
+>>> float32(a)  # Celle-ci peut être codée sur 32 bits
 1.0930128e-43
 >>> float64(a) # ou sur 64 bits
 1.1e-43
 >>> int(a) # on peut faire codé la valeur en un nombre entier
 0
->>> str(a) # ou transformer le nombre en une chaîne de carractère 
+>>> str(a) # ou transformer le nombre en une chaîne de caractère 
 '1.1e-43'
 >>> 'la valeur est ' + str(a) # sur laquelle la concaténation sera possible.
 'la valeur est 1.1e-43'
@@ -407,7 +407,7 @@ float64(a)
 
 <h4>Nombres</h4>
 <p>Nous passons sur les opérateurs classiques + - * / qui sont identiques dans les 3 langages (attention toutefois à la division de deux entiers qui est réalisée dans les entiers en C et en python 2.7, et dans R dans Scilab et en Python 3.3...).
-Il est nécessaire d'importer la bilbiothèqe math.h en C.</p>
+Il est nécessaire d'importer la bibliothèque math.h en C.</p>
 <tableau>
 
 <ligne ASavoir="True">
@@ -931,7 +931,7 @@ atan(y,x)
 </scilab>
 <C>
 <code_C>
-??
+atan2(x,y)
 </code_C>
 </C>
 </ligne>
@@ -957,7 +957,9 @@ tanh(x)
 </scilab>
 <C>
 <code_C>
-
+cosh(x)
+sinh(x)
+tanh(x)
 </code_C>
 </C>
 </ligne>
@@ -1157,7 +1159,12 @@ rand(1,10)
 </scilab>
 <C>
 <code_C>
-??
+int nb_rand;
+srand(time(NULL));
+nb_rand=rand();
+<module>
+Il peut être nécessaire d'importer time.h.
+</module>
 </code_C>
 </C>
 </ligne>
@@ -2017,12 +2024,12 @@ Définir une liste
 </description>
 <python>
 <code_python>
-Liste1 = [M,v]
+liste1 = [M,v]
 </code_python>
 </python>
 <scilab>
 <code_scilab>
-Liste1 = list(M,v) 
+liste1 = list(M,v) 
 </code_scilab>
 <lien>
 http://help.scilab.org/docs/5.4.1/fr_FR/list.html
@@ -2036,7 +2043,7 @@ http://help.scilab.org/docs/5.4.1/fr_FR/list.html
 </ligne>
 <ligne ASavoir="True">
 <description>
-Selectionner par position
+Sélectionner par position
 </description>
 <python>
 <code_python>
@@ -2166,7 +2173,7 @@ S1.Scal=null()
 
 <h4>Chaînes de caractères</h4>
 
-<p> En C il faut utiliser la bibilothèque string.h.</p>
+<p> En C il faut utiliser la bibliothèque string.h.</p>
 
 <tableau>
 
@@ -2523,14 +2530,14 @@ default: {
   </module>
 <code_python>
 def nomdelafonction(paramètres):
-    bloc d'instruction
+    bloc d'instructions
     return resultat
 </code_python>
 </python>
 <scilab>
 <code_scilab>
 function resultat=nomdelafonction(paramètres)
-    bloc d'instruction
+    bloc d'instructions
 endfunction
 </code_scilab>
 </scilab>
@@ -2814,8 +2821,8 @@ T=[]; X=[]; Y=[]                  # Initialisation des listes
 for i in range(4,8):
   ligne=texte[i].rstrip("\n")  # Suppression du retour à la ligne
   ligne=ligne.split(",")       # Découpage au niveau des virgules
-  T.append(int(ligne[0]))      # Convertion en int et ajout au tableau T
-  X.append(float(ligne[1]))    # Convertion en float et ajout au tableau X
+  T.append(int(ligne[0]))      # Conversion en int et ajout au tableau T
+  X.append(float(ligne[1]))    # Conversion en float et ajout au tableau X
   Y.append(float(ligne[2]))    # idem Y
 
 # Conversion éventuelle en tableaux "array"
@@ -2823,7 +2830,7 @@ T=array(T)
 X=array(X)
 Y=array(Y)
   </code_python>
-  <p>Sous Windows, les retours à la ligne sont parfois écrits <tt>"\n\r"</tt>. Les séparateurs peuvent être des virgules, mais aussi des points-virgule, ou encore des tabulations <tt>"\t"</tt>. Certains logiciels francisés utilisent la virgule comme séparateur décimal, alors que python (comme la plupart des langages et logiciels) attendent un point. Il est alors nécessaire de remplacer les "," par des "." par la commande replace (par exemple : <tt>texte[0].replace("i","u")</tt>)</p>
+  <p>Sous Windows, les retours à la ligne sont parfois écrits <tt>"\n\r"</tt>. Les séparateurs peuvent être des virgules, mais aussi des points-virgules, ou encore des tabulations <tt>"\t"</tt>. Certains logiciels francisés utilisent la virgule comme séparateur décimal, alors que python (comme la plupart des langages et logiciels) attendent un point. Il est alors nécessaire de remplacer les "," par des "." par la commande replace (par exemple : <tt>texte[0].replace("i","u")</tt>)</p>
   
   <h2>Méthode 2 : lecture ligne après ligne</h2>
   <p>La lecture d'une ligne d'un fichier texte s'effectue par la commande <tt>readline()</tt> (noter l'absence de "s")</p>
