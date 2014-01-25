@@ -1,16 +1,16 @@
 
-<div id="sommaire"> 
-<br>
-<a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="60"/></a>
-<br>
-<h1>Sommaire</h1>
-<a href="http://www.upsti.fr/"> Lien 1 </a>
-<br>
-<br>
-<a href="http://www.upsti.fr/"> Lien 2 </a>
-</div>
 
 <body>
+<div id="sommaire"> 
+<br/>
+<a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="60"/></a>
+<br/>
+<h1>Sommaire</h1>
+<a href="http://www.upsti.fr/"> Lien 1 </a>
+<br/>
+<br/>
+<a href="http://www.upsti.fr/"> Lien 2 </a>
+</div>
 <h1>Le calcul scientifique sous Python et Scilab</h1>
 
 <h2>Les spécificités des langages pour le calcul scientifique</h2>
@@ -1188,12 +1188,13 @@ e
 </python>
 <scilab>
 <code_scilab>
-floor(a)
+%pi
+%e
 </code_scilab>
 </scilab>
 <C>
 <code_C>
-floor(a)
+
 </code_C>
 </C>
 </ligne>
