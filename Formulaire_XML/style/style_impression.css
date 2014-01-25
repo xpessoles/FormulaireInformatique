@@ -4,6 +4,7 @@ body {
   margin:auto;
   margin-top:6em; margin-bottom:90em;*/
 }
+tr.titre_tab {page-break-after: always;}
 td {
   vertical-align:top;
   width:260px;
