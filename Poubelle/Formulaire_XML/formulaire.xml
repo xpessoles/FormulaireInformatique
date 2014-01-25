@@ -1,0 +1,3468 @@
+
+<div id="sommaire"> 
+<br>
+<a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="60"/></a>
+<br>
+<h1>Sommaire</h1>
+<a href="http://www.upsti.fr/"> Lien 1 </a>
+<br>
+<br>
+<a href="http://www.upsti.fr/"> Lien 2 </a>
+</div>
+
+<body>
+<h1>Le calcul scientifique sous Python et Scilab</h1>
+
+<h2>Les spécificités des langages pour le calcul scientifique</h2>
+
+<h3>Python et Scilab</h3>
+
+<p>Le langage Python est un langage généraliste, disposant de bibliothèques puissantes en calcul numérique (scipy, numpy et matplotlib) permettant de l'utiliser dans le cadre du calcul scientifique. Plusieurs interfaces graphiques (Spyder, Eric, etc) permettent de travailler dans un environnement Python. Spyder est plus particulièrement conçu pour le calcul scientifique.</p>
+
+<p>Scilab est d'abord un logiciel, proposant une interface graphique de travail et un langage de programmation. Semblable au logiciel Matlab, le logiciel Scilab est dédié au calcul scientifique pour la recherche et l'industrie. Il est moins généraliste que Python, mais dispose d'un outil de modélisation graphique (Xcos) permettant de manipuler des modèles numériques complexes, ce qui manque à Python.</p>
+
+<h3>Pourquoi un peu de C ?</h3>
+
+<p>Le C et ses variantes est, de très loin, le langage le plus répandu en informatique. Il est néanmoins un peu plus rigide et complexe à manipuler pour l'apprentissage de la programmation (il n'est pas interactif par exemple).</p>
+
+<p>Pour la programmation des micro-contrôleurs (utilisés en TP de SI), il est incontournable. C'est pourquoi le formulaire ci-dessous propose, pour un petit nombre de fonctionnalités indispensables pour la commande des systèmes embarqués, les expressions équivalentes en C.</p>
+
+<h3>Utilisation du formulaire</h3>
+
+<p>Le formulaire tente de couvrir en une page l'essentiel des commandes utiles dans le cadre du programme de CPGE. Chaque commande est illustrée en une ligne, permettant de se remémorer rapidement la syntaxe des fonctions dans chaque langage. Seules les commandes présentant le symbole <img src="style/heart-pencil-icon-icon.png" style="border:0;" alt="+"></img> sont raisonnablement à connaitre pour les concours.</p>
+
+ <p>Le symbole <img src="style/Add-icon.png" style="border:0;" alt="+"></img> redirige vers une page proposant plus d'explications et d'exemples pour certaines commandes lorsque c'est utile. Le symbole <img style="display: inline;" src="style/FAQ-icon.png" alt="?"></img> renvoie vers une documentation officielle de la commande.</p>
+
+<h2>Formulaire</h2>
+
+<h3>Manipulation globale</h3>
+
+<tableau>
+<ligne>
+<description>
+  Importer un fichier 
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+  <lien>
+  http://docs.python.org/2/tutorial/modules.html
+</lien>
+<code_python>
+import file
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+exec("fichier.sce")
+exec fichier.sce
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+  Lancer l'aide interactive 
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+    <lien>
+  http://docs.python.org/2/library/functions.html?highlight=help#help
+</lien>
+<code_python>
+help()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+help
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+  Afficher l'aide associée à la commande cosinus
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+help(cos)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+help cos
+apropos cos
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+  Afficher x sur la console interactive
+</description>
+
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<lien>
+  http://docs.python.org/2/library/functions.html?highlight=print#print
+</lien>
+<code_python>
+print(x)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+disp(x)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+  Importer une bibliothèque
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+    <lien>
+  http://docs.python.org/2/tutorial/stdlib.html
+</lien>
+<code_python>
+import bibliotheque as nom
+from bibliotheque import *
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+Menu &gt; Applications
+  &gt; Gestionnaire de module - Atoms
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+<ligne ASavoir="True">
+<description>
+  Définir une fonction
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+def nomdelafonction(paramètres):
+    bloc d'instruction
+    return resultat
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+function resultat=nomdelafonction(paramètres)
+    bloc d'instruction
+endfunction
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Interruption d'un programme pour débug
+</description>
+<python>
+  <lien>
+  http://docs.python.org/2/library/pdb.html?highlight=pdb#pdb
+</lien>
+<code_python>
+import pdb
+pdb.set_trace()
+</code_python>
+<module>
+  module pdb
+</module>
+<lien>
+  http://docs.python.org/2/library/pdb.html
+</lien>
+<exemple>
+  <H1>Débugger un programme Python</H1>
+  <p>Le débugger s'utilise en important le module pdb (Python debugger). L'utilisation classique est d'introduire un point d'arrêt (<tt>pdb.set_trace()</tt>) à l'endroit voulu dans un programme, une fonction, ou une boucle, de façon à reprendre la main et explorer les variables, voire exécuter les commandes ligne à ligne.</p>
+  <code_python>
+import pdb
+
+T=[]
+for i in range(10):
+  T.append(i)
+  pdb.set_trace()
+
+print(T)
+</code_python>
+<p>Lorsque le programme est interrompu, la commande "n" (next) permet d'exécuter la ligne suivante (ou "s" (step) qui permet d'entrer dans une fonction par exemple), "c" (continue) permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'exécution) et "q" (quit) permet d'arrêter le programme.</p>
+<p>Il existe d'autres options plus élaborées (voir documentation).</p>
+</exemple>
+</python>
+<scilab>
+<code_scilab>
+pause
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/pause.html
+</lien>
+<exemple>
+  <H1>Débugger un programme Scilab</H1>
+  <p>La commande <tt>pause</tt> introduit un point d'arrêt à l'endroit voulu dans un programme, une fonction, ou une boucle, de façon à reprendre la main et explorer les variables, voire exécuter les commandes ligne à ligne.</p>
+  <code_scilab>
+T=[]
+for i=1:10
+  T=[T i]
+  pause
+
+disp(T)
+</code_scilab>
+<p>Lorsque le programme est interrompu, la commande <tt>resume</tt> permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'execution) et <tt>abort</tt> permet d'arrêter le programme.</p>
+<p>La fonction <tt>resume</tt> permet aussi de renvoyer certaines variables locales vers l'espace de travail principal par la syntaxe :</p>
+  <code_scilab>
+[mem1, mem2]=return(var1,var2)
+</code_scilab>
+<p>où <tt>var1</tt> et <tt>var2</tt> sont les variables locales à renvoyer, et <tt>mem1</tt> et <tt>mem2</tt> sont les noms des variables qui seront mémorisées dans l'espace de travail principal.</p>
+</exemple>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+<h3>Variables</h3>
+<p>Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace mémoire alloué). Néanmoins, le typage est "dynamique" en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).</p>
+
+
+<tableau>
+
+<ligne>
+<description>
+  Obtenir le type d'une variable <i>a</i>
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+type(a)
+</code_python>
+<lien>
+http://docs.python.org/2/library/stdtypes.html
+</lien>
+<exemple>
+  <h1>Type d'une variable</h1>
+  <h2>Obtenir le type d'une variable</h2>
+  <p>Python gère les types dynamiquement. En fonction des besoins, il est susceptible de changer le type d'une variable :</p>
+  <code_python>
+a=3
+type(a)  # int
+a=a+3.2
+type(a)  # float
+  </code_python>
+  <h2>Forcer le type d'une variable</h2>
+  <p>Dans le cas où la variable doit être écrite dans un fichier ou utilisée dans un format bien précis, le type doit être imposé. Un certain nombre de commandes permettent le formatage d'une variable.</p>
+  <code_python>
+from pylab import *
+a=3
+type(a)        # int
+a=int16(a+3.2)
+a              # 6
+type(a)        # numpy.int16
+  </code_python>
+  
+</exemple>
+</python>
+<scilab>
+<code_scilab>
+type(a)
+typeof(a)
+inttype(a)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/typeof.html
+</lien>
+</scilab>
+<C>
+<code_C>
+explicite dans le programme...
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Changement de type
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+
+<code_python>
+int(a)
+float(a)
+str(a)
+</code_python>
+<lien>
+http://docs.python.org/2/library/stdtypes.html
+</lien>
+<exemple>
+  <h1>Changer le type d'une variable</h1>
+  <p>Python gère les types dynamiquement. En fonction des besoins, il est susceptible de changer le type d'une variable :</p>
+  <code_python>
+a=3
+type(a)  # int
+a=a+3.2
+type(a)  # float
+  </code_python>
+  <h2>Forcer le type d'une variable</h2>
+  <p>Dans le cas où la variable doit etre écrite dans un fichier ou utilisée dans un format bien précis, le type doit etre imposé. Un certain nombre de commandes permettent le formatage d'une variable.</p>
+  <code_python>
+from pylab import *
+a=3
+type(a)        # int
+a=int16(a+3.2)
+a              # 6
+type(a)        # numpy.int16
+
+#on affecte une valeur numérique à la variable a
+a=0.00000000000000000000000000000000000000000011
+>>> float32(a)  # Celle-ci peut être codée sur 32 bits
+1.0930128e-43
+>>> float64(a) # ou sur 64 bits
+1.1e-43
+>>> int(a) # on peut faire codé la valeur en un nombre entier
+0
+>>> str(a) # ou transformer le nombre en une chaîne de caractère 
+'1.1e-43'
+>>> 'la valeur est ' + str(a) # sur laquelle la concaténation sera possible.
+'la valeur est 1.1e-43'
+
+  </code_python>
+  
+</exemple>
+</python>
+<scilab>
+<code_scilab>
+int(a)
+int8(a)
+int16(a)
+float32(a)
+float64(a)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/int8.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+</tableau>
+
+
+<h4>Nombres</h4>
+<p>Nous passons sur les opérateurs classiques + - * / qui sont identiques dans les 3 langages (attention toutefois à la division de deux entiers qui est réalisée dans les entiers en C et en python 2.7, et dans R dans Scilab et en Python 3.3...).
+Il est nécessaire d'importer la bibliothèque math.h en C.</p>
+<tableau>
+
+<ligne ASavoir="True">
+<description>
+Puissance <i>a<sup>b</sup></i>
+</description>
+<python>
+<code_python>
+a**b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+a^b
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+pow(a,b)
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Reste ou modulo
+</description>
+<python>
+<code_python>
+a%b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+modulo(a,b)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a%b
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Division entière
+</description>
+<python>
+<code_python>
+a//b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+floor(a/b)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a/b avec a et b entiers
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Test égalité
+</description>
+<python>
+<code_python>
+a == b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+a == b
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a == b
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Inférieur (ou égal)
+</description>
+<python>
+<code_python>
+a &lt; b ; a &lt;= b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+a &lt; b ; a &lt;= b
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a &lt; b ; a &lt;= b
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Supérieur (ou égal)
+</description>
+<python>
+<code_python>
+a &gt; b ; a &gt;= b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+a &gt; b ; a &gt; =b
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a&gt;b ; a&gt;=b
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Différent
+</description>
+<python>
+<code_python>
+a != b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+a ~= b
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a != b
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+ET
+</description>
+<python>
+<code_python>
+a and b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+a &amp; b
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a &amp;&amp; b
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+ET bitwise
+</description>
+<python>
+<code_python>
+a &amp; b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+bitand(a,b)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a &amp; b
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+OU
+</description>
+<python>
+<code_python>
+a or b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+a | b
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a || b
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+OU bitwise
+</description>
+<python>
+<code_python>
+a | b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+bitor(a,b)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a | b
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+NON
+</description>
+<python>
+<code_python>
+not a
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+~a
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+!a
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+NON bitwise
+</description>
+<python>
+<code_python>
+~a
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+bitcmp(a,8)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+~a
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+OU exclusif
+</description>
+<python>
+<code_python>
+a ^ b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+~(a == b)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+!(a == b)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+OU exclusif bitwise
+</description>
+<python>
+<code_python>
+a ^ b
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+bitxor(a,b)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a ^ b
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+décalage de 3 bits à gauche et à droite
+</description>
+<python>
+<code_python>
+a &lt;&lt; 3 ; a &gt;&gt; 3
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+a*2^3 ; floor(a/2^3)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+a &lt;&lt; 3 ; a &gt;&gt; 3
+</code_C>
+</C>
+</ligne>
+
+
+<ligne ASavoir="True">
+<description>
+Affichage d'un nombre en binaire
+</description>
+<python>
+<code_python>
+bin(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+dec2bin(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Affichage d'un nombre en hexadécimal
+</description>
+<python>
+<code_python>
+hex(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+dec2hex(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+
+<p>Les fonctions mathématiques standards en python peuvent provenir de différents paquets. L'utilisation de l'option --pylab (automatiquement chargée sous Spyder) conduit à utiliser les fonctions du module Numpy (A VERIFIER) par défaut.</p>
+
+<tableau>
+
+<ligne ASavoir="True">
+<description>
+Racine carrée
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+  <lien>
+  http://docs.python.org/2/library/math.html?highlight=sqrt#math.sqrt
+</lien>
+<code_python>
+sqrt(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+sqrt(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+sqrt(a)
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+cosinus
+sinus
+tangente
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+    <lien>
+  http://docs.python.org/2/library/math.html
+</lien>
+<code_python>
+cos(a)
+sin(a)
+tan(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+cos(a)
+sin(a)
+tan(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+cos(a)
+sin(a)
+tan(a)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+arcos
+arcsin
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+ <lien>
+  http://docs.python.org/2/library/math.html
+</lien>
+<code_python>
+acos(a)
+asin(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+acos(a)
+asin(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+arctangente sur ]-&#x03C0;/2, &#x03C0;/2[
+</description>
+<python>
+<code_python>
+atan(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+atan(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+atan(a)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+arctangente sur ]-&#x03C0;, &#x03C0;]
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+<lien>
+  http://docs.python.org/2/library/math.html?highlight=atan2#math.atan2
+</lien>
+<code_python>
+atan2(y,x)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+atan(y,x)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+atan2(x,y)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+ch, sh, th
+</description>
+<python>
+<lien>
+  http://docs.python.org/2/library/math.html?highlight=atan2#math.atan2
+</lien>
+<code_python>
+cosh(x)
+sinh(x)
+tanh(x)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+cosh(x)
+sinh(x)
+tanh(x)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Logarithme Néperien (ln)
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+<code_python>
+log(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+log(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+log(a)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Logarithme en base 10 (log)
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+<code_python>
+log10(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+log10(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+log10(a)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+  Logarithme en base <i>n</i> quelconque
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+<code_python>
+log(a,n)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+log(a)/log(n)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+  Exponentielle <i>e<sup>a</sup></i>
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+<code_python>
+exp(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+exp(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+exp(a)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Arrondi entier
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+<code_python>
+around(a)
+fix(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+round(a)
+fix(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+round(a)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Arrondi à l'entier supérieur
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+<code_python>
+ceil(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+ceil(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+ceil(a)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Arrondi à l'entier inférieur
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+<code_python>
+floor(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+floor(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+floor(a)
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+Générer un nombre ou une liste aléatoire
+</description>
+<python>
+<code_python>
+random.random()
+numpy.random.sample(10)
+</code_python>
+<lien>
+http://docs.scipy.org/doc/numpy/reference/routines.random.html
+</lien>
+<module>
+Disponible dans la bibliothèque random ou numpy
+</module>
+</python>
+<scilab>
+<code_scilab>
+rand()
+rand(1,10)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+int nb_rand;
+srand(time(NULL));
+nb_rand=rand();
+<module>
+Il peut être nécessaire d'importer time.h.
+</module>
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Constantes
+</description>
+<python>
+  <module>
+    Disponible dans la bibliothèque Numpy ou Math
+  </module>
+  <lien>
+ http://docs.python.org/2/library/math.html?highlight=math.pi#math.pi
+</lien>
+ 
+<code_python>
+pi
+e
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+floor(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+floor(a)
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+
+<p>Le calcul en complexes est possible dans les langages Python et Scilab.</p>
+
+<tableau>
+
+<ligne>
+<description>
+imaginaire <i>i</i>
+</description>
+<python>
+<code_python>
+1j
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+%i
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Nombre complexes <i>3+4i</i>
+</description>
+<python>
+<code_python>
+3+4j
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+3+4*%i
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Partie réelle de <i>a</i>
+</description>
+<python>
+<code_python>
+a.real
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+real(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Partie imaginaire de <i>a</i>
+</description>
+<python>
+<code_python>
+a.imag
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+imag(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Module
+</description>
+<python>
+<code_python>
+abs(a)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+abs(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Argument
+</description>
+<python>
+<code_python>
+arctan2(a.imag,a.real)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+atan(imag(a),real(a))
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Conjugué de <i>a</i>
+</description>
+<python>
+<code_python>
+a.conj()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+conj(a)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+
+</description>
+<python>
+<code_python>
+
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+
+</description>
+<python>
+<code_python>
+
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+
+<h4>Tableaux (à une ou plusieurs dimensions)</h4>
+
+<p>Le calcul numérique s'appuie intensivement sur des tableaux de valeurs, soit pour représenter des signaux, soit pour représenter des vecteurs et des matrices.</p>
+
+<p>La syntaxe de Scilab est fortement orienté vers la manipulation de tableau. Elle est en ce sens très pratique et lisible.</p>
+
+<p>Python propose quant à lui trois types possibles pour manipuler des données sous forme de tableaux : les listes (à une ou plusieurs dimensions), le type "array", et le type "matrix". Des conversions sont possibles entre ces types. Il est conseillé dans le cadre du calcul numérique (pour des raisons pratiques et d'efficacité des calculs) d'utiliser le type "array". C'est ce qui est considéré par la suite.</p>
+
+<p>Attention, en Python et en C, les indices des tableaux commencent à 0 tandis qu'en Scilab, ils commencent à 1.</p>
+
+
+<tableau>
+
+<ligne ASavoir="True">
+<description>
+Vecteur ligne
+</description>
+<python>
+
+<code_python>
+v=array([1, 2, 3])
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+v=[1, 2, 3] ou 
+[1 2 3]
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+v=[1, 2, 3] ??
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Vecteur colonne
+</description>
+<python>
+ <lien>
+  http://docs.python.org/2/library/array.html?highlight=array#array
+  http://math.mad.free.fr/depot/numpy/base.html
+</lien>
+<code_python>
+v=array([[1],[2],[3]])
+v=array([1, 2, 3])[:,newaxis]
+v=array([1, 2, 3]).reshape(-1,1)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+v=[1; 2; 3]
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Tableau à 2 dimensions
+</description>
+<python>
+ <lien>
+  http://docs.python.org/2/library/array.html?highlight=array#array
+  http://math.mad.free.fr/depot/numpy/base.html
+</lien>
+<code_python>
+M=array([[1,2,3],[4,5,6]])
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+M=[1, 2, 3; 4, 5, 6]
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Accéder à un élément
+</description>
+<python>
+<code_python>
+v[0], M[0,1]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+v(1), M(1,2)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+v(3) ????
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Accéder au dernier élément, et l'avant dernier
+</description>
+<python>
+<code_python>
+v[-1], v[-2]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+v($), v($-1)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Dimensions d'un tableau
+</description>
+<python>
+<code_python>
+M.shape
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+size(M)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne ASavoir="True">
+<description>
+Extraire la 2ème ligne ou 2ème colonne
+</description>
+<python>
+<code_python>
+M[1,:] ou M[:,1]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+M(2,:) ou M(:,2)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Extraire une portion de tableau (2 premières colonnes)
+</description>
+<python>
+<code_python>
+M[:,0:2]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+M(:,1:2)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Extraire des éléments d'un tableau par leurs indices
+</description>
+<python>
+<code_python>
+M[0,(2,1)]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+M([1],[3,2])
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Séquence équirépartie d'entiers
+</description>
+<python>
+<code_python>
+range(1,11)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+1:10
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Séquence équirépartie quelconque
+</description>
+<python>
+<code_python>
+arange(0,10.1,0.1)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+0:0.1:10
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Tableau de zéros
+</description>
+<python>
+<code_python>
+zeros((2,3),float)
+   
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+zeros(2,3)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Tableau de uns
+</description>
+<python>
+<code_python>
+ones((2,3),float)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+ones(2,3)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Copier un tableau dans une autre variable
+</description>
+<python>
+<code_python>
+w=v.copy()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+w=v
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne ASavoir="True">
+<description>
+Multiplication élément par élément
+</description>
+<python>
+<code_python>
+v*w
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+v.*w
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Maximum et minimum d'un tableau
+</description>
+<python>
+<code_python>
+v.max(0), v.min(0)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+max(v), min(v)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Indice <i>i</i> du maximum
+</description>
+<python>
+<code_python>
+v.argmax(0)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+[m,i] = max(v)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+
+
+<h4>Matrices</h4>
+
+<tableau>
+
+
+<ligne ASavoir="True">
+<description>
+Produit matriciel
+</description>
+<python>
+<code_python>
+dot(v,w)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+v*w
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Transposée
+</description>
+<python>
+<code_python>
+M.transpose()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+M'
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+  Résolution de système matriciel <i>M.X=Y</i>
+</description>
+<python>
+<code_python>
+linalg.solve(M,Y)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+X=M\Y
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/backslash.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Produit scalaire de deux vecteurs
+</description>
+<python>
+<code_python>
+vdot(v,w)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+v'*w
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Produit vectoriel
+</description>
+<python>
+<code_python>
+cross(v,w)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+cross(v,w)
+</code_scilab>
+<module>
+  À partir de la version Scilab 5.5.0
+</module>
+<lien>
+  http://help.scilab.org/docs/5.5.0-beta-1/fr_FR/cross.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Déterminant
+</description>
+<python>
+<code_python>
+linalg.det(M)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+det(M)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Inverse
+</description>
+<python>
+<code_python>
+linalg.inv(M)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+inv(M)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Valeurs propres
+</description>
+<python>
+<code_python>
+linalg.eig(M)[0]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+spec(M)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Vecteurs propres
+</description>
+<python>
+<code_python>
+linalg.eig(M)[1]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+[v,l] = spec(M)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/spec.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Rang
+</description>
+<python>
+<code_python>
+rank(M)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+rank(M)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+</tableau>
+
+<h4>Listes</h4>
+<tableau>
+<ligne ASavoir="True">
+<description>
+Définir une liste
+</description>
+<python>
+<code_python>
+liste1 = [M,v]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+liste1 = list(M,v) 
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/list.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+<ligne ASavoir="True">
+<description>
+Sélectionner par position
+</description>
+<python>
+<code_python>
+liste1[i]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+liste1(i)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+<ligne>
+<description>
+Supprimer un élément
+</description>
+<python>
+<code_python>
+del liste1[i]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+L(i)=null()
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+</tableau>
+
+<h4>Dictionnaires et structures</h4>
+
+ <p>Ce sont des listes un peu plus complexes en ce que chacun des éléments qui le compose est au moins composé de 2 membres, l'un étant la clé, l'autre la valeur.</p>
+
+<p>En python, le dictionnaire est embrassé par des accolades { }.</p>
+
+ <p>Scilab propose aussi des structures indicées (<tt>cell()</tt>) qui ne seront pas développées ci-dessous (car plus ou moins équivalentes à une liste).</p>
+
+
+<tableau>
+
+<ligne>
+<description>
+Définir un dictionnaire
+</description>
+<python>
+<code_python>
+D1 = {'Scal': 5, 'Vect': array([1,2,3])}
+</code_python>
+<lien>
+http://docs.python.org/2/tutorial/datastructures.html
+</lien>
+</python>
+<scilab>
+<code_scilab>
+S1=struct('Scal', 5, 'Vect', [1,2,3])
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/struct.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+Obtenir ou changer un élément
+</description>
+<python>
+<code_python>
+D1['Scal'] = 1 + D1['Vect'][2]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+S1.Scal = 1 + S1.Vect(3)
+</code_scilab>
+<lien>
+
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Supprimer un élément
+</description>
+<python>
+<code_python>
+del D1['Scal']
+clear() 
+pop(cle) 
+popitem()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+S1.Scal=null()
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+</tableau>
+
+<h4>Chaînes de caractères</h4>
+
+<p> En C il faut utiliser la bibliothèque string.h.</p>
+
+<tableau>
+
+<ligne ASavoir="True">
+<description>
+Définir une chaîne de caractères
+</description>
+<python>
+<code_python>
+mot="Python et Scilab"
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+mot="Python et Scilab"
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+mot="Python et Scilab"
+</code_C>
+</C>
+</ligne>
+
+
+<ligne ASavoir="True">
+<description>
+Longueur d'une chaîne
+</description>
+<python>
+<code_python>
+len(mot)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+length(mot)
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+strlen(mot)
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Extraire des caractères
+</description>
+<python>
+<code_python>
+mot[2:7]
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+part(mot,[1,2,11:16])
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Concaténation
+</description>
+<python>
+<code_python>
+mot="python" + "/" + "Scilab"
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+mot="python" + "/" + "Scilab"
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+strcat(mot1,mot2)
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Replacer une portion de chaîne
+</description>
+<python>
+<code_python>
+mot.replace("Scilab","C")
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+strsubst(mot,"Scilab","C")
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Découper une chaîne de caractères
+</description>
+<python>
+<code_python>
+mot.split(" ")
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+strsplit(mot," ")
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Supprimer des caractères de retour à la ligne
+</description>
+<python>
+<code_python>
+mot.rstrip("\n\r")
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+</tableau>
+
+
+
+<h3>Structures de contrôle</h3>
+<h4>Boucles</h4>
+
+<tableau>
+
+
+<ligne ASavoir="True">
+<description>
+Boucle FOR
+</description>
+<python>
+<code_python>
+for i in range(10):
+  print(i)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+for i=1:10
+  disp(i);
+endfor
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/for.html
+</lien>
+</scilab>
+<C>
+<code_C>
+for (i=1;i&lt;=10;i++){
+  printf("%d",i);
+}
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Boucle WHILE
+</description>
+<python>
+<code_python>
+i=0
+while (i&lt;10):
+  i+=1
+  print(i)
+
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+i=0
+while (i&lt;10)
+  i=i+1
+  disp(i)
+endwhile
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/while.html
+</lien>
+</scilab>
+<C>
+<code_C>
+int i =10;
+while (i&lt;10){
+printf("%d",i);
+i++;
+}
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Interruption d'une boucle
+</description>
+<python>
+<code_python>
+break
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+break
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/break.html
+</lien>
+</scilab>
+<C>
+<code_C>
+break
+</code_C>
+</C>
+</ligne>
+
+
+</tableau>
+
+
+<h4>Conditions</h4>
+
+<tableau>
+
+
+<ligne ASavoir="True">
+<description>
+Condition IF
+</description>
+<python>
+<code_python>
+if (i>3):
+  print(i)
+else
+  print("hello")
+
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+if (i>3)
+  disp(i)
+else
+  disp("hello")
+endif
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/if.html
+</lien>
+</scilab>
+<C>
+<code_C>
+if (i>3){
+  printf("%d",i);
+}
+else{
+  printf("hello");
+}
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+Condition CASE
+</description>
+<python>
+<code_python>
+
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+select i,
+  case 1 then
+    disp("Egal à 1");
+  case %nan then
+    disp("Not a Number");
+  else
+    disp("Aucun des deux");
+end
+
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/case.html
+</lien>
+</scilab>
+<C>
+<code_C>
+switch(i) {
+case 2: {
+  b=b+1; }
+  break;
+case 3: {
+  b=b+5; }
+  break;
+default: {
+  b=0; }
+}
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+
+<h4>Fonctions</h4>
+
+<tableau>
+
+<ligne ASavoir="True">
+<description>
+  Définir une fonction
+</description>
+<python>
+  <module>
+    Fonctionnalité standard
+  </module>
+<code_python>
+def nomdelafonction(paramètres):
+    bloc d'instructions
+    return resultat
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+function resultat=nomdelafonction(paramètres)
+    bloc d'instructions
+endfunction
+</code_scilab>
+</scilab>
+<C>
+<code_C>
+??
+</code_C>
+</C>
+</ligne>
+
+
+</tableau>
+
+
+<h3>Courbes</h3>
+<h4>Courbes 2D</h4>
+
+<p>En Python, il est parfois nécessaire d'exécuter la commande show() pour afficher le graphique après l'appel à la commande plot().</p>
+
+
+<tableau>
+
+<ligne ASavoir="True">
+<description>
+Tracé d'une courbe <i>y</i> ou <i>(x,y)</i>
+</description>
+<python>
+<code_python>
+plot(y) ou plot(x,y)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+plot(y) ou plot(x,y)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Tracé de points (o) rouges (r) reliés par des lignes (-)
+</description>
+<python>
+<code_python>
+plot(x,y,"-or")
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+plot(x,y,"-or")
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Effacer le graphique
+</description>
+<python>
+<code_python>
+clf()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+clf
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/clf.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Ouvrir une nouvelle figure
+</description>
+<python>
+<code_python>
+figure(3)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+figure(3)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/figure.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Échelle logarithmique en X
+</description>
+<python>
+<code_python>
+semilogx(x,y)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+plot2d("ln",x,y)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot2d.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Échelle logarithmique en X et Y
+</description>
+<python>
+<code_python>
+loglog(x,y)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+plot2d("ll",x,y)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/plot2d.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+
+<h4>Courbes 3D</h4>
+
+
+
+<h3>Fichiers</h3>
+<h4>Fichiers textes</h4>
+
+
+<tableau>
+
+<ligne ASavoir="True">
+<description>
+Ouvrir un fichier texte en lecture/écriture
+</description>
+<python>
+<code_python>
+fic=open("fichier.txt","r")
+fic=open("fichier.txt","w")
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+fic=mopen("fichier.txt","r")
+fic=mopen("fichier.txt","w")
+</code_scilab>
+<lien>
+ http://help.scilab.org/docs/5.4.1/fr_FR/mopen.html 
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Fermer un fichier
+</description>
+<python>
+<code_python>
+fic.close()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+close(fic)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mclose.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Lire une ou plusieurs lignes
+</description>
+<python>
+<code_python>
+ligne=fic.readline()
+lignes=fic.readlines()
+</code_python>
+<lien>
+http://docs.python.org/2/tutorial/inputoutput.html#reading-and-writing-files
+</lien>
+<exemple>
+  <h1>Lire des lignes dans un fichier texte</h1>
+   <p>Un fichier texte se lit de façon séquentiel, en partant du début vers la fin. Il n'y a pas de retour en arrière possible (sauf en refermant le fichier pour l'ouvrir à nouveau) et il n'est <i>a priori</i> pas possible d'accéder aux lignes par des indices comme pour les tableaux ou les listes.</p>
+  <p>Il est par contre possible de lire les lignes et les stocker dans un tableau pour y accéder ensuite par des indices.</p>
+  <h2>Méthode 1 : lecture de l'ensemble des lignes en une fois</h2>
+  <p>La lecture d'un fichier texte en une fois s'effectue par la commande <tt>readlines()</tt></p>
+  <p>L'exemple ci-dessous peut être copié dans une console python pour test. Le premier paragraphe consiste au préalable à créer un fichier texte qui sera lu ensuite. Pour faire les choses simples, la structure du fichier test est la suivante (vous pouvez l'ouvrir avec un éditeur de texte) :</p>
+  <pre>
+Première ligne !
+Seconde ligne...
+Essayons un tableau
+T,X,Y
+0,0.2,0.3
+1,0.5,0.6
+2,0.9,1.2
+3,1.4,1.5
+Fin du fichier
+  </pre>
+  <code_python>
+# Ecriture d'un fichier test
+fic=open("test_fichier.txt","w")
+fic.write("Première ligne !\nSeconde ligne...\nEssayons un tableau\n\
+T,X,Y\n0,0.2,0.3\n1,0.5,0.6\n2,0.9,1.2\n3,1.4,1.5\nFin du fichier")
+fic.close()
+
+# Lecture du fichier test
+fic=open("test_fichier.txt","r")  # Ouverture en lecture
+texte=fic.readlines()             # Lecture de l'ensemble des lignes
+fic.close()                       # Fermeture du fichier (ne pas oublier)
+
+# En tapant la variable texte dans la console, le contenu apparait
+texte
+
+print(texte[0])                   # Affichage de la première ligne
+print(texte[1])                   # Affichage de la seconde ligne
+
+# Pour lire un tableau de données, il faut découper les lignes et les convertir en nombres
+texte[4:8]                        # Les lignes 5 à 8 qui nous intéressent...
+T=[]; X=[]; Y=[]                  # Initialisation des listes
+for i in range(4,8):
+  ligne=texte[i].rstrip("\n")  # Suppression du retour à la ligne
+  ligne=ligne.split(",")       # Découpage au niveau des virgules
+  T.append(int(ligne[0]))      # Conversion en int et ajout au tableau T
+  X.append(float(ligne[1]))    # Conversion en float et ajout au tableau X
+  Y.append(float(ligne[2]))    # idem Y
+
+# Conversion éventuelle en tableaux "array"
+T=array(T)
+X=array(X)
+Y=array(Y)
+  </code_python>
+  <p>Sous Windows, les retours à la ligne sont parfois écrits <tt>"\n\r"</tt>. Les séparateurs peuvent être des virgules, mais aussi des points-virgules, ou encore des tabulations <tt>"\t"</tt>. Certains logiciels francisés utilisent la virgule comme séparateur décimal, alors que python (comme la plupart des langages et logiciels) attendent un point. Il est alors nécessaire de remplacer les "," par des "." par la commande replace (par exemple : <tt>texte[0].replace("i","u")</tt>)</p>
+  
+  <h2>Méthode 2 : lecture ligne après ligne</h2>
+  <p>La lecture d'une ligne d'un fichier texte s'effectue par la commande <tt>readline()</tt> (noter l'absence de "s")</p>
+  <p>L'exemple ci-dessous peut être copié dans une console python pour test.</p>
+  <code_python>
+# Ecriture d'un fichier test
+fic=open("test_fichier.txt","w")
+fic.write("Première ligne !\nSeconde ligne...\nEssayons un tableau\n\
+T,X,Y\n0,0.2,0.3\n1,0.5,0.6\n2,0.9,1.2\n3,1.4,1.5\nFin du fichier")
+fic.close()
+
+# Lecture du fichier test
+fic=open("test_fichier.txt","r")  # Ouverture en lecture
+ligne=fic.readline()              # Lecture de la première ligne
+print(ligne)                      # Affichage de la première ligne
+ligne=fic.readline()              # Lecture de la seconde ligne
+print(ligne)                      # Affichage de la seconde ligne
+
+# Pour lire le reste du fichier sans connaitre sa taille :
+ligne="un texte non nul"
+while ligne!="":                  # tant que la chaine lue est non nulle
+  ligne=fic.readline()            # Lecture d'une ligne
+  print(ligne)                    # Affichage de la ligne pour vérification
+
+fic.close()                       # Fermeture du fichier (ne pas oublier)
+  </code_python>
+  <p></p>
+  <h2>Méthode 3 : lecture de données formatées par la fonction <tt>loadtxt()</tt></h2>
+  <p>Cette fonction fait l'objet d'une page d'exemple dédiée : revenir au formulaire pour consulter l'aide de cette fonction.</p>
+</exemple>
+</python>
+<scilab>
+<code_scilab>
+ligne=mgetl(f,1)
+lignes=mgetl(f)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mgetl.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Lire un tableau formaté
+</description>
+<python>
+<code_python>
+a,b=loadtxt("Fichier.txt",
+  usecols = (0,2),
+  dtype={
+  'names': ('numero', 'consigne'),
+  'formats': ('i2', 'f4')},
+  delimiter=',',
+  unpack=True)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+Tableau=mfscanf(-1,fic,"%d,%f,%f")
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfscanf.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne ASavoir="True">
+<description>
+Écrire une ligne
+</description>
+<python>
+<code_python>
+fic.write("il fait {:f} degres.\n".format(10))
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+mfprintf(fic,"il fait %f degres.\n",10)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfprintf.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Écrire un tableau formaté
+</description>
+<python>
+<code_python>
+for i in range(len(x))
+  fic.write("{:d},{:f},{:f}\n".format(i,x[i],y[i])
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+mfprintf(fic,"%d,%f,%f",1:100,x,y)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mfprintf.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+</tableau>
+
+
+
+<h4>Fichiers binaires</h4>
+
+
+<tableau>
+
+
+<ligne>
+<description>
+Sauver des variables dans un fichier binaire
+</description>
+<python>
+<code_python>
+import pickle
+fic=open("fichier.pick","wb")
+pickle.dump(a,fic)
+pickle.dump(b,fic)
+fic.close()
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+save("fichier.dat",a,b)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/save.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Recharger des variables du fichier binaire
+</description>
+<python>
+<code_python>
+import pickle
+fic=open("fichier.pick","rb")
+pickle.load(a,fic)
+pickle.load(b,fic)
+fic.close()
+
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+load("fichier.dat","a","b")
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/load.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Ouvrir un fichier binaire en lecture/écriture
+</description>
+<python>
+<code_python>
+fic=open("fichier.txt","rb")
+fic=open("fichier.txt","wb")
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+fic=mopen("fichier.txt","rb")
+fic=mopen("fichier.txt","wb")
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mopen.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Lire 3 octets dans un fichier binaire
+</description>
+<python>
+<code_python>
+octets=fic.read(3)
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+octets=mget(3,"c",fic)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mget.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Écrire des octets dans un fichier binaire
+</description>
+<python>
+<code_python>
+fic.write("PCSI")
+fic.write(int8(83))
+fic.write(float32(2.3))
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+mput(ascii("PCSI"),"c",fic)
+mput(83,"i",fic)
+mput(2.3,"f",fic)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/mput.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+
+<h4>Images</h4>
+
+<p>La lecture et l'écriture d'image sous python est relativement simple par la bibliothèque scipy.misc, chargé automatiquement par l'option --pylab ou par spyder. Les formats supportés sont jpg, bmp, ????. Des bibliothèques plus élaborées existent (PIL par exemple) mais ne sont pas abordées ici.</p>
+
+<p>La lecture et l'écriture d'image sous Scilab nécessite l'installation par Atoms du module SIVP (image and vidéo processing). La plupart des formats sont supportés.</p>
+
+<p>Les images sont ensuite manipulées dans le programme sous forme de tableau.</p>
+
+
+<tableau>
+
+<ligne>
+<description>
+Ouvrir une image
+</description>
+<python>
+<code_python>
+im=imread("image.jpg")
+</code_python>
+<lien>
+  http://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.imread.html#scipy.misc.imread
+</lien>
+<module>
+  Module scipy.misc
+</module>
+</python>
+<scilab>
+<code_scilab>
+im=imread("image.jpg")
+</code_scilab>
+<lien>
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imread.html
+</lien>
+<module>
+  Module SIVP
+</module>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Enregistrer une image
+</description>
+<python>
+<code_python>
+imsave("image.jpg",im)
+</code_python>
+<module>
+  Module scipy.misc
+</module>
+</python>
+<scilab>
+<code_scilab>
+imwrite(im,"image.jpg")
+</code_scilab>
+<lien>
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imwrite.html
+</lien>
+<module>
+  Module SIVP
+</module>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+Afficher une image
+</description>
+<python>
+<code_python>
+imshow(im)
+</code_python>
+<module>
+  Module scipy.misc
+</module>
+</python>
+<scilab>
+<code_scilab>
+imshow(im)
+</code_scilab>
+<lien>
+  http://siptoolbox.sourceforge.net/doc/sip-0.7.0-reference/imshow.html
+</lien>
+<module>
+  Module SIVP
+</module>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Taille de l'image
+</description>
+<python>
+<code_python>
+im.shape
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+size(im)
+</code_scilab>
+<lien>
+  http://help.scilab.org/docs/5.4.1/fr_FR/size.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+
+<h3>Calcul numérique</h3>
+
+<tableau>
+  
+<ligne>
+<description>
+  Intégration numérique d'une fonction <math>f(x)</math> de <math><msub><mi>x</mi><mi>0</mi></msub></math> à <math><msub><mi>x</mi><mi>1</mi></msub></math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+integrate("sin(x)","x",x0,x1)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/integrate.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+ 
+<ligne>
+<description>
+  Intégration par la méthode des trapèzes
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+trapz(y[, x, dx, axis])
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+inttrap(x,y)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/inttrap.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+Dérivation numérique d'une fonction <math>f(x)</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+derivative(f,x)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/derivative.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+   Différences ﬁnies
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+diff(a[, n, axis]) 
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+numdiff(y,x)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/numdiff.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+  Solution d'une équation non linéaire <math>f(x)=0</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+fsolve(x0,f)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/fsolve.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+  Minimisation d'une fonction <math>f(x)</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+optim(f,x0)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/optim.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+<ligne>
+<description>
+  Intégration numérique d'une équation différentielle ordinaire (ODE)<math><mfrac><mrow>dx</mrow>dt</mfrac>=f(x,t)</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+ode(x0,t0,t,f)
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/fr_FR/ode.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+
+<ligne>
+<description>
+  Intégration numérique d'une équation différentielle algébrique (DAE) <math>f(x,<mfrac><mrow>dx</mrow>dt</mfrac>,t)=0</math>
+</description>
+<python>
+  <module>
+    Bibliothèque Numpy
+  </module>
+<code_python>
+??
+</code_python>
+</python>
+<scilab>
+<code_scilab>
+dae(x0,t0,t,f) 
+</code_scilab>
+<lien>
+http://help.scilab.org/docs/5.4.1/en_US/dae.html
+</lien>
+</scilab>
+<C>
+<code_C>
+
+</code_C>
+</C>
+</ligne>
+
+</tableau>
+
+<div id="footer"> 
+<img src="style/logoCC.png" alt="licence" height="30"/>
+</div>
+
+</body>

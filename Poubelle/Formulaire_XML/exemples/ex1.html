@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<head>
+<title>Le calcul scientifique sous Python et Scilab</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="style/style.css"/>
+<link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/"/>
+</head>
+
+  <H1>Débugger un programme Python</H1>
+  <p>Le débugger s'utilise en important le module pdb (Python debugger). L'utilisation classique est d'introduire un point d'arrêt (<tt>pdb.set_trace()</tt>) à l'endroit voulu dans un programme, une fonction, ou une boucle, de façon à reprendre la main et explorer les variables, voire exécuter les commandes ligne à ligne.</p>
+  <div class="highlight"><pre><span class="kn">import</span> <span class="nn">pdb</span>
+
+<span class="n">T</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">pdb</span><span class="o">.</span><span class="n">set_trace</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+
+<p>Lorsque le programme est interrompu, la commande &quot;n&quot; (next) permet d'exécuter la ligne suivante (ou &quot;s&quot; (step) qui permet d'entrer dans une fonction par exemple), &quot;c&quot; (continue) permet de poursuivre le programme jusqu'au prochain point d'arrêt (ou la fin d'execution) et &quot;q&quot; (quit) permet d'arrêter le programme.</p>
+<p>Il existe d'autres options plus élaborées (voir documentation).</p>
