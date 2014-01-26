@@ -5,3 +5,6 @@
 *.toc
 *.out
 *.log
+
+# On ignore la poubelle
+Poubelle/*
