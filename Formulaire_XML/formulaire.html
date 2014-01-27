@@ -4,9 +4,13 @@
 <title>Le calcul scientifique sous Python et Scilab</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <link rel="stylesheet" type="text/css" href="style/style.css"/>
+<link rel="stylesheet" 
+type="text/css" href="style/style_impression.css" media="print" />
 <link rel="copyright" href="http://creativecommons.org/licenses/by/3.0/"/>
 </head>
-
+<div id="sommaire"> 
+<br/><a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="40"/></a><br/>
+<h1>Sommaire</h1><h2>Les spécificités des langages pour le calcul scientifique</h2><h3>Python et Scilab</h3><h3>Pourquoi un peu de C ?</h3><h3>Utilisation du formulaire</h3><h2>Formulaire</h2><h3>Manipulation globale</h3><h3>Variables</h3><h4>Nombres</h4><h4>Tableaux (à une ou plusieurs dimensions)</h4><h4>Matrices</h4><h4>Listes</h4><h4>Dictionnaires et structures</h4><h4>Chaînes de caractères</h4><h3>Structures de contrôle</h3><h4>Boucles</h4><h4>Conditions</h4><h4>Fonctions</h4><h3>Courbes</h3><h4>Courbes 2D</h4><h4>Courbes 3D</h4><h3>Fichiers</h3><h4>Fichiers textes</h4><h4>Fichiers binaires</h4><h4>Images</h4><h3>Calcul numérique</h3></div>
 <h1>Le calcul scientifique sous Python et Scilab</h1>
 
 <h2>Les spécificités des langages pour le calcul scientifique</h2>
@@ -21,20 +25,20 @@
 
 <p>Le C et ses variantes est, de très loin, le langage le plus répandu en informatique. Il est néanmoins un peu plus rigide et complexe à manipuler pour l'apprentissage de la programmation (il n'est pas interactif par exemple).</p>
 
-<p>Pour la programmation des micro-contrôleurs (utilisés en TP de SI), il est incontournable. C'est pourquoi le fomulaire ci-dessous propose, pour un petit nombre de fonctionnalités indispensables pour la commande des systèmes embarqués, les expressions équivalentes en C.</p>
+<p>Pour la programmation des micro-contrôleurs (utilisés en TP de SI), il est incontournable. C'est pourquoi le formulaire ci-dessous propose, pour un petit nombre de fonctionnalités indispensables pour la commande des systèmes embarqués, les expressions équivalentes en C.</p>
 
 <h3>Utilisation du formulaire</h3>
 
 <p>Le formulaire tente de couvrir en une page l'essentiel des commandes utiles dans le cadre du programme de CPGE. Chaque commande est illustrée en une ligne, permettant de se remémorer rapidement la syntaxe des fonctions dans chaque langage. Seules les commandes présentant le symbole <img alt="+" src="style/heart-pencil-icon-icon.png" style="border:0;"/> sont raisonnablement à connaitre pour les concours.</p>
 
- <p>Le symblole <img alt="+" src="style/Add-icon.png" style="border:0;"/> redirige vers une page proposant plus d'explications et d'exemples pour certaines commandes lorsque c'est utile. Le symbole <img alt="?" src="style/FAQ-icon.png" style="display: inline;"/> renvoie vers une documentation officielle de la commande.</p>
+ <p>Le symbole <img alt="+" src="style/Add-icon.png" style="border:0;"/> redirige vers une page proposant plus d'explications et d'exemples pour certaines commandes lorsque c'est utile. Le symbole <img alt="?" src="style/FAQ-icon.png" style="display: inline;"/> renvoie vers une documentation officielle de la commande.</p>
 
 <h2>Formulaire</h2>
 
 <h3>Manipulation globale</h3>
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 
@@ -130,7 +134,7 @@
 <a href="
   http://docs.python.org/2/tutorial/stdlib.html
 "><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="kn">import</span> <span class="nn">bibliotheque</span> <span class="kn">as</span> <span class="nn">nom</span>
-<span class="kn">from</span> <span class="nn">bibliotheque</span> <span class="nn">importe</span> <span class="err">*</span>
+<span class="kn">from</span> <span class="nn">bibliotheque</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </td>
 <td title="">
@@ -195,11 +199,11 @@ Interruption d'un programme pour débug
 
 
 <h3>Variables</h3>
-<p>Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace espace mémoire alloué). Néanmoins, le typage est &quot;dynamique&quot; en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).</p>
+<p>Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace mémoire alloué). Néanmoins, le typage est &quot;dynamique&quot; en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).</p>
 
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 
@@ -260,9 +264,9 @@ http://docs.python.org/2/library/stdtypes.html
 
 <h4>Nombres</h4>
 <p>Nous passons sur les opérateurs classiques + - * / qui sont identiques dans les 3 langages (attention toutefois à la division de deux entiers qui est réalisée dans les entiers en C et en python 2.7, et dans R dans Scilab et en Python 3.3...).
-Il est nécessaire d'importer la bilbiothèqe math.h en C.</p>
+Il est nécessaire d'importer la bibliothèque math.h en C.</p>
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -573,10 +577,10 @@ Affichage d'un nombre en hexadécimal
 
 
 
-<p>Les fonctions mathématiques standards en python peuvent provenir de différents paquets. L'utilisation de l'option --pylab (automatiquement chargée sous Spyder) conduit à utiliser les fonctions du module Numpy (A VERIFIER) par défaut.</p>
+<p>Les fonctions mathématiques standards en python peuvent provenir de différents paquets. L'utilisation de l'option --pylab (automatiquement chargée sous Spyder) conduit à utiliser les fonctions des modules Numpy, Scipy et Matplotlib par défaut.</p>
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -686,7 +690,7 @@ arctangente sur ]-π, π]
 </pre></div>
 </td>
 <td title="">
-<div class="highlight"><pre><span class="o">??</span>
+<div class="highlight"><pre><span class="n">atan2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </td>
 </tr><tr class="even">
@@ -707,7 +711,9 @@ ch, sh, th
 </pre></div>
 </td>
 <td title="">
-<div class="highlight"><pre>
+<div class="highlight"><pre><span class="n">cosh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </td>
 </tr><tr class="odd">
@@ -864,8 +870,15 @@ http://docs.scipy.org/doc/numpy/reference/routines.random.html
 <span class="nb">rand</span><span class="p">(</span>1<span class="p">,</span>10<span class="p">)</span>
 </pre></div>
 </td>
-<td title="">
-<div class="highlight"><pre><span class="o">??</span>
+<td title="
+Il peut être nécessaire d'importer time.h.
+">
+<div class="highlight"><pre><span class="kt">int</span> <span class="n">nb_rand</span><span class="p">;</span>
+<span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+<span class="n">nb_rand</span><span class="o">=</span><span class="n">rand</span><span class="p">();</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="n">Il</span> <span class="n">peut</span> <span class="err">ê</span><span class="n">tre</span> <span class="n">n</span><span class="err">é</span><span class="n">cessaire</span> <span class="n">d</span><span class="err">&#39;</span><span class="n">importer</span> <span class="n">time</span><span class="p">.</span><span class="n">h</span><span class="p">.</span>
+<span class="o">&lt;/</span><span class="n">module</span><span class="o">&gt;</span>
 </pre></div>
 </td>
 </tr><tr class="odd">
@@ -883,11 +896,12 @@ Constantes
 </pre></div>
 </td>
 <td title="">
-<div class="highlight"><pre><span class="nb">floor</span><span class="p">(</span><span class="no">a</span><span class="p">)</span>
+<div class="highlight"><pre><span class="no">%pi</span>
+<span class="no">%e</span>
 </pre></div>
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight"><pre>
 </pre></div>
 </td>
 </tr></table>
@@ -897,7 +911,7 @@ Constantes
 <p>Le calcul en complexes est possible dans les langages Python et Scilab.</p>
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 
@@ -1017,40 +1031,6 @@ Conjugué de <i>a</i>
 <div class="highlight"><pre>
 </pre></div>
 </td>
-</tr><tr class="even">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-</tr><tr class="odd">
-<td>
-
-
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
-<td title="">
-<div class="highlight"><pre>
-</pre></div>
-</td>
 </tr></table>
 
 
@@ -1067,7 +1047,7 @@ Conjugué de <i>a</i>
 
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -1375,7 +1355,7 @@ Indice <i>i</i> du maximum
 <h4>Matrices</h4>
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -1559,20 +1539,20 @@ Rang
 
 <h4>Listes</h4>
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
 Définir une liste
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">Liste1</span> <span class="o">=</span> <span class="p">[</span><span class="n">M</span><span class="p">,</span><span class="n">v</span><span class="p">]</span>
+<div class="highlight"><pre><span class="n">liste1</span> <span class="o">=</span> <span class="p">[</span><span class="n">M</span><span class="p">,</span><span class="n">v</span><span class="p">]</span>
 </pre></div>
 </td>
 <td title="">
 <a href="
 http://help.scilab.org/docs/5.4.1/fr_FR/list.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">Liste1</span> <span class="p">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> 
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="n">liste1</span> <span class="p">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> 
 </pre></div>
 </td>
 <td title="">
@@ -1582,7 +1562,7 @@ http://help.scilab.org/docs/5.4.1/fr_FR/list.html
 </tr><tr class="even">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
-Selectionner par position
+Sélectionner par position
 </td>
 <td title="">
 <div class="highlight"><pre><span class="n">liste1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -1626,7 +1606,7 @@ Supprimer un élément
 
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 
@@ -1692,10 +1672,10 @@ Supprimer un élément
 
 <h4>Chaînes de caractères</h4>
 
-<p> En C il faut utiliser la bibilothèque string.h.</p>
+<p> En C il faut utiliser la bibliothèque string.h.</p>
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -1824,7 +1804,7 @@ Supprimer des caractères de retour à la ligne
 <h4>Boucles</h4>
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -1905,7 +1885,7 @@ Interruption d'une boucle
 <h4>Conditions</h4>
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -1979,7 +1959,7 @@ Condition CASE
 <h4>Fonctions</h4>
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -1989,13 +1969,13 @@ Condition CASE
     Fonctionnalité standard
   ">
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">nomdelafonction</span><span class="p">(</span><span class="n">param</span><span class="err">è</span><span class="n">tres</span><span class="p">):</span>
-    <span class="n">bloc</span> <span class="n">d</span><span class="s">&#39;instruction</span>
+    <span class="n">bloc</span> <span class="n">d</span><span class="s">&#39;instructions</span>
     <span class="k">return</span> <span class="n">resultat</span>
 </pre></div>
 </td>
 <td title="">
 <div class="highlight"><pre><span class="k">function</span><span class="w"> </span>resultat<span class="p">=</span><span class="nf">nomdelafonction</span><span class="p">(</span>paramètres<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">bloc</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">instruction</span>
+<span class="w">    </span><span class="n">bloc</span> <span class="n">d</span><span class="o">&#39;</span><span class="n">instructions</span>
 <span class="k">endfunction</span>
 </pre></div>
 </td>
@@ -2014,7 +1994,7 @@ Condition CASE
 
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -2142,7 +2122,7 @@ Ouvrir une nouvelle figure
 
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 <img src="style/heart-small-icon.png" style="border:0; float:right;" alt="C"></img>
@@ -2237,7 +2217,8 @@ Lire un tableau formaté
 Écrire une ligne
 </td>
 <td title="">
-<div class="highlight"><pre><span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;il fait {:f} degres.</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<div class="highlight"><pre><span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;il fait {:f} degres.</span><span class="se">\n</span><span class="s">&quot;</span>\
+<span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </td>
 <td title="">
@@ -2257,7 +2238,8 @@ Lire un tableau formaté
 </td>
 <td title="">
 <div class="highlight"><pre><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-  <span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;{:d},{:f},{:f}</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;{:d},{:f},{:f}</span><span class="se">\n</span><span class="s">&quot;</span>\
+  <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </td>
 <td title="">
@@ -2279,7 +2261,7 @@ Lire un tableau formaté
 
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 
@@ -2403,7 +2385,7 @@ Lire 3 octets dans un fichier binaire
 
 
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 
@@ -2499,9 +2481,9 @@ Taille de l'image
 
 
 <h3>Calcul numérique</h3>
-
+<p> </p>
 <table>
-<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
+<tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
 <td>
 
@@ -2673,6 +2655,22 @@ http://help.scilab.org/docs/5.4.1/en_US/dae.html
 </tr></table>
 
 
+ <br/> <br/><br/><br/>
 
+<div id="footer">
+  <table><tr><td>
+    Marc DERUMAUX<br/>
+      Damien ICETA<br/>
+    Xavier PESSOLES
+  </td><td>
+<img alt="licence" height="30" src="style/logoCC.png"/>  
+<a href="http://www.upsti.fr/"><img alt="licence" height="30" src="style/logo_upsti.png"/></a>
+</td><td>
+  Ce formulaire a été inspiré par le document mathesaurus (<a href="http://mathesaurus.sourceforge.net/">http://mathesaurus.sourceforge.net/</a>), dans un format adapté aux classes préparatoires.
 
+</td></tr></table>
+</div>
 
+<br/><br/><br/><br/><div id="sommaire_print"> 
+<br/><br/>
+<h1>Sommaire</h1><h2>Les spécificités des langages pour le calcul scientifique</h2><h3>Python et Scilab</h3><h3>Pourquoi un peu de C ?</h3><h3>Utilisation du formulaire</h3><h2>Formulaire</h2><h3>Manipulation globale</h3><h3>Variables</h3><h4>Nombres</h4><h4>Tableaux (à une ou plusieurs dimensions)</h4><h4>Matrices</h4><h4>Listes</h4><h4>Dictionnaires et structures</h4><h4>Chaînes de caractères</h4><h3>Structures de contrôle</h3><h4>Boucles</h4><h4>Conditions</h4><h4>Fonctions</h4><h3>Courbes</h3><h4>Courbes 2D</h4><h4>Courbes 3D</h4><h3>Fichiers</h3><h4>Fichiers textes</h4><h4>Fichiers binaires</h4><h4>Images</h4><h3>Calcul numérique</h3></div>

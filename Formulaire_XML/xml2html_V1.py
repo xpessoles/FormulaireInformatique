@@ -143,6 +143,22 @@ No_exemple=0  # Compteur d'exemples pour numéroter les fichiers html
 
 body=dom1.getElementsByTagName("body")
 
+
+
+#======================================================
+
+# Sommaire
+fic.write("<div id=\"sommaire\"> \n<br/><a href=\"http://www.upsti.fr/\"><img src=\"style/logo_upsti.png\" alt=\"licence\" height=\"40\"/></a><br/>\n<h1>Sommaire</h1>")
+
+for node in body[0].childNodes:
+  if (node.nodeName=="h2" or node.nodeName=="h3" or node.nodeName=="h4"):
+    fic.write(node.toxml(encoding='utf-8'))
+
+fic.write("</div>")
+#======================================================
+
+
+
 # Lecture des noeuds les uns après les autres.
 # Les noeuds sont recopiés (texte et titres), sauf s'il s'agit d'un tableau, auquel cas il y a une mise en forme spéciale.
 for node in body[0].childNodes:
@@ -152,7 +168,7 @@ for node in body[0].childNodes:
     fic.write(node.toxml(encoding='utf-8'))  # on recopie le noeud à l'identique
   else:            # Si le noeud est un tableau
     # on débute le tableau et on met la ligne de titre
-    fic.write("<table>\n<tr><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>\n")
+    fic.write("<table>\n<tr id=\"titre_tab\"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>\n")
     parite=False
     for ligne in node.getElementsByTagName("ligne"):
       parite= not parite
@@ -177,5 +193,19 @@ for node in body[0].childNodes:
     # on clot le tableau
     fic.write("</table>\n")
     
+
+#======================================================
+
+# Sommaire_print
+fic.write("<br/><br/><br/><br/><div id=\"sommaire_print\"> \n<br/><br/>\n<h1>Sommaire</h1>")
+
+for node in body[0].childNodes:
+  if (node.nodeName=="h2" or node.nodeName=="h3" or node.nodeName=="h4"):
+    fic.write(node.toxml(encoding='utf-8'))
+
+fic.write("</div>")
+
+#======================================================
+
 
 fic.close()

@@ -1,16 +1,5 @@
 
-
 <body>
-<div id="sommaire"> 
-<br/>
-<a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="60"/></a>
-<br/>
-<h1>Sommaire</h1>
-<a href="http://www.upsti.fr/"> Lien 1 </a>
-<br/>
-<br/>
-<a href="http://www.upsti.fr/"> Lien 2 </a>
-</div>
 <h1>Le calcul scientifique sous Python et Scilab</h1>
 
 <h2>Les spécificités des langages pour le calcul scientifique</h2>
@@ -792,7 +781,7 @@ dec2hex(a)
 </tableau>
 
 
-<p>Les fonctions mathématiques standards en python peuvent provenir de différents paquets. L'utilisation de l'option --pylab (automatiquement chargée sous Spyder) conduit à utiliser les fonctions du module Numpy (A VERIFIER) par défaut.</p>
+<p>Les fonctions mathématiques standards en python peuvent provenir de différents paquets. L'utilisation de l'option --pylab (automatiquement chargée sous Spyder) conduit à utiliser les fonctions des modules Numpy, Scipy et Matplotlib par défaut.</p>
 
 <tableau>
 
@@ -1344,48 +1333,6 @@ a.conj()
 <scilab>
 <code_scilab>
 conj(a)
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
-</code_scilab>
-</scilab>
-<C>
-<code_C>
-
-</code_C>
-</C>
-</ligne>
-
-<ligne>
-<description>
-
-</description>
-<python>
-<code_python>
-
-</code_python>
-</python>
-<scilab>
-<code_scilab>
-
 </code_scilab>
 </scilab>
 <C>
@@ -2915,7 +2862,8 @@ Tableau=mfscanf(-1,fic,"%d,%f,%f")
 </description>
 <python>
 <code_python>
-fic.write("il fait {:f} degres.\n".format(10))
+fic.write("il fait {:f} degres.\n"\
+.format(10))
 </code_python>
 </python>
 <scilab>
@@ -2940,7 +2888,8 @@ mfprintf(fic,"il fait %f degres.\n",10)
 <python>
 <code_python>
 for i in range(len(x))
-  fic.write("{:d},{:f},{:f}\n".format(i,x[i],y[i])
+  fic.write("{:d},{:f},{:f}\n"\
+  .format(i,x[i],y[i])
 </code_python>
 </python>
 <scilab>
@@ -3238,7 +3187,7 @@ size(im)
 
 
 <h3>Calcul numérique</h3>
-
+<p> </p>
 <tableau>
   
 <ligne>
@@ -3462,8 +3411,20 @@ http://help.scilab.org/docs/5.4.1/en_US/dae.html
 
 </tableau>
 
-<div id="footer"> 
-<img src="style/logoCC.png" alt="licence" height="30"/>
+ <br/> <br/><br/><br/>
+
+<div id="footer">
+  <table><tr><td>
+    Marc DERUMAUX<br/>
+      Damien ICETA<br/>
+    Xavier PESSOLES
+  </td><td>
+<img src="style/logoCC.png" alt="licence" height="30"/>  
+<a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="30"/></a>
+</td><td>
+  Ce formulaire a été inspiré par le document mathesaurus (<a href="http://mathesaurus.sourceforge.net/">http://mathesaurus.sourceforge.net/</a>), dans un format adapté aux classes préparatoires.
+
+</td></tr></table>
 </div>
 
 </body>

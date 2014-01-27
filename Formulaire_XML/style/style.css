@@ -1,7 +1,8 @@
 body {
-  max-width:800px;
+  /*max-width:800px;*/
   margin:auto;
   margin-top:3em; margin-bottom:9em;
+  margin-left:140px;
 }
 td {
   vertical-align:top;
@@ -16,11 +17,19 @@ th {
   text-align:left;
   font-size: 9pt;
 }
-tr.odd { background-color: rgb(237,247,255); }
+
+tr.even { background-color: rgb(255,253,219); }
 /* , tr:nth-child(odd)  // css3 selector  */
-tr:hover, td:hover { background-color: rgb(205,225,249); }
+tr.even:hover, td.even:hover { background-color: rgb(249,244,168); }
 .clone { color:rgb(204,0,0); }
 .alt { font-style:italic; }
+
+tr.odd { background-color: rgb(242,241,255); }
+tr.odd:hover, td.odd:hover { background-color: rgb(227,226,255); }
+.clone { color:rgb(204,0,0); }
+.alt { font-style:italic; }
+
+
 p#colophon {
   font-size: 8pt;
   color: gray;
@@ -105,40 +114,79 @@ pre {display: inline;}
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
 
 #footer{
-  /*position:fixed;*/
+  /*position:fixed;
   height:30px;
-  /*position:absolute;*/
+  position:absolute;*/
   position:relative;
   left:0;
   bottom:0;
   right:0;
   padding:10px 0;
   font-size:8pt;
-  text-shadow:1px 0px 1px #fff;
+  /*text-shadow:1px 0px 1px #fff;*/
   text-align:center;
   background-color: rgb(205,225,249);   /*background:url(../img/footer.png) repeat #FFF;*/
-  max-width:800px;
+  /*max-width:800px;*/
   margin:auto;
 }
+
+#footer td {
+  font-size:8pt;
+  width:30%;
+}
+
+
+#sommaire_print {display:none;}
 
 #sommaire{
   position:fixed;
   /*height:150px;*/
-  left:2%;
-  top:4%;
+  left:5px;
+  top:5px;
   right:82%;
-  bottom:2%;
+  bottom:5px;
+  width:130px;
   /*padding:10px 0;*/
   /*position:absolute;*/
   /*margin-top:3em; 
   margin-bottom:9em;*/
   font-size:8pt;
   text-shadow:1px 0px 1px #fff;
-  text-align:center;
+  text-align:left;
   background-color: rgb(205,225,249);   /*background:url(../img/footer.png) repeat #FFF;*/
-  /*width:70px;
-  margin:auto;*/
+  /*margin:auto;*/
 }
+
+#sommaire h1 {
+ font-size:14pt;
+ font-weight: bold;
+ padding: 0pt;
+ margin:0pt;
+ 
+ }
+ 
+#sommaire h2 {
+ font-size:10pt;
+ font-weight: normal;
+ padding: 0pt;
+ margin:0pt;
+ 
+ }
+
+#sommaire h3 {
+ font-size:8pt;
+ font-weight: normal;
+ padding: 0pt;
+ margin:0pt;
+ 
+ }
+#sommaire h4 {
+ font-size:7pt;
+ font-weight: normal;
+ padding: 0pt;
+ margin:0pt;
+ 
+ }
 
 #sommaire a /* Liens par défaut (non survolés) */
 {

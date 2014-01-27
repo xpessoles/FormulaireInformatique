@@ -1,14 +1,27 @@
 body {
-  /*max-width:17cm;
+  max-width:18cm;
   max-height:24cm;
   margin:auto;
-  margin-top:6em; margin-bottom:90em;*/
+  margin-top:6em; margin-bottom:90em;
 }
-tr.titre_tab {page-break-after: always;}
+p {text-align:justify;}
+
+
+table {
+border-collapse: collapse
+}
+
+tr#titre_tab {page-break-after: avoid;}
+
+td {
+border: 1pt solid #000000;
+}
+
 td {
   vertical-align:top;
   width:260px;
   font-size: 9pt;
+  /*border=1pt;*/
 }
 td tt {
   font-family: "Andale Mono", monospace;
@@ -18,11 +31,9 @@ th {
   text-align:left;
   font-size: 9pt;
 }
-tr.odd { background-color: rgb(237,247,255); }
-/* , tr:nth-child(odd)  // css3 selector  */
-tr:hover, td:hover { background-color: rgb(205,225,249); }
-.clone { color:rgb(204,0,0); }
-.alt { font-style:italic; }
+
+
+
 p#colophon {
   font-size: 8pt;
   color: gray;
@@ -30,8 +41,10 @@ p#colophon {
  }
 p#colophon a { text-decoration: none; color:inherit; }
 
-Numérotation des titres 
-h1 { counter-reset: section; }
+/*Numérotation des titres */
+h1 { counter-reset: section; 
+  text-align: center;
+}
 h2:before {content: counter(section) ". ";}
 h2 { counter-increment: section;
      counter-reset: subsection;  }
@@ -56,38 +69,68 @@ h3 { counter-increment: subsection;}
   margin:auto;
 }
 
-#sommaire{display :none;
-  /*padding:10px 0;*/
+#footer td {border:none;}
+
+#sommaire {display:none;}
+
+#sommaire_print{
+  display:block;
   position:relative;
+  
+  counter-reset: section; 
+  /*height:150px;
+  left:5px;
+  top:5px;
+  right:82%;
+  bottom:5px;
+  width:130px;*/
+  /*padding:10px 0;*/
+  /*position:absolute;*/
   /*margin-top:3em; 
   margin-bottom:9em;*/
   font-size:8pt;
-  text-shadow:1px 0px 1px #fff;
+  /*text-shadow:1px 0px 1px #fff;
   text-align:left;
-  /*background-color: rgb(205,225,249); */
-  width:100%;
-  margin:auto;*/
+  background-color: rgb(205,225,249);   /*background:url(../img/footer.png) repeat #FFF;*/
+  /*margin:auto;*/
 }
 
-#sommaire a /* Liens par défaut (non survolés) */
-{
-   text-decoration: none;
-   color: black;
-   /*font-style: italic;*/
-   font-weight: bold;
-   font-size:12pt;
-   text-shadow:1px 0px 1px #fff;
-   text-align:center;
-   font-family: "Trebuchet MS", Arial, helvetica, sans-serif;
-}
+#sommaire_print h1 {
+ font-size:14pt;
+ font-weight: bold;
+ padding: 0pt;
+ margin:0pt;
+ text-align:left
+ 
+ }
 
-#sommaire a:hover /* Apparence au survol des liens */
-{
-   /*text-decoration: underline;*/
-   text-decoration: none;
-   color: red;
+#sommaire_print h2 {
+ font-size:12pt;
+ font-weight: normal;
+ padding: 0pt;
+ margin:0pt;
+ margin-left:1cm;
+ 
+ }
 
-}
+#sommaire_print h3 {
+ font-size:10pt;
+ font-weight: normal;
+ padding: 0pt;
+ margin:0pt;
+ margin-left:1.3cm;
+ 
+ }
+#sommaire_print h4 {
+ font-size:10pt;
+ font-weight: normal;
+ font-style: italic;
+ padding: 0pt;
+ margin:0pt;
+ margin-left:2.2cm;
+ 
+ }
+
 
 @page {  
  size: 21cm 30cm;  
