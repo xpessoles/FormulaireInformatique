@@ -1345,9 +1345,9 @@ conj(a)
 </tableau>
 
 
-<h4>Tableaux (à une ou plusieurs dimensions)</h4>
+<h4>Tableaux</h4>
 
-<p>Le calcul numérique s'appuie intensivement sur des tableaux de valeurs, soit pour représenter des signaux, soit pour représenter des vecteurs et des matrices.</p>
+<p>Le calcul numérique s'appuie intensivement sur des tableaux de valeurs, soit pour représenter des signaux, soit pour représenter des vecteurs et des matrices. Les tableaux peuvent avoir une ou plusieurs dimensions</p>
 
 <p>La syntaxe de Scilab est fortement orienté vers la manipulation de tableau. Elle est en ce sens très pratique et lisible.</p>
 
@@ -2298,7 +2298,7 @@ for i in range(10):
 <code_scilab>
 for i=1:10
   disp(i);
-endfor
+end
 </code_scilab>
 <lien>
   http://help.scilab.org/docs/5.4.1/fr_FR/for.html
@@ -2332,7 +2332,7 @@ i=0
 while (i&lt;10)
   i=i+1
   disp(i)
-endwhile
+end
 </code_scilab>
 <lien>
   http://help.scilab.org/docs/5.4.1/fr_FR/while.html
@@ -2397,11 +2397,11 @@ else
 </python>
 <scilab>
 <code_scilab>
-if (i>3)
+if (i>3) then
   disp(i)
 else
   disp("hello")
-endif
+end
 </code_scilab>
 <lien>
   http://help.scilab.org/docs/5.4.1/fr_FR/if.html
@@ -2434,8 +2434,8 @@ Condition CASE
 select i,
   case 1 then
     disp("Egal à 1");
-  case %nan then
-    disp("Not a Number");
+  case 2 then
+    disp("Egal à 2");
   else
     disp("Aucun des deux");
 end

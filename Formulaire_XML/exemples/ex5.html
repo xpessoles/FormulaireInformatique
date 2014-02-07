@@ -47,8 +47,8 @@ Fin du fichier
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
   <span class="n">ligne</span><span class="o">=</span><span class="n">texte</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>  <span class="c"># Suppression du retour à la ligne</span>
   <span class="n">ligne</span><span class="o">=</span><span class="n">ligne</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)</span>       <span class="c"># Découpage au niveau des virgules</span>
-  <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ligne</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>      <span class="c"># Convertion en int et ajout au tableau T</span>
-  <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ligne</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>    <span class="c"># Convertion en float et ajout au tableau X</span>
+  <span class="n">T</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">ligne</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>      <span class="c"># Conversion en int et ajout au tableau T</span>
+  <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ligne</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>    <span class="c"># Conversion en float et ajout au tableau X</span>
   <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">ligne</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>    <span class="c"># idem Y</span>
 
 <span class="c"># Conversion éventuelle en tableaux &quot;array&quot;</span>
@@ -58,7 +58,7 @@ Fin du fichier
   
 </pre></div>
 
-  <p>Sous Windows, les retours à la ligne sont parfois écrits <tt>&quot;\n\r&quot;</tt>. Les séparateurs peuvent être des virgules, mais aussi des points-virgule, ou encore des tabulations <tt>&quot;\t&quot;</tt>. Certains logiciels francisés utilisent la virgule comme séparateur décimal, alors que python (comme la plupart des langages et logiciels) attendent un point. Il est alors nécessaire de remplacer les &quot;,&quot; par des &quot;.&quot; par la commande replace (par exemple : <tt>texte[0].replace(&quot;i&quot;,&quot;u&quot;)</tt>)</p>
+  <p>Sous Windows, les retours à la ligne sont parfois écrits <tt>&quot;\n\r&quot;</tt>. Les séparateurs peuvent être des virgules, mais aussi des points-virgules, ou encore des tabulations <tt>&quot;\t&quot;</tt>. Certains logiciels francisés utilisent la virgule comme séparateur décimal, alors que python (comme la plupart des langages et logiciels) attendent un point. Il est alors nécessaire de remplacer les &quot;,&quot; par des &quot;.&quot; par la commande replace (par exemple : <tt>texte[0].replace(&quot;i&quot;,&quot;u&quot;)</tt>)</p>
   
   <h2>Méthode 2 : lecture ligne après ligne</h2>
   <p>La lecture d'une ligne d'un fichier texte s'effectue par la commande <tt>readline()</tt> (noter l'absence de &quot;s&quot;)</p>

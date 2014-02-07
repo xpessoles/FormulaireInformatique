@@ -10,6 +10,9 @@ from pygments import highlight
 from pygments.lexers import PythonLexer,CLexer,ScilabLexer
 from pygments.formatters import HtmlFormatter
 
+#bibilotheque re : pour les regex
+import re
+
 #Pour convertir les formules latex en svg :
 #import os
 #os.system("~/bin/latex2svg '$a^c$' eq1.svg")
@@ -150,22 +153,41 @@ body=dom1.getElementsByTagName("body")
 # Sommaire
 fic.write("<div id=\"sommaire\"> \n<br/><a href=\"http://www.upsti.fr/\"><img src=\"style/logo_upsti.png\" alt=\"licence\" height=\"40\"/></a><br/>\n<h1>Sommaire</h1>")
 
+i=0
+internal_link=0
 for node in body[0].childNodes:
-  if (node.nodeName=="h2" or node.nodeName=="h3" or node.nodeName=="h4"):
-    fic.write(node.toxml(encoding='utf-8'))
+  if (node.nodeName=="h2"):
+    i+=1
+  if (i>1 and (node.nodeName=="h3" or node.nodeName=="h4")):
+    line=node.toxml(encoding='utf-8')
+    internal_link+=1
+    print(r"<h\1 id='titre{:d}'>".format(internal_link))
+    line=re.sub(r"(<h.>)(.*)(</h.>)",r"\1<a href='#titre{:d}'>\2</a>\3".format(internal_link), line)
+    fic.write(line)
+    #fic.write(node.toxml(encoding='utf-8'))
 
 fic.write("</div>")
 #======================================================
 
 
-
+i=0
+internal_link=0
 # Lecture des noeuds les uns après les autres.
 # Les noeuds sont recopiés (texte et titres), sauf s'il s'agit d'un tableau, auquel cas il y a une mise en forme spéciale.
 for node in body[0].childNodes:
   #print node.nodeName
   if node.nodeName!="tableau": # Si le noeud n'est pas un tableau
     #print node.toxml(encoding='utf-8')
-    fic.write(node.toxml(encoding='utf-8'))  # on recopie le noeud à l'identique
+    if (node.nodeName=="h2"):
+      i+=1
+    if (i>1 and (node.nodeName=="h3" or node.nodeName=="h4")):
+      line=node.toxml(encoding='utf-8')
+      internal_link+=1
+      #print(r"<h\1 id='titre{:d}'>".format(internal_link))
+      line=re.sub(r"<h(.)>",r"<h\1 id='titre{:d}'>".format(internal_link), line)
+      fic.write(line)
+    else:
+      fic.write(node.toxml(encoding='utf-8'))  # on recopie le noeud à l'identique
   else:            # Si le noeud est un tableau
     # on débute le tableau et on met la ligne de titre
     fic.write("<table>\n<tr id=\"titre_tab\"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>\n")

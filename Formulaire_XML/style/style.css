@@ -37,7 +37,7 @@ p#colophon {
  }
 p#colophon a { text-decoration: none; color:inherit; }
 
-Numérotation des titres 
+/*Numérotation des titres */
 h1 { counter-reset: section; }
 h2:before {content: counter(section) ". ";}
 h2 { counter-increment: section;
@@ -174,14 +174,14 @@ pre {display: inline;}
  }
 
 #sommaire h3 {
- font-size:8pt;
- font-weight: normal;
+ font-size:10pt;
+ font-weight: bold;
  padding: 0pt;
  margin:0pt;
  
  }
 #sommaire h4 {
- font-size:7pt;
+ font-size:9pt;
  font-weight: normal;
  padding: 0pt;
  margin:0pt;
@@ -193,11 +193,11 @@ pre {display: inline;}
    text-decoration: none;
    color: black;
    /*font-style: italic;*/
-   font-weight: bold;
+   /*font-weight: bold;
    font-size:12pt;
    text-shadow:1px 0px 1px #fff;
    text-align:center;
-   font-family: "Trebuchet MS", Arial, helvetica, sans-serif;
+   font-family: "Trebuchet MS", Arial, helvetica, sans-serif;*/
 }
 
 #sommaire a:hover /* Apparence au survol des liens */
@@ -207,3 +207,10 @@ pre {display: inline;}
    color: red;
 
 }
+/*Numérotation des titres du sommaire */
+#sommaire h1 { counter-reset: section; }
+#sommaire h2:before {content: "2. ";}
+#sommaire h2 { counter-increment: section;
+     counter-reset: subsection;  }
+#sommaire h3:before { content: "2." counter(subsection) ". " ;}
+#sommaire h3 { counter-increment: subsection;}

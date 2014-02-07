@@ -10,7 +10,7 @@ type="text/css" href="style/style_impression.css" media="print" />
 </head>
 <div id="sommaire"> 
 <br/><a href="http://www.upsti.fr/"><img src="style/logo_upsti.png" alt="licence" height="40"/></a><br/>
-<h1>Sommaire</h1><h2>Les spécificités des langages pour le calcul scientifique</h2><h3>Python et Scilab</h3><h3>Pourquoi un peu de C ?</h3><h3>Utilisation du formulaire</h3><h2>Formulaire</h2><h3>Manipulation globale</h3><h3>Variables</h3><h4>Nombres</h4><h4>Tableaux (à une ou plusieurs dimensions)</h4><h4>Matrices</h4><h4>Listes</h4><h4>Dictionnaires et structures</h4><h4>Chaînes de caractères</h4><h3>Structures de contrôle</h3><h4>Boucles</h4><h4>Conditions</h4><h4>Fonctions</h4><h3>Courbes</h3><h4>Courbes 2D</h4><h4>Courbes 3D</h4><h3>Fichiers</h3><h4>Fichiers textes</h4><h4>Fichiers binaires</h4><h4>Images</h4><h3>Calcul numérique</h3></div>
+<h1>Sommaire</h1><h3><a href='#titre1'>Manipulation globale</a></h3><h3><a href='#titre2'>Variables</a></h3><h4><a href='#titre3'>Nombres</a></h4><h4><a href='#titre4'>Tableaux</a></h4><h4><a href='#titre5'>Matrices</a></h4><h4><a href='#titre6'>Listes</a></h4><h4><a href='#titre7'>Dictionnaires et structures</a></h4><h4><a href='#titre8'>Chaînes de caractères</a></h4><h3><a href='#titre9'>Structures de contrôle</a></h3><h4><a href='#titre10'>Boucles</a></h4><h4><a href='#titre11'>Conditions</a></h4><h4><a href='#titre12'>Fonctions</a></h4><h3><a href='#titre13'>Courbes</a></h3><h4><a href='#titre14'>Courbes 2D</a></h4><h4><a href='#titre15'>Courbes 3D</a></h4><h3><a href='#titre16'>Fichiers</a></h3><h4><a href='#titre17'>Fichiers textes</a></h4><h4><a href='#titre18'>Fichiers binaires</a></h4><h4><a href='#titre19'>Images</a></h4><h3><a href='#titre20'>Calcul numérique</a></h3></div>
 <h1>Le calcul scientifique sous Python et Scilab</h1>
 
 <h2>Les spécificités des langages pour le calcul scientifique</h2>
@@ -35,7 +35,7 @@ type="text/css" href="style/style_impression.css" media="print" />
 
 <h2>Formulaire</h2>
 
-<h3>Manipulation globale</h3>
+<h3 id='titre1'>Manipulation globale</h3>
 
 <table>
 <tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
@@ -198,7 +198,7 @@ Interruption d'un programme pour débug
 </tr></table>
 
 
-<h3>Variables</h3>
+<h3 id='titre2'>Variables</h3>
 <p>Les variables sont dans les 3 langages, systématiquement associées à un type (et donc un espace mémoire alloué). Néanmoins, le typage est &quot;dynamique&quot; en Python et Scilab, c'est-à-dire que le type peut changer en fonction des besoins du calcul, tandis qu'il est statique en C (le type est choisi avant l'initialisation de la variable et ne peut plus être modifié par la suite, ce qui s'avère beaucoup plus simple et efficace pour la gestion de la mémoire).</p>
 
 
@@ -262,7 +262,7 @@ http://docs.python.org/2/library/stdtypes.html
 
 
 
-<h4>Nombres</h4>
+<h4 id='titre3'>Nombres</h4>
 <p>Nous passons sur les opérateurs classiques + - * / qui sont identiques dans les 3 langages (attention toutefois à la division de deux entiers qui est réalisée dans les entiers en C et en python 2.7, et dans R dans Scilab et en Python 3.3...).
 Il est nécessaire d'importer la bibliothèque math.h en C.</p>
 <table>
@@ -1035,9 +1035,9 @@ Conjugué de <i>a</i>
 
 
 
-<h4>Tableaux (à une ou plusieurs dimensions)</h4>
+<h4 id='titre4'>Tableaux</h4>
 
-<p>Le calcul numérique s'appuie intensivement sur des tableaux de valeurs, soit pour représenter des signaux, soit pour représenter des vecteurs et des matrices.</p>
+<p>Le calcul numérique s'appuie intensivement sur des tableaux de valeurs, soit pour représenter des signaux, soit pour représenter des vecteurs et des matrices. Les tableaux peuvent avoir une ou plusieurs dimensions</p>
 
 <p>La syntaxe de Scilab est fortement orienté vers la manipulation de tableau. Elle est en ce sens très pratique et lisible.</p>
 
@@ -1352,7 +1352,7 @@ Indice <i>i</i> du maximum
 
 
 
-<h4>Matrices</h4>
+<h4 id='titre5'>Matrices</h4>
 
 <table>
 <tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
@@ -1537,7 +1537,7 @@ Rang
 </tr></table>
 
 
-<h4>Listes</h4>
+<h4 id='titre6'>Listes</h4>
 <table>
 <tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
 <tr class="odd">
@@ -1596,7 +1596,7 @@ Supprimer un élément
 </tr></table>
 
 
-<h4>Dictionnaires et structures</h4>
+<h4 id='titre7'>Dictionnaires et structures</h4>
 
  <p>Ce sont des listes un peu plus complexes en ce que chacun des éléments qui le compose est au moins composé de 2 membres, l'un étant la clé, l'autre la valeur.</p>
 
@@ -1670,7 +1670,7 @@ Supprimer un élément
 </tr></table>
 
 
-<h4>Chaînes de caractères</h4>
+<h4 id='titre8'>Chaînes de caractères</h4>
 
 <p> En C il faut utiliser la bibliothèque string.h.</p>
 
@@ -1800,8 +1800,8 @@ Supprimer des caractères de retour à la ligne
 
 
 
-<h3>Structures de contrôle</h3>
-<h4>Boucles</h4>
+<h3 id='titre9'>Structures de contrôle</h3>
+<h4 id='titre10'>Boucles</h4>
 
 <table>
 <tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
@@ -1820,7 +1820,7 @@ Boucle FOR
   http://help.scilab.org/docs/5.4.1/fr_FR/for.html
 "><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="k">for</span> <span class="no">i</span><span class="p">=</span>1<span class="p">:</span>10
   <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">);</span>
-<span class="k">endfor</span>
+<span class="k">end</span>
 </pre></div>
 </td>
 <td title="">
@@ -1848,7 +1848,7 @@ Boucle WHILE
 <span class="k">while</span> <span class="p">(</span><span class="no">i</span><span class="o">&lt;</span>10<span class="p">)</span>
   <span class="no">i</span><span class="p">=</span><span class="no">i</span><span class="o">+</span>1
   <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">)</span>
-<span class="k">endwhile</span>
+<span class="k">end</span>
 </pre></div>
 </td>
 <td title="">
@@ -1882,7 +1882,7 @@ Interruption d'une boucle
 
 
 
-<h4>Conditions</h4>
+<h4 id='titre11'>Conditions</h4>
 
 <table>
 <tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
@@ -1901,11 +1901,11 @@ Condition IF
 <td title="">
 <a href="
   http://help.scilab.org/docs/5.4.1/fr_FR/if.html
-"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="no">i</span><span class="o">&gt;</span>3<span class="p">)</span>
+"><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="no">i</span><span class="o">&gt;</span>3<span class="p">)</span> <span class="nb">then</span>
   <span class="nb">disp</span><span class="p">(</span><span class="no">i</span><span class="p">)</span>
 <span class="k">else</span>
   <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
-<span class="k">endif</span>
+<span class="k">end</span>
 </pre></div>
 </td>
 <td title="">
@@ -1932,8 +1932,8 @@ Condition CASE
 "><img style="border:0; float:right;" src="style/FAQ-icon.png" alt="?"></a><div class="highlight"><pre><span class="nb">select</span> <span class="no">i</span><span class="p">,</span>
   <span class="k">case</span> 1 <span class="nb">then</span>
     <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Egal à 1&quot;</span><span class="p">);</span>
-  <span class="k">case</span> <span class="no">%nan</span> <span class="nb">then</span>
-    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Not a Number&quot;</span><span class="p">);</span>
+  <span class="k">case</span> 2 <span class="nb">then</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Egal à 2&quot;</span><span class="p">);</span>
   <span class="k">else</span>
     <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Aucun des deux&quot;</span><span class="p">);</span>
 <span class="k">end</span>
@@ -1956,7 +1956,7 @@ Condition CASE
 
 
 
-<h4>Fonctions</h4>
+<h4 id='titre12'>Fonctions</h4>
 
 <table>
 <tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
@@ -1987,8 +1987,8 @@ Condition CASE
 
 
 
-<h3>Courbes</h3>
-<h4>Courbes 2D</h4>
+<h3 id='titre13'>Courbes</h3>
+<h4 id='titre14'>Courbes 2D</h4>
 
 <p>En Python, il est parfois nécessaire d'exécuter la commande show() pour afficher le graphique après l'appel à la commande plot().</p>
 
@@ -2113,12 +2113,12 @@ Ouvrir une nouvelle figure
 
 
 
-<h4>Courbes 3D</h4>
+<h4 id='titre15'>Courbes 3D</h4>
 
 
 
-<h3>Fichiers</h3>
-<h4>Fichiers textes</h4>
+<h3 id='titre16'>Fichiers</h3>
+<h4 id='titre17'>Fichiers textes</h4>
 
 
 <table>
@@ -2257,7 +2257,7 @@ Lire un tableau formaté
 
 
 
-<h4>Fichiers binaires</h4>
+<h4 id='titre18'>Fichiers binaires</h4>
 
 
 <table>
@@ -2375,7 +2375,7 @@ Lire 3 octets dans un fichier binaire
 
 
 
-<h4>Images</h4>
+<h4 id='titre19'>Images</h4>
 
 <p>La lecture et l'écriture d'image sous python est relativement simple par la bibliothèque scipy.misc, chargé automatiquement par l'option --pylab ou par spyder. Les formats supportés sont jpg, bmp, ????. Des bibliothèques plus élaborées existent (PIL par exemple) mais ne sont pas abordées ici.</p>
 
@@ -2480,7 +2480,7 @@ Taille de l'image
 
 
 
-<h3>Calcul numérique</h3>
+<h3 id='titre20'>Calcul numérique</h3>
 <p> </p>
 <table>
 <tr id="titre_tab"><th>Description</th><th>Python</th><th>Scilab</th><th>C</th></tr>
@@ -2673,4 +2673,4 @@ http://help.scilab.org/docs/5.4.1/en_US/dae.html
 
 <br/><br/><br/><br/><div id="sommaire_print"> 
 <br/><br/>
-<h1>Sommaire</h1><h2>Les spécificités des langages pour le calcul scientifique</h2><h3>Python et Scilab</h3><h3>Pourquoi un peu de C ?</h3><h3>Utilisation du formulaire</h3><h2>Formulaire</h2><h3>Manipulation globale</h3><h3>Variables</h3><h4>Nombres</h4><h4>Tableaux (à une ou plusieurs dimensions)</h4><h4>Matrices</h4><h4>Listes</h4><h4>Dictionnaires et structures</h4><h4>Chaînes de caractères</h4><h3>Structures de contrôle</h3><h4>Boucles</h4><h4>Conditions</h4><h4>Fonctions</h4><h3>Courbes</h3><h4>Courbes 2D</h4><h4>Courbes 3D</h4><h3>Fichiers</h3><h4>Fichiers textes</h4><h4>Fichiers binaires</h4><h4>Images</h4><h3>Calcul numérique</h3></div>
+<h1>Sommaire</h1><h2>Les spécificités des langages pour le calcul scientifique</h2><h3>Python et Scilab</h3><h3>Pourquoi un peu de C ?</h3><h3>Utilisation du formulaire</h3><h2>Formulaire</h2><h3>Manipulation globale</h3><h3>Variables</h3><h4>Nombres</h4><h4>Tableaux</h4><h4>Matrices</h4><h4>Listes</h4><h4>Dictionnaires et structures</h4><h4>Chaînes de caractères</h4><h3>Structures de contrôle</h3><h4>Boucles</h4><h4>Conditions</h4><h4>Fonctions</h4><h3>Courbes</h3><h4>Courbes 2D</h4><h4>Courbes 3D</h4><h3>Fichiers</h3><h4>Fichiers textes</h4><h4>Fichiers binaires</h4><h4>Images</h4><h3>Calcul numérique</h3></div>
